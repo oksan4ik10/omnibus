@@ -5,6 +5,25 @@
   flex-direction: column;
 }
 
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--orange);
+  font-size: 36px;
+  color: var(--white);
+  font-family: Cormorant;
+  font-weight: 700;
+  line-height: 30px;
+  text-transform: uppercase;
+  height: 60px;
+  min-width: 250px;
+  border: none;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+}
+
 .swiper-wrapper {
   transition-timing-function: linear !important;
 }
