@@ -131,20 +131,123 @@
     // transform: translateX(-35%) translateY(50%) rotate(15deg);
     transform-origin: center;
     z-index: -1;
-    animation: lamp 3s ease-in-out;
+    animation: lamp 2s alternate both linear;
     transform-origin: left bottom;
-    animation-fill-mode: both;
+
 }
 
 @keyframes lamp {
     0% {
-        transform: translateX(0%) translateY(10%) rotate(5deg);
+        transform: translateX(10%) translateY(10%) rotate(0deg);
+    }
+
+    25% {
+        transform: translateX(0%) translateY(20%) rotate(10deg);
 
     }
 
+    50% {
+        transform: translateX(-10%) translateY(30%) rotate(0deg);
+
+    }
+
+
+
+    75% {
+        transform: translateX(-20%) translateY(40%) rotate(-10deg);
+
+    }
 
     100% {
         transform: translateX(-30%) translateY(50%) rotate(0deg);
     }
 
+}
+
+.info__img {
+    position: relative;
+}
+
+.waterLabel {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+
+    img {
+        width: 100%;
+        height: 100%;
+        animation: waterLabel .4s .1s forwards ease;
+        object-fit: contain;
+        object-position: center;
+        transform-origin: center;
+        transform: scale(0) rotate(-10deg) translateY(13%);
+
+
+    }
+}
+
+@keyframes waterLabel {
+    100% {
+
+        transform: scale(1.5) rotate(-10deg) translateY(13%);
+    }
+}
+
+.main__people {
+    position: relative;
+}
+
+.waterPeople {
+    position: absolute;
+    left: -30px;
+    width: 100%;
+    height: 230px;
+
+    img {
+        height: 100%;
+        width: auto;
+        object-fit: cover;
+        transform-origin: center;
+        transform: scale(0);
+        animation: waterPeople .4s 1.4s forwards ease;
+
+    }
+}
+
+@keyframes waterPeople {
+    100% {
+
+        transform: scale(1);
+    }
+}
+
+.waterLogo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 57vh;
+    z-index: -1;
+
+    img {
+        width: 100%;
+        height: auto;
+        transform-origin: center;
+        transform: scale(0);
+        animation: waterLogo .4s .9s forwards ease;
+    }
+}
+
+@keyframes waterLogo {
+    100% {
+
+        transform: scale(1);
+    }
 }

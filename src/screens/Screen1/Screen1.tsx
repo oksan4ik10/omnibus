@@ -3,6 +3,9 @@ import style from "./Screen1.module.scss"
 function Screen1() {
     return (
         <div className={style.container}>
+            <div className={style.waterLogo}>
+                <img src="./images/screen1/water-logo.png" alt="water" />
+            </div>
             <div className={style.logo}>
                 <img src="./images/screen1/logo.png" alt="logo" />
             </div>
@@ -11,13 +14,19 @@ function Screen1() {
             </div>
             <main className={style.main}>
                 <div className={style.main__people}>
+                    <div className={style.waterPeople}>
+                        <img src="./images/screen1/water-people.png" alt="water" />
+                    </div>
                     <div className={style.main__img}>
                         <img src="./images/screen1/people.png" alt="people" />
                     </div>
                 </div>
                 <div className={style.main__info + " " + style.info}>
                     <div className={style.info__img}>
-                        <img src="./images/screen1/label.png" alt="people" />
+                        <img src="./images/screen1/label.png" alt="label" />
+                        <div className={style.waterLabel}>
+                            <img src="./images/screen1/water.png" alt="water" />
+                        </div>
                     </div>
                     <div className={style.info__line}>
                         <img src="./images/screen1/square.svg" alt="square" />
