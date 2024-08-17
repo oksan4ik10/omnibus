@@ -33,3 +33,30 @@
 .swiper-slide:nth-child(6n) {
   width: 22.4% !important;
 }
+
+@media (max-width: 790px) {
+
+  .swiper-slide {
+    width: 13.8% !important;
+  }
+
+  .swiper-slide:nth-child(2n) {
+    width: 10% !important;
+  }
+
+  .swiper-slide:nth-child(3n) {
+    width: 21.2% !important;
+  }
+
+  .swiper-slide:nth-child(4n) {
+    width: 15.8% !important;
+  }
+
+  .swiper-slide:nth-child(5n) {
+    width: 24.3% !important;
+  }
+
+  .swiper-slide:nth-child(6n) {
+    width: 42% !important;
+  }
+}

@@ -1,9 +1,8 @@
 .footer {
     width: 100%;
     overflow: hidden;
-    height: 5.5vw;
     flex: 0 0 5.5vw;
-    background-color: var(--footer);
+    background-color: red;
     padding-top: 1.7vw;
     padding-bottom: 1.7vw;
 
@@ -21,5 +20,14 @@
         object-position: center left;
     }
 
+
+}
+
+@media (max-width: 790px) {
+    .footer {
+        padding-top: 3vw;
+        padding-bottom: 3vw;
+        flex: 0 0 11vw;
+    }
 
 }

@@ -1,3 +1,4 @@
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 
@@ -7,13 +8,20 @@ import 'swiper/css/pagination';
 
 import style from "./Footer.module.scss"
 
-function Footer() {
+interface IProps {
+    gap: string;
+}
+
+function Footer(props: IProps) {
+    const { gap } = props;
+    console.log(gap);
+
     return (
         <div className={style.footer}>
             <Swiper
                 allowTouchMove={false}
                 slidesPerView={'auto'}
-                spaceBetween={'6.5%'}
+                spaceBetween={gap}
                 speed={5000}
                 freeMode={true}
                 loop={true}
