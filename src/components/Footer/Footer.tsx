@@ -14,8 +14,6 @@ interface IProps {
 
 function Footer(props: IProps) {
     const { gap } = props;
-    console.log(gap);
-
     return (
         <div className={style.footer}>
             <Swiper
@@ -29,7 +27,7 @@ function Footer(props: IProps) {
                     delay: 0,
                     disableOnInteraction: false,
                 }}
-                modules={[Autoplay]}
+                // modules={[Autoplay]}
                 className={style.mySwiper}
             >
                 <SwiperSlide><img src="/images/footer/1.png" alt="1" /></SwiperSlide>
