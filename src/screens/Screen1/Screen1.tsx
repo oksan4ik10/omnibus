@@ -9,16 +9,18 @@ function Screen1() {
             <div className={style.logo}>
                 <img src="./images/screen1/logo.png" alt="logo" />
             </div>
-            <div className={style.lamp}>
-                <img src="./images/lamp.svg" alt="lamp" />
-            </div>
+
             <main className={style.main}>
                 <div className={style.main__people}>
+
                     <div className={style.waterPeople}>
                         <img src="./images/screen1/water-people.png" alt="water" />
                     </div>
                     <div className={style.main__img}>
                         <img src="./images/screen1/people.png" alt="people" />
+                        <div className={style.lamp}>
+                            <img src="./images/lamp.svg" alt="lamp" />
+                        </div>
                     </div>
                 </div>
                 <div className={style.main__info + " " + style.info}>
