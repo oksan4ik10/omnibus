@@ -3,5 +3,64 @@
     height: calc(var(--vh, 1vh) * 100 - 5.5vw);
 
     overflow: hidden;
-    background-color: red
+    position: relative;
+    transform-style: preserve-3d;
+
+}
+
+@mixin imageGenerate {
+    @for $i from 1 through 20 {
+        &:nth-child(#{$i}) {
+            transition: all .2s #{$i * .1}s ease-in;
+        }
+    }
+}
+
+.ribbon {
+    display: flex;
+    gap: 55px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(25.4px);
+    background: linear-gradient(180.00deg, rgba(255, 255, 255, 0.26) 32.446%, rgba(255, 255, 255, 0) 51.579%, rgba(255, 255, 255, 0.2) 71.098%);
+    position: absolute;
+    top: 40%;
+    transform: translateY(40%) translateX(70%) rotateZ(5deg) rotateY(10deg);
+    animation: ribbon 1.4s alternate both ease-in-out;
+
+    span {
+        color: var(--peach);
+        font-family: Montserrat;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 30px;
+        text-transform: uppercase;
+        position: relative;
+
+        &::after {
+            content: url("images/sceen2/present/1.svg");
+            position: absolute;
+            right: -37px;
+            top: 0;
+        }
+
+        &:nth-child(4n + 2)::after {
+            content: url("images/sceen2/present/2.svg");
+            top: 2px;
+        }
+
+        &:nth-child(4n + 4)::after {
+            content: url("images/sceen2/present/3.svg");
+            top: 5px;
+            right: -42px;
+        }
+    }
+}
+
+@keyframes ribbon {
+    to {
+        transform: translateY(-50%) rotateZ(5deg) rotateY(0deg);
+    }
+
 }

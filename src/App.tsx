@@ -45,7 +45,7 @@ function App() {
           loop={false}
 
         >
-          <SwiperSlide><Screen1 changeSlide={handleNext}></Screen1></SwiperSlide>
+          {/* <SwiperSlide><Screen1 changeSlide={handleNext}></Screen1></SwiperSlide> */}
           <SwiperSlide><Screen2></Screen2></SwiperSlide>
 
         </Swiper>
