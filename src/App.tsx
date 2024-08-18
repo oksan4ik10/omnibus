@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Mousewheel } from 'swiper/modules';
@@ -11,6 +11,7 @@ import { resize } from './resize.ts'
 
 import Footer from './components/Footer/Footer.tsx';
 
+
 resize();
 function App() {
   const [gap, setGap] = useState('');
@@ -20,10 +21,18 @@ function App() {
 
   }, [])
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const sliderRef = useRef<any>(null);
+  const handleNext = useCallback(() => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slideNext();
+  }, []);
+
   return (
     <>
       <div className="wrapper">
         <Swiper
+          ref={sliderRef}
           autoHeight={true}
           cssMode={true}
           slidesPerView={'auto'}
@@ -34,13 +43,9 @@ function App() {
           resizeObserver={false}
           rewind={false}
           loop={false}
-        // onReachEnd={(swiper) => {
-        //   swiper.disable()
-
-        // }}
 
         >
-          <SwiperSlide><Screen1></Screen1></SwiperSlide>
+          <SwiperSlide><Screen1 changeSlide={handleNext}></Screen1></SwiperSlide>
           <SwiperSlide><Screen2></Screen2></SwiperSlide>
 
         </Swiper>

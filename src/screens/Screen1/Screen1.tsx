@@ -1,6 +1,14 @@
 import style from "./Screen1.module.scss"
 
-function Screen1() {
+interface IProps {
+    changeSlide: () => void;
+}
+function Screen1(props: IProps) {
+    const { changeSlide } = props;
+
+    const clickBtn = () => {
+        changeSlide();
+    }
     return (
         <div className={style.container}>
             <div className={style.waterLogo}>
@@ -42,7 +50,7 @@ function Screen1() {
                         <p>Все люди делятся на два типа — на тех, кто работают по&nbsp;специальности, и тех, кто выбирает совсем другую сферу после учебы. А какой путь выбираешь ты?</p>
                         <p>Твоя карьера может складываться интересно вне зависимости от&nbsp;твоего выбора! Мы собрали реальные карьерные истории сотрудников Х компаний и на их примере показали, что ограничения только у нас в голове. У тебя есть много вариантов работы по&nbsp;специальности, а если хочется что-то изменить, то помни&nbsp;— большинство компаний смотрят не на строчку «Образование» в&nbsp;резюме, а на твои знания, интересы и навыки.</p>
                     </div>
-                    <button className={style.info__btn + " btn"}>Дальше</button>
+                    <button className={style.info__btn + " btn"} onClick={clickBtn}>Дальше</button>
                 </div>
             </main>
 
