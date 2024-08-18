@@ -25,9 +25,13 @@ function Screen1() {
                 </div>
                 <div className={style.main__info + " " + style.info}>
                     <div className={style.info__img}>
-                        <img src="./images/screen1/label.png" alt="label" />
+                        <img src="./images/screen1/label.png" alt="label" className={style.labelImg} />
+                        <img src="./images/screen1/label-mobile.png" alt="label" className={style.labelImgMobile} />
                         <div className={style.waterLabel}>
                             <img src="./images/screen1/water.png" alt="water" />
+                        </div>
+                        <div className={style.labelLamp}>
+                            <img src="./images/lamp.svg" alt="lamp" />
                         </div>
                     </div>
                     <div className={style.info__line}>
