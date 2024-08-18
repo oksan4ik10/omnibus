@@ -10,7 +10,9 @@
 .screens {
   .swiper-wrapper {
     overflow-y: hidden !important;
+    transition-timing-function: ease-in-out !important;
   }
+
 
 }
 
