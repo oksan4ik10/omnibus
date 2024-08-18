@@ -1,7 +1,8 @@
 .footer {
     width: 100%;
     overflow: hidden;
-    flex: 0 0 5.5vw;
+    height: 5.5vw;
+
     background-color: var(--footer);
     padding-top: 1.7vw;
     padding-bottom: 1.7vw;
@@ -29,7 +30,7 @@
     .footer {
         padding-top: 3vw;
         padding-bottom: 3vw;
-        flex: 0 0 11vw;
+        height: 11vw;
     }
 
 }
