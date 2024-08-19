@@ -306,6 +306,30 @@
     }
 }
 
+.waterTop {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 70%;
+    transform: scale(0);
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.screen2 .waterTop {
+    animation: waterTop .2s 2s forwards ease;
+}
+
+@keyframes waterTop {
+    to {
+        transform: scale(1);
+    }
+
+}
+
 .waterPresents {
     position: absolute;
     top: 0px;
@@ -316,7 +340,7 @@
     // filter: grayscale(50%);
     opacity: .7;
     // opacity: .3;
-    transform: scale(1) translateX(25%) translateY(-20%);
+    transform: scale(0) translateX(25%) translateY(-20%);
 
     img {
         width: 100%;
@@ -327,13 +351,13 @@
 }
 
 .screen2 .waterPresents {
-    // animation: waterPresents .3s .5s forwards ease;
+    animation: waterPresents .3s .5s forwards ease;
 
 }
 
 @keyframes waterPresents {
     100% {
 
-        transform: scale(1);
+        transform: scale(1) translateX(25%) translateY(-20%);
     }
 }

@@ -10,6 +10,9 @@ function Screen2(props: IProps) {
 
     return (
         <div className={style.container + ` ${style['screen' + String(screen)]}`}>
+            <div className={style.waterTop}>
+                <img src="./images/sceen2/water-top.png" alt="water" />
+            </div>
             <div className={style.ribbon}>
                 <span>подарки</span>
                 <span>подарки</span>
