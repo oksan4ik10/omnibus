@@ -1,0 +1,150 @@
+.presents {
+    height: calc(var(--heightContainer)/2);
+    display: grid;
+    grid-template-columns: minmax(650px, 40vw) auto;
+    padding-bottom: 10px;
+    grid-column-gap: 20px;
+
+    &__img {
+        height: calc(100% - 50px);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+
+        img {
+            width: auto;
+            height: 100%;
+            object-fit: contain;
+
+        }
+    }
+}
+
+.presents__list {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+
+    h2 {
+        color: var(--white);
+        font-family: Cormorant Infant;
+        font-size: 40px;
+        font-weight: 700;
+        margin-bottom: 1.9vh;
+    }
+
+    .list {
+        max-width: 550px;
+        list-style-position: inside;
+
+        li {
+            color: var(--white);
+            font-family: Inter;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 30px;
+
+            span {
+                color: var(--orange);
+            }
+        }
+
+        li:not(:last-child) {
+            margin-bottom: 3px;
+        }
+
+        li::marker {
+            color: var(--orange);
+        }
+    }
+
+    .btn {
+        background-color: var(--purple);
+        align-self: end;
+        margin-right: 40px;
+        position: absolute;
+        bottom: 20px;
+
+    }
+
+}
+
+@media (min-width: 1000px) and (max-height:800px) {
+
+    .presents__list {
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        .list li {
+            font-size: 16px;
+            line-height: 150%;
+
+            &:not(:last-child) {
+                margin-bottom: 0px;
+            }
+        }
+
+    }
+}
+
+@media (max-width: 1200px) {
+
+    .presents {
+        grid-template-columns: 400px auto;
+    }
+
+    .presents {
+        padding-left: 20px;
+    }
+}
+
+.presents {
+    position: relative;
+}
+
+.lampPresents {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: scale(1) rotate(-102deg) translateX(-28%) translateY(67%);
+    height: calc(var(--vh, 1vh) * 100);
+    z-index: -3;
+
+    img {
+        height: 100%;
+        width: auto;
+    }
+}
+
+.waterPresents {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 50%;
+    z-index: -1;
+    filter: contrast(200%) invert(100%);
+    opacity: .7;
+    transform: scale(0) translateX(25%) translateY(-20%);
+
+    img {
+        width: 100%;
+        height: auto;
+
+
+    }
+}
+
+.waterPresents {
+    animation: waterPresents .3s .5s forwards ease;
+
+}
+
+@keyframes waterPresents {
+    100% {
+
+        transform: scale(1) translateX(25%) translateY(-20%);
+    }
+}

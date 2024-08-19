@@ -1,5 +1,8 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import {
+  useWindowSize
+} from '@react-hook/window-size'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Mousewheel } from 'swiper/modules';
@@ -14,6 +17,11 @@ import Footer from './components/Footer/Footer.tsx';
 
 resize();
 function App() {
+  const [width, height] = useWindowSize()
+  console.log(width);
+  console.log(height);
+
+
   const [gap, setGap] = useState('');
   useEffect(() => {
     const width = window.innerWidth;
