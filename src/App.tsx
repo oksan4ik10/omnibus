@@ -60,7 +60,7 @@ function App() {
 
         >
           <SwiperSlide><Screen1 changeSlide={handleNext}></Screen1></SwiperSlide>
-          <SwiperSlide><Screen2 isMobile={isMobile} screen={screen}></Screen2></SwiperSlide>
+          <SwiperSlide><Screen2 changeSlide={handleNext} isMobile={isMobile} screen={screen}></Screen2></SwiperSlide>
           {isMobile && <SwiperSlide><Screen3></Screen3></SwiperSlide>}
 
         </Swiper>

@@ -240,6 +240,14 @@
 
 //------------------mobile----------
 .mobile {
+    .btn {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+        bottom: 2vh;
+    }
+
     .ribbon {
         display: none;
     }

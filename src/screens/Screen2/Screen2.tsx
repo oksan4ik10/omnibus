@@ -6,9 +6,10 @@ import Presents from "../../components/Presents/Presents";
 interface IProps {
     screen: number;
     isMobile: boolean;
+    changeSlide: () => void;
 }
 function Screen2(props: IProps) {
-    const { screen, isMobile } = props;
+    const { screen, isMobile, changeSlide } = props;
     return (
         <div className={style.container + ` ${style['screen' + String(screen)]}` + " " + (isMobile ? style.mobile : "")}>
             <div className={style.waterTop}>
@@ -55,6 +56,7 @@ function Screen2(props: IProps) {
 
 
             </div>
+            {isMobile && <button onClick={changeSlide} className={style.btn + " btn"}>Дальше</button>}
             {screen === 2 && !isMobile && <Presents></Presents>}
 
 

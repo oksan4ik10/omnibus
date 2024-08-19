@@ -2,7 +2,7 @@ import Presents from "../../components/Presents/Presents";
 
 function Screen3() {
     return (
-        <Presents></Presents>
+        <Presents isMobile={true}></Presents>
     );
 }
 
