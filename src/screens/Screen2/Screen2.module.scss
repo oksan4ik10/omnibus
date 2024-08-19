@@ -17,7 +17,7 @@
 }
 
 .screen2 .ribbon {
-    animation: ribbon 1.4s alternate both ease-in-out;
+    animation: ribbon 1.4s .6s alternate both ease-in-out;
 }
 
 .ribbon {
@@ -195,12 +195,15 @@
         background-color: var(--purple);
         align-self: end;
         margin-right: 40px;
+        position: absolute;
+        bottom: 20px;
+
     }
 
 }
 
 .screen2 .lamp {
-    animation: lamp 1.3s alternate both linear;
+    animation: lamp 1.3s .6s alternate both linear;
 }
 
 .lamp {
@@ -248,6 +251,22 @@
     .card .man {
         transform: scale(.6) rotate(-15deg) translateX(280px) translateY(calc(var(--translateY) - 20px));
     }
+
+    .presents__list {
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        .list li {
+            font-size: 16px;
+            line-height: 150%;
+
+            &:not(:last-child) {
+                margin-bottom: 0px;
+            }
+        }
+
+    }
 }
 
 @media (max-width: 1200px) {
@@ -266,5 +285,55 @@
 
     .card__item {
         transform: scale(.8) translateX(-120px);
+    }
+}
+
+.presents {
+    position: relative;
+}
+
+.lampPresents {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: scale(1) rotate(-102deg) translateX(-28%) translateY(67%);
+    height: calc(var(--vh, 1vh) * 100);
+    z-index: -3;
+
+    img {
+        height: 100%;
+        width: auto;
+    }
+}
+
+.waterPresents {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 50%;
+    z-index: -1;
+    filter: contrast(200%) invert(100%);
+    // filter: grayscale(50%);
+    opacity: .7;
+    // opacity: .3;
+    transform: scale(1) translateX(25%) translateY(-20%);
+
+    img {
+        width: 100%;
+        height: auto;
+
+
+    }
+}
+
+.screen2 .waterPresents {
+    // animation: waterPresents .3s .5s forwards ease;
+
+}
+
+@keyframes waterPresents {
+    100% {
+
+        transform: scale(1);
     }
 }

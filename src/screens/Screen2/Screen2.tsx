@@ -64,11 +64,21 @@ function Screen2(props: IProps) {
                             <li><span>150</span> сертификатов Яндекс.Еда на 1000 р.</li>
                             <li><span>150</span> сертификатов Яндекс.Еда на 1000 р.</li>
                             <li><span>150</span> сертификатов Яндекс.Еда на 1000 р.</li>
+                            <li><span>150</span> сертификатов Яндекс.Еда на 1000 р.</li>
+                            <li><span>150</span> сертификатов Яндекс.Еда на 1000 р.</li>
+                            <li><span>150</span> сертификатов Яндекс.Еда на 1000 р.</li>
                         </ul>
                     </div >
                     <button className={"btn " + style.btn}>
                         играть
                     </button>
+
+                    <div className={style.waterPresents}>
+                        <img src="./images/sceen2/water-btn.png" alt="water" />
+                    </div>
+                    <div className={style.lampPresents}>
+                        <img src="./images/lamp.svg" alt="lamp" />
+                    </div>
                 </div >
 
             </div >
