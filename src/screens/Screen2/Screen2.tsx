@@ -5,9 +5,10 @@ import Presents from "../../components/Presents/Presents";
 
 interface IProps {
     screen: number;
+    isMobile: boolean;
 }
 function Screen2(props: IProps) {
-    const { screen } = props;
+    const { screen, isMobile } = props;
     return (
         <div className={style.container + ` ${style['screen' + String(screen)]}`}>
             <div className={style.waterTop}>
@@ -54,7 +55,7 @@ function Screen2(props: IProps) {
 
 
             </div>
-            {screen === 2 && <Presents></Presents>}
+            {screen === 2 && !isMobile && <Presents></Presents>}
 
 
 
