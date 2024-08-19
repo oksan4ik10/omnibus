@@ -86,8 +86,54 @@
     }
 }
 
+.card__btns {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    background: var(--orange);
+    height: 44px;
+    display: flex;
+    width: 100%;
+    padding: 6px 0px;
+    cursor: pointer;
+
+    span {
+        color: var(--white);
+        flex: 1 0 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: Inter;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 16px;
+        text-align: center;
+    }
+
+    span:first-child {
+        border-right: 1px solid var(--white);
+    }
+
+    span:last-child {
+        border-left: 1px solid var(--white);
+    }
+
+}
+
 .water {
     position: absolute;
     bottom: -218px;
     left: 0px;
+}
+
+.wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.btnImg {
+    position: absolute;
+    top: -25px;
+    right: -25px;
+    z-index: 99;
 }

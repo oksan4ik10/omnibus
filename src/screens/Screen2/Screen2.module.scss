@@ -65,3 +65,62 @@
     }
 
 }
+
+.line {
+    position: absolute;
+    top: calc(var(--topLine) - 213px);
+    left: 0px;
+    z-index: -2;
+}
+
+.card {
+    --translateY: max(calc(var(--topLine) - 213px - 161px), 20px);
+    display: grid;
+    grid-template-columns: 629px auto;
+    justify-items: start;
+
+    &__item {
+        position: relative;
+    }
+
+    .man {
+        transform: scale(.7) rotate(-15deg) translateX(220px) translateY(var(--translateY));
+        box-shadow: -30.58px 34.56px 5.32px 0px red;
+    }
+
+    .bookImg {
+        position: absolute;
+        right: -240px;
+        z-index: -1;
+        top: 30px
+    }
+
+    .calcImg {
+        position: absolute;
+        left: 118px;
+        z-index: -1;
+        top: 284px;
+    }
+
+    .btnImg {
+        position: absolute;
+        right: -80px;
+        z-index: 1;
+        top: -10px;
+    }
+
+
+
+    &__text {
+        transform: translateY(calc(var(--topLine) - 213px));
+        color: red;
+        margin-left: 20px;
+        color: var(--white);
+        font-family: Inter;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 30px;
+        max-width: 665px;
+    }
+
+}

@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import style from "./Screen1.module.scss"
 
 interface IProps {
@@ -9,6 +10,16 @@ function Screen1(props: IProps) {
     const clickBtn = () => {
         changeSlide();
     }
+
+    const refLine = useRef<HTMLDivElement>(null)
+    useEffect(() => {
+        const { current } = refLine;
+        if (!current) return
+        const { top } = current.getBoundingClientRect();
+        document.body.style.setProperty("--topLine", top + "px")
+
+
+    })
     return (
         <div className={style.container}>
             <div className={style.waterLogo}>
@@ -42,7 +53,7 @@ function Screen1(props: IProps) {
                             <img src="./images/lamp.svg" alt="lamp" />
                         </div>
                     </div>
-                    <div className={style.info__line}>
+                    <div className={style.info__line} ref={refLine}>
                         <img src="./images/screen1/square.svg" alt="square" />
                         <div></div>
                     </div>

@@ -39,13 +39,12 @@ function App() {
           mousewheel={true}
           modules={[Mousewheel]}
           className="screens"
-          grabCursor={true}
           resizeObserver={false}
           rewind={false}
           loop={false}
 
         >
-          {/* <SwiperSlide><Screen1 changeSlide={handleNext}></Screen1></SwiperSlide> */}
+          <SwiperSlide><Screen1 changeSlide={handleNext}></Screen1></SwiperSlide>
           <SwiperSlide><Screen2></Screen2></SwiperSlide>
 
         </Swiper>
