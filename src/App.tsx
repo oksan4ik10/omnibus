@@ -20,7 +20,8 @@ resize();
 function App() {
   const [width, height] = useWindowSize()
 
-  const [isMobile, setIsMobile] = useState(false)
+  const [isMobile, setIsMobile] = useState((width < 1000) || ((width > 1000) && (width < 1200) && (height > 830)))
+
   useEffect(() => {
     setIsMobile((width < 1000) || ((width > 1000) && (width < 1200) && (height > 830)))
   }, [width, height])

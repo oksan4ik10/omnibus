@@ -10,7 +10,7 @@ interface IProps {
 function Screen2(props: IProps) {
     const { screen, isMobile } = props;
     return (
-        <div className={style.container + ` ${style['screen' + String(screen)]}`}>
+        <div className={style.container + ` ${style['screen' + String(screen)]}` + " " + (isMobile ? style.mobile : "")}>
             <div className={style.waterTop}>
                 <img src="./images/sceen2/water-top.png" alt="water" />
             </div>
