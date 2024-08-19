@@ -1,8 +1,15 @@
 import style from "./Screen2.module.scss"
 import Card from "../../components/Card/Card";
-function Screen2() {
+
+interface IProps {
+    screen: number;
+}
+function Screen2(props: IProps) {
+    const { screen } = props;
+    console.log(screen);
+
     return (
-        <div className={style.container}>
+        <div className={style.container + ` ${style['screen' + String(screen)]}`}>
             <div className={style.ribbon}>
                 <span>подарки</span>
                 <span>подарки</span>
@@ -23,7 +30,11 @@ function Screen2() {
                 <img src="images/sceen2/line.svg" alt="line" />
             </div>
             <div className={style.card}>
+
                 <div className={style.card__item}>
+                    <div className={style.lamp}>
+                        <img src="./images/lamp.svg" alt="lamp" />
+                    </div>
                     <div className={style.man}>
                         <Card></Card>
                     </div>
@@ -56,7 +67,7 @@ function Screen2() {
                         </ul>
                     </div >
                     <button className={"btn " + style.btn}>
-                        Дальше
+                        играть
                     </button>
                 </div >
 

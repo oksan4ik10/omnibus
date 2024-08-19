@@ -16,6 +16,10 @@
     }
 }
 
+.screen2 .ribbon {
+    animation: ribbon 1.4s alternate both ease-in-out;
+}
+
 .ribbon {
     z-index: -1;
     display: flex;
@@ -28,7 +32,6 @@
     position: absolute;
     top: 40%;
     transform: translateY(40%) translateX(70%) rotateZ(5deg) rotateY(10deg);
-    animation: ribbon 1.4s alternate both ease-in-out;
 
     span {
         color: var(--peach);
@@ -87,7 +90,7 @@
 
     .man {
         transform: scale(.7) rotate(-15deg) translateX(220px) translateY(var(--translateY));
-        box-shadow: -30.58px 34.56px 5.32px 0px red;
+        box-shadow: -30.58px 34.56px 5.32px 0px rgba(0, 0, 0, 0.5);
     }
 
     .bookImg {
@@ -194,6 +197,40 @@
         margin-right: 40px;
     }
 
+}
+
+.screen2 .lamp {
+    animation: lamp 1.3s alternate both linear;
+}
+
+.lamp {
+    position: absolute;
+    top: 0px;
+    // right: -15%;
+    right: 0;
+    // transform: translateX(7%) translateY(50%) rotate(0deg);
+    transform: translateX(20%) translateY(-30%) rotate(10deg);
+    transform-origin: center;
+    z-index: -1;
+
+    transform-origin: left bottom;
+    height: calc(var(--vh, 1vh) * 100);
+    z-index: -3;
+
+    img {
+        height: 100%;
+        width: auto;
+    }
+}
+
+@keyframes lamp {
+    0% {
+        transform: translateX(10%) translateY(-30%) rotate(0deg);
+    }
+
+    100% {
+        transform: translateX(20%) translateY(-30%) rotate(10deg);
+    }
 }
 
 @media (max-width: 790px) {

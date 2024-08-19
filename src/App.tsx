@@ -21,11 +21,13 @@ function App() {
 
   }, [])
 
+  const [screen, setScreen] = useState(1);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const sliderRef = useRef<any>(null);
   const handleNext = useCallback(() => {
     if (!sliderRef.current) return;
     sliderRef.current.swiper.slideNext();
+    setScreen(screen + 1);
   }, []);
 
   return (
@@ -45,7 +47,7 @@ function App() {
 
         >
           <SwiperSlide><Screen1 changeSlide={handleNext}></Screen1></SwiperSlide>
-          <SwiperSlide><Screen2></Screen2></SwiperSlide>
+          <SwiperSlide><Screen2 screen={screen}></Screen2></SwiperSlide>
 
         </Swiper>
 
