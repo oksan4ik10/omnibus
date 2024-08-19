@@ -1,11 +1,11 @@
 .container {
+    --heightContainer: calc(var(--vh, 1vh) * 100 - 5.5vw);
     width: 100vw;
-    height: calc(var(--vh, 1vh) * 100 - 5.5vw);
+    height: var(--heightContainer);
 
     overflow: hidden;
     position: relative;
     transform-style: preserve-3d;
-
 }
 
 @mixin imageGenerate {
@@ -74,10 +74,12 @@
 }
 
 .card {
+    height: calc(var(--heightContainer)/2);
     --translateY: max(calc(var(--topLine) - 213px - 161px), 20px);
     display: grid;
-    grid-template-columns: 629px auto;
+    grid-template-columns: minmax(650px, 40vw) auto;
     justify-items: start;
+    grid-column-gap: 20px;
 
     &__item {
         position: relative;
@@ -114,7 +116,6 @@
     &__text {
         transform: translateY(calc(var(--topLine) - 213px));
         color: red;
-        margin-left: 20px;
         color: var(--white);
         font-family: Inter;
         font-size: 20px;
@@ -123,4 +124,110 @@
         max-width: 665px;
     }
 
+}
+
+.presents {
+    height: calc(var(--heightContainer)/2);
+    display: grid;
+    grid-template-columns: minmax(650px, 40vw) auto;
+    padding-bottom: 10px;
+    grid-column-gap: 20px;
+
+    &__img {
+        height: calc(100% - 50px);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+
+        img {
+            width: auto;
+            height: 100%;
+            object-fit: contain;
+
+        }
+    }
+}
+
+.presents__list {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+
+    h2 {
+        color: var(--white);
+        font-family: Cormorant Infant;
+        font-size: 40px;
+        font-weight: 700;
+        margin-bottom: 1.9vh;
+    }
+
+    .list {
+        max-width: 550px;
+        list-style-position: inside;
+
+        li {
+            color: var(--white);
+            font-family: Inter;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 30px;
+
+            span {
+                color: var(--orange);
+            }
+        }
+
+        li:not(:last-child) {
+            margin-bottom: 3px;
+        }
+
+        li::marker {
+            color: var(--orange);
+        }
+    }
+
+    .btn {
+        background-color: var(--purple);
+        align-self: end;
+        margin-right: 40px;
+    }
+
+}
+
+@media (max-width: 790px) {
+    .container {
+        height: calc(var(--vh, 1vh) * 100 - 11vw);
+    }
+
+}
+
+@media (min-width: 1000px) and (max-height:800px) {
+    .card {
+        --translateY: max(calc(var(--topLine) - 213px - 200px), 0px);
+    }
+
+    .card .man {
+        transform: scale(.6) rotate(-15deg) translateX(280px) translateY(calc(var(--translateY) - 20px));
+    }
+}
+
+@media (max-width: 1200px) {
+    .line {
+        display: none;
+    }
+
+    .card,
+    .presents {
+        grid-template-columns: 400px auto;
+    }
+
+    .presents {
+        padding-left: 20px;
+    }
+
+    .card__item {
+        transform: scale(.8) translateX(-120px);
+    }
 }
