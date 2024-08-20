@@ -304,6 +304,7 @@
         right: auto;
         left: 50%;
         transform: translateX(-50%);
+        bottom: 4vh;
     }
 
     .main {
@@ -480,6 +481,10 @@
         &__img {
             width: 60%;
         }
+    }
+
+    .btn {
+        bottom: 2vh;
     }
 }
 

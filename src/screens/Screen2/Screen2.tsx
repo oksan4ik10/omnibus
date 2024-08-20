@@ -49,6 +49,9 @@ function Screen2(props: IProps) {
                     <div className={style.calcImg}>
                         <img src="images/sceen2/calc.svg" alt="calc" />
                     </div>
+                    {isMobile && <div className={style.waterCard}>
+                        <img src="./images/screen1/water.png" alt="water" />
+                    </div>}
                 </div>
                 <div className={style.card__text}>
                     Сможешь угадать, кто из этих людей работает по специальности, а кто — нет? Среди участников, прошедших все карточки, мы разыграем призы!

@@ -245,7 +245,7 @@
         left: 50%;
         transform: translateX(-50%);
         position: absolute;
-        bottom: 2vh;
+        bottom: 4vh;
     }
 
     .ribbon {
@@ -314,6 +314,10 @@
 
 @media (max-width: 570px) {
     .mobile {
+        .card {
+            top: 40%;
+        }
+
         .card__item {
             transform: scale(.7)
         }
@@ -341,6 +345,45 @@
 
         .card__text {
             margin-top: -70px;
+        }
+
+        .btn {
+            bottom: 2vh;
+        }
+    }
+
+}
+
+.mobile {
+    .waterTop {
+        display: none;
+
+    }
+
+    .waterCard {
+        position: absolute;
+        top: 50%;
+        right: auto;
+        left: 50%;
+        transform: translateY(-46%) translateX(-68%);
+        animation: none;
+        width: 110vw;
+        z-index: -1;
+        filter: contrast(200%) invert(100%);
+        opacity: .8;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+@media (max-width: 570px) {
+    .mobile {
+        .waterCard {
+            transform: translateY(-20%) translateX(-60%);
+            width: 143vw;
         }
     }
 
