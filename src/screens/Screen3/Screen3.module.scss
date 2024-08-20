@@ -1,0 +1,32 @@
+.container {
+    --heightContainer: calc(var(--vh, 1vh) * 100 - 5.5vw);
+    width: 100vw;
+    height: var(--heightContainer);
+
+    overflow: hidden;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+@media (max-width: 790px) {
+    .container {
+        height: calc(var(--vh, 1vh) * 100 - 11vw);
+    }
+
+}
+
+.btn {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    bottom: 4vh;
+    background-color: var(--purple);
+}
+
+@media (max-height: 750px) {
+    .btn {
+        bottom: 2vh;
+    }
+
+}
