@@ -59,6 +59,9 @@ function Screen2(props: IProps) {
 
 
             </div>
+            {isMobile && <div className={style.waterBtm}>
+                <img src="./images/screen1/water.png" alt="water" />
+            </div>}
             {isMobile && <button onClick={changeSlide} className={style.btn + " btn"}>Дальше</button>}
             {screen === 2 && !isMobile && <Presents></Presents>}
 

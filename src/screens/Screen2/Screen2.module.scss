@@ -295,7 +295,7 @@
     }
 
     .lamp {
-        animation: lampMobile 1.3s .6s alternate both linear;
+        animation: lampMobile 1.3s .3s alternate both linear;
     }
 
 
@@ -360,12 +360,27 @@
 
     }
 
+    .waterBtm {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        width: 100%;
+        transform: translateX(19%) translateY(39%) scale(0);
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+
+
     .waterCard {
         position: absolute;
         top: 50%;
         right: auto;
         left: 50%;
-        transform: translateY(-46%) translateX(-68%);
+        transform: translateY(-46%) translateX(-68%) scale(0);
         animation: none;
         width: 110vw;
         z-index: -1;
@@ -382,9 +397,45 @@
 @media (max-width: 570px) {
     .mobile {
         .waterCard {
-            transform: translateY(-20%) translateX(-60%);
+            transform: translateY(-20%) translateX(-60%) scale(0);
             width: 143vw;
         }
     }
 
+}
+
+.screen2 .waterCard {
+    animation: waterCard .4s .7s forwards ease;
+}
+
+.screen2 .waterBtm {
+    animation: waterBtm .4s .3s forwards ease;
+}
+
+@media (max-width: 570px) {
+    .screen2 .waterCard {
+        animation: waterCard2 .4s .6s forwards ease;
+    }
+
+}
+
+
+
+@keyframes waterBtm {
+    100% {
+        transform: translateX(19%) translateY(39%) scale(1);
+        ;
+    }
+}
+
+@keyframes waterCard {
+    100% {
+        transform: translateY(-46%) translateX(-68%) scale(1);
+    }
+}
+
+@keyframes waterCard2 {
+    100% {
+        transform: translateY(-20%) translateX(-60%) scale(1);
+    }
 }
