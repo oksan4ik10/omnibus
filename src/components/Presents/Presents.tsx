@@ -1,11 +1,15 @@
 import style from "./Presents.module.scss"
 interface IProps {
     isMobile?: boolean;
+    screen?: number
+    isScreen3Mobile?: boolean;
 }
 function Presents(props: IProps) {
-    const { isMobile } = props;
+    const { isMobile, isScreen3Mobile } = props;
+    console.log(isScreen3Mobile);
+
     return (
-        <div className={style.presents + " " + (isMobile ? style.mobile : "")}>
+        <div className={style.presents + " " + (isMobile ? style.mobile : "") + " " + (isScreen3Mobile ? style.screen3 : "")}>
             <div className={style.presents__img}>
                 <img src="images/sceen2/sertificat.png" alt="" />
             </div>

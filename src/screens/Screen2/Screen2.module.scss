@@ -295,19 +295,27 @@
     }
 
     .lamp {
-        animation: lampMobile 2s .3s alternate both linear;
+        height: calc(var(--vh, 1vh)* 130);
+        transform: translateX(16%) translateY(-33%) rotate(7deg);
+        animation: none;
+        // animation: none;
+        // animation: lampMobile 2s .3s alternate both linear;
     }
 
 
 }
 
+.screen2.mobile .lamp {
+    animation: lampMobile 2s .3s alternate both linear;
+}
+
 @keyframes lampMobile {
     0% {
-        transform: translateX(20%) translateY(-30%) rotate(-10deg);
+        transform: translateX(16%) translateY(-33%) rotate(0deg)
     }
 
     100% {
-        transform: translateX(20%) translateY(-30%) rotate(0deg);
+        transform: translateX(16%) translateY(-33%) rotate(7deg);
     }
 
 }

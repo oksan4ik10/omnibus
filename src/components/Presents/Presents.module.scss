@@ -236,3 +236,41 @@
 
     }
 }
+
+
+.mobile {
+    .lampPresents {
+        position: absolute;
+        top: 0px;
+        // right: -15%;
+        right: 0;
+        // transform: translateX(7%) translateY(50%) rotate(0deg);
+        transform: translateX(13%) translateY(-40%) rotate(5deg);
+        transform-origin: center;
+        z-index: -1;
+
+        transform-origin: left bottom;
+        height: calc(var(--vh, 1vh) * 100);
+        z-index: -3;
+
+        img {
+            height: 100%;
+            width: auto;
+        }
+    }
+}
+
+.screen3.mobile .lampPresents {
+    animation: lampMobile .8s .3s alternate both linear;
+}
+
+@keyframes lampMobile {
+    0% {
+        transform: translateX(13%) translateY(-40%) rotate(15deg)
+    }
+
+    100% {
+        transform: translateX(13%) translateY(-40%) rotate(5deg)
+    }
+
+}
