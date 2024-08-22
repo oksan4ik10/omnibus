@@ -49,8 +49,8 @@ function Screen2(props: IProps) {
                     <div className={style.calcImg}>
                         <img src="images/sceen2/calc.svg" alt="calc" />
                     </div>
-                    {isMobile && <div className={style.waterCard}>
-                        <img src="./images/screen1/water.png" alt="water" />
+                    {isMobile && <div className={style.waterPresents}>
+                        <img src="./images/sceen2/water-btn.png" alt="water" />
                     </div>}
                 </div>
                 <div className={style.card__text}>

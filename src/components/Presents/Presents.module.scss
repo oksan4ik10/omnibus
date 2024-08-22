@@ -261,7 +261,7 @@
 }
 
 .screen3.mobile .lampPresents {
-    animation: lampMobile .8s .3s alternate both linear;
+    animation: lampMobile .8s alternate both linear;
 }
 
 @keyframes lampMobile {
@@ -273,4 +273,79 @@
         transform: translateX(13%) translateY(-40%) rotate(5deg)
     }
 
+}
+
+.mobile {
+    .waterPresents {
+        position: absolute;
+        top: 50%;
+        right: auto;
+        left: 50%;
+        transform: translateY(-68%) translateX(-24%) rotate(134deg) scale(0);
+        animation: none;
+        width: 100vw;
+        z-index: -1;
+        filter: contrast(200%) invert(100%);
+        opacity: .8;
+
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+}
+
+.waterBtm {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+    transform: translateX(19%) translateY(39%) scale(1);
+    filter: contrast(200%) invert(100%) opacity(0.5);
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 570px) {
+    .mobile {
+        .waterPresents {
+            width: 143vw;
+        }
+    }
+
+}
+
+.screen3.mobile .waterPresents {
+    animation: waterPresentsMobile .7s .5s forwards ease;
+}
+
+@keyframes waterPresentsMobile {
+    100% {
+        transform: translateY(-68%) translateX(-24%) rotate(134deg) scale(1);
+    }
+
+}
+
+.lampBtmMobile {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform-origin: center;
+    transform: translateX(-52%) translateY(105%) rotate(296deg);
+    z-index: -1;
+}
+
+@media (max-height: 750px) {
+    .waterPresents {
+        display: none;
+    }
+
+    .lampBtmMobile {
+        display: none;
+    }
 }
