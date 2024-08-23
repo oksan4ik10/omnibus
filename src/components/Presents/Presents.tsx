@@ -3,9 +3,14 @@ interface IProps {
     isMobile?: boolean;
     screen?: number
     isScreen3Mobile?: boolean;
+    startGame?: () => void;
 }
 function Presents(props: IProps) {
-    const { isMobile, isScreen3Mobile } = props;
+    const { isMobile, isScreen3Mobile, startGame } = props;
+    const clickGame = () => {
+        if (!startGame) return;
+        startGame()
+    }
 
     return (
         <>
@@ -27,9 +32,9 @@ function Presents(props: IProps) {
                             <li><span>150</span> сертификатов Яндекс.Еда на 1000 р.</li>
                         </ul>
                     </div >
-                    <button className={"btn " + style.btn}>
+                    {!isMobile && <button className={"btn " + style.btn} onClick={clickGame}>
                         играть
-                    </button>
+                    </button>}
 
 
                     <div className={style.lampPresents}>

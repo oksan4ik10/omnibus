@@ -7,9 +7,10 @@ interface IProps {
     screen: number;
     isMobile: boolean;
     changeSlide: () => void;
+    startGame: () => void;
 }
 function Screen2(props: IProps) {
-    const { screen, isMobile, changeSlide } = props;
+    const { screen, isMobile, changeSlide, startGame } = props;
     return (
         <div className={style.container + ` ${style['screen' + String(screen)]}` + " " + (isMobile ? style.mobile : "")}>
             <div className={style.waterTop}>
@@ -63,7 +64,7 @@ function Screen2(props: IProps) {
                 <img src="./images/screen1/water.png" alt="water" />
             </div>}
             {isMobile && <button onClick={changeSlide} className={style.btn + " btn"}>Дальше</button>}
-            {screen === 2 && !isMobile && <Presents></Presents>}
+            {screen === 2 && !isMobile && <Presents startGame={startGame}></Presents>}
 
 
 

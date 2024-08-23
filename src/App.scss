@@ -16,6 +16,25 @@
 
 }
 
+.screen4.wrapper {
+  height: auto;
+  min-height: 100vh;
+
+  .screens {
+    .swiper-wrapper {
+      overflow-y: scroll !important;
+    }
+
+    .swiper-slide {
+      opacity: 0 !important;
+    }
+
+    .swiper-slide-active {
+      opacity: 1 !important;
+    }
+
+  }
+}
 
 .btn {
   display: flex;

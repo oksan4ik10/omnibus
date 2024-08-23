@@ -11,6 +11,7 @@ import './App.scss'
 import Screen1 from './screens/Screen1/Screen1.tsx';
 import Screen2 from './screens/Screen2/Screen2.tsx';
 import Screen3 from './screens/Screen3/Screen3.tsx';
+import Screen4 from './screens/Screen4/Screen4.tsx';
 import { resize } from './resize.ts'
 
 import Footer from './components/Footer/Footer.tsx';
@@ -47,13 +48,17 @@ function App() {
   const nextScreen3Mobile = () => {
     setIsScreen3Mobile(true)
     handleNext();
+  }
 
-
+  const [isScreen4, setIsScreen4] = useState(true);
+  const startGame = () => {
+    setIsScreen4(true);
+    handleNext()
   }
 
   return (
     <>
-      <div className="wrapper">
+      <div className={"wrapper" + (isScreen4 ? " screen4" : "")}>
         <Swiper
           ref={sliderRef}
           autoHeight={true}
@@ -67,10 +72,10 @@ function App() {
           loop={false}
 
         >
-          <SwiperSlide><Screen1 changeSlide={handleNext}></Screen1></SwiperSlide>
-          <SwiperSlide><Screen2 changeSlide={nextScreen3Mobile} isMobile={isMobile} screen={screen}></Screen2></SwiperSlide>
-          {isMobile && <SwiperSlide><Screen3 isScreen3Mobile={isScreen3Mobile} screen={screen}></Screen3></SwiperSlide>}
-
+          {/* <SwiperSlide><Screen1 changeSlide={handleNext}></Screen1></SwiperSlide>
+          <SwiperSlide><Screen2 changeSlide={nextScreen3Mobile} isMobile={isMobile} screen={screen} startGame={startGame}></Screen2></SwiperSlide>
+          {isMobile && <SwiperSlide><Screen3 isScreen3Mobile={isScreen3Mobile} screen={screen} startGame={startGame}></Screen3></SwiperSlide>} */}
+          <SwiperSlide><Screen4></Screen4></SwiperSlide>
         </Swiper>
 
         {gap && <Footer gap={gap}></Footer>}
