@@ -134,10 +134,14 @@
 
 }
 
+.btnsNone {
+    display: none;
+}
+
 .water {
     position: absolute;
-    bottom: -218px;
-    left: 0px;
+    bottom: -219px;
+    left: -46px;
 }
 
 .wrapper {
@@ -164,5 +168,9 @@
         .card__btns {
             background: #08A652;
         }
+    }
+
+    .info__job span:first-child {
+        color: #08A652;
     }
 }

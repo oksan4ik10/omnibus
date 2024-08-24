@@ -39,10 +39,10 @@ function Card(props: IProps) {
                         <img src="images/cards/water.svg" alt="water" />
                     </div>
                 </div>
-                <div className={style.card__btns}>
+                {isUser && <div className={style.card__btns}>
                     <span>По специальности</span>
                     <span>Не по специальности</span>
-                </div>
+                </div>}
             </div>
         </div>
 
