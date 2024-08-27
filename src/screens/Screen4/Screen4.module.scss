@@ -106,3 +106,41 @@
         margin-bottom: 5.07vh;
     }
 }
+
+.header {
+    position: relative;
+}
+
+.lampLogo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: calc(var(--vh, 1vh) * 100);
+    transform: translateX(-57%) translateY(-27%) rotate(-10deg);
+    z-index: -1;
+
+    img {
+        height: 100%;
+        width: auto;
+    }
+}
+
+.header__img {
+    position: relative;
+}
+
+.wrapper .header__img .waterLogo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-27%) translateY(-40%) rotate(155deg);
+    width: 100%;
+    z-index: -1;
+    filter: contrast(200%) invert(100%) opacity(0.7);
+
+    img {
+        width: 100%;
+        height: auto;
+
+    }
+}

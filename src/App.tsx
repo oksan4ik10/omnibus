@@ -50,7 +50,7 @@ function App() {
     handleNext();
   }
 
-  const [isScreen4, setIsScreen4] = useState(false);
+  const [isScreen4, setIsScreen4] = useState(true);
   const startGame = () => {
     setIsScreen4(true);
     handleNext()
@@ -67,9 +67,9 @@ function App() {
           allowTouchMove={false}
 
         >
-          <SwiperSlide><Screen1 changeSlide={handleNext}></Screen1></SwiperSlide>
+          {/* <SwiperSlide><Screen1 changeSlide={handleNext}></Screen1></SwiperSlide>
           <SwiperSlide><Screen2 changeSlide={nextScreen3Mobile} isMobile={isMobile} screen={screen} startGame={startGame}></Screen2></SwiperSlide>
-          {isMobile && <SwiperSlide><Screen3 isScreen3Mobile={isScreen3Mobile} screen={screen} startGame={startGame}></Screen3></SwiperSlide>}
+          {isMobile && <SwiperSlide><Screen3 isScreen3Mobile={isScreen3Mobile} screen={screen} startGame={startGame}></Screen3></SwiperSlide>} */}
           <SwiperSlide><Screen4></Screen4></SwiperSlide>
         </Swiper>
 

@@ -5,8 +5,15 @@ function Screen4() {
         <div className={style.container}>
             <div className={style.wrapper}>
                 <div className={style.header}>
+                    <div className={style.lampLogo}>
+                        <img src="./images/lamp.svg" alt="lamp" />
+                    </div>
                     <div className={style.header__img}>
-                        <img src="images/screen4/logo.png" alt="logo" />
+                        <div className={style.waterLogo}>
+                            <img src="./images/sceen2/water-btn.png" alt="water" />
+                        </div>
+                        <img src="images/screen4/logoDesktop.png" alt="logo" />
+
                     </div>
                     <div className={style.header__counter}>
                         <span>0</span>

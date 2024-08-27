@@ -340,7 +340,7 @@
     z-index: -1;
 }
 
-@media (max-height: 750px) {
+@media (max-height: 750px) and (max-width: 1000px) {
     .waterPresents {
         display: none;
     }
