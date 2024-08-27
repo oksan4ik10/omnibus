@@ -6,8 +6,7 @@ import {
   useWindowSize
 } from '@react-hook/window-size'
 
-import { Swiper, SwiperSlide, SwiperClass } from 'swiper/react';
-import { Mousewheel } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import './App.scss'
 import Screen1 from './screens/Screen1/Screen1.tsx';
@@ -39,12 +38,6 @@ function App() {
   const [screen, setScreen] = useState(1);
 
   const sliderRef = useRef<any>(null);
-  // useEffect(() => {
-  //   if (sliderRef.current) {
-  //     console.dir(sliderRef.current)
-  //     sliderRef.current.swiper.allowTouchMove = true
-  //   }
-  // }, [])
   const handleNext = useCallback(() => {
     if (!sliderRef.current) return;
     sliderRef.current.swiper.slideNext();
@@ -64,43 +57,14 @@ function App() {
   }
 
 
-  const touch = (e: TouchEvent<HTMLDivElement>) => {
-    e.stopPropagation();
-    e.preventDefault();
-    console.log('screen');
-
-  }
-  const touchDisable = (s: SwiperClass, e: TouchEvent | MouseEvent | PointerEvent) => {
-    e.stopPropagation();
-    e.preventDefault();
-    console.log('swiper');
-
-  }
   return (
     <>
       <div className={"wrapper" + (isScreen4 ? " screen4" : "")} >
         <Swiper
           ref={sliderRef}
           autoHeight={true}
-          // cssMode={true}
           slidesPerView={'auto'}
-          // mousewheel={true}
-          // modules={[Mousewheel]}
-          // className="screens"
-          // watchSlidesProgress={true}
-          // resizeObserver={false}
-          // rewind={false}
-
-          // onTouchStart={touchDisable}
-          // speed={10000}
-          // simulateTouch={true}
-          // noSwiping={false}
-          // noSwipingSelector={'div'}
-          // preventInteractionOnTransition={true}
           allowTouchMove={false}
-        // preventInteractionOnTransition={true}
-        // noSwiping={true}
-        // noSwipingClass={'swiper-no-swiping'}
 
         >
           <SwiperSlide><Screen1 changeSlide={handleNext}></Screen1></SwiperSlide>
