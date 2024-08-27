@@ -136,11 +136,49 @@
     transform: translateX(-27%) translateY(-40%) rotate(155deg);
     width: 100%;
     z-index: -1;
+
     filter: contrast(200%) invert(100%) opacity(0.7);
 
     img {
         width: 100%;
         height: auto;
+
+    }
+}
+
+.cards {
+    position: relative;
+
+    .lampCards {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 140vw;
+        transform: rotate(218deg) translateX(-46%) translateY(-30%);
+        z-index: -1;
+        height: calc(var(--vh, 1vh) * 100);
+
+        img {
+            height: 100%;
+            width: 100%;
+
+        }
+    }
+}
+
+
+.lampBtm {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: calc(var(--vh, 1vh) * 100);
+    width: 140vw;
+    transform: rotate(-7deg) translateX(-23%) translateY(4%);
+    z-index: -1;
+
+    img {
+        height: 100%;
+        width: 100%;
 
     }
 }

@@ -94,6 +94,117 @@ function Screen4() {
 
 
                     </div>
+                    <div className={style.cards__item}>
+                        <div className={style.card__front + " " + style.card}>
+                            <Card screen4={true} isUser={false}></Card>
+                        </div>
+                        <div className={style.card__back + " " + style.card}>
+                            <Card screen4={true} isUser={true}></Card>
+                        </div>
+
+
+
+
+                    </div>
+                    <div className={style.cards__item}>
+                        <div className={style.card__front + " " + style.card}>
+                            <Card screen4={true} isOdd={true} isUser={false}></Card>
+                        </div>
+                        <div className={style.card__back + " " + style.card}>
+                            <Card screen4={true} isOdd={true} isUser={true}></Card>
+                        </div>
+
+
+
+
+                    </div>
+                    <div className={style.cards__item}>
+                        <div className={style.card__front + " " + style.card}>
+                            <Card screen4={true} isUser={false}></Card>
+                        </div>
+                        <div className={style.card__back + " " + style.card}>
+                            <Card screen4={true} isUser={true}></Card>
+                        </div>
+
+
+
+
+                    </div>
+                    <div className={style.cards__item}>
+                        <div className={style.card__front + " " + style.card}>
+                            <Card screen4={true} isUser={false}></Card>
+                        </div>
+                        <div className={style.card__back + " " + style.card}>
+                            <Card screen4={true} isUser={true}></Card>
+                        </div>
+
+
+
+
+                    </div>
+                    <div className={style.cards__item}>
+                        <div className={style.card__front + " " + style.card}>
+                            <Card screen4={true} isUser={false}></Card>
+                        </div>
+                        <div className={style.card__back + " " + style.card}>
+                            <Card screen4={true} isUser={true}></Card>
+                        </div>
+
+
+
+
+                    </div>
+                    <div className={style.cards__item}>
+                        <div className={style.card__front + " " + style.card}>
+                            <Card screen4={true} isUser={false}></Card>
+                        </div>
+                        <div className={style.card__back + " " + style.card}>
+                            <Card screen4={true} isUser={true}></Card>
+                        </div>
+
+
+
+
+                    </div>
+                    <div className={style.cards__item}>
+                        <div className={style.card__front + " " + style.card}>
+                            <Card screen4={true} isUser={false}></Card>
+                        </div>
+                        <div className={style.card__back + " " + style.card}>
+                            <Card screen4={true} isUser={true}></Card>
+                        </div>
+
+
+
+
+                    </div>
+                    <div className={style.cards__item}>
+                        <div className={style.card__front + " " + style.card}>
+                            <Card screen4={true} isOdd={true} isUser={false}></Card>
+                        </div>
+                        <div className={style.card__back + " " + style.card}>
+                            <Card screen4={true} isOdd={true} isUser={true}></Card>
+                        </div>
+
+
+
+
+                    </div>
+                    <div className={style.cards__item}>
+                        <div className={style.card__front + " " + style.card}>
+                            <Card screen4={true} isUser={false}></Card>
+                        </div>
+                        <div className={style.card__back + " " + style.card}>
+                            <Card screen4={true} isUser={true}></Card>
+                        </div>
+
+
+
+
+                    </div>
+                    <div className={style.lampCards}>
+                        <img src="./images/lamp.svg" alt="lamp" />
+                    </div>
                 </div>
                 <div className={style.btm}>
                     <button className={"btn " + style.btn}>розыгрыш</button>
@@ -101,7 +212,9 @@ function Screen4() {
                 </div>
 
             </div>
-
+            <div className={style.lampBtm}>
+                <img src="./images/lamp.svg" alt="lamp" />
+            </div>
         </div>
     );
 }
