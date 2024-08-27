@@ -21,7 +21,7 @@ function Screen1(props: IProps) {
 
     })
     return (
-        <div className={style.container}>
+        <div className={style.container + " container"}>
             <div className={style.waterLogo}>
                 <img src="./images/screen1/water-logo.png" alt="water" />
             </div>

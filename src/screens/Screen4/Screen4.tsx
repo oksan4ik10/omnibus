@@ -27,7 +27,72 @@ function Screen4() {
 
 
                     </div>
+                    <div className={style.cards__item}>
+                        <div className={style.card__front + " " + style.card}>
+                            <Card screen4={true} isOdd={true} isUser={false}></Card>
+                        </div>
+                        <div className={style.card__back + " " + style.card}>
+                            <Card screen4={true} isOdd={true} isUser={true}></Card>
+                        </div>
+
+
+
+
+                    </div>
+                    <div className={style.cards__item}>
+                        <div className={style.card__front + " " + style.card}>
+                            <Card screen4={true} isUser={false}></Card>
+                        </div>
+                        <div className={style.card__back + " " + style.card}>
+                            <Card screen4={true} isUser={true}></Card>
+                        </div>
+
+
+
+
+                    </div>
+                    <div className={style.cards__item}>
+                        <div className={style.card__front + " " + style.card}>
+                            <Card screen4={true} isUser={false}></Card>
+                        </div>
+                        <div className={style.card__back + " " + style.card}>
+                            <Card screen4={true} isUser={true}></Card>
+                        </div>
+
+
+
+
+                    </div>
+                    <div className={style.cards__item}>
+                        <div className={style.card__front + " " + style.card}>
+                            <Card screen4={true} isUser={false}></Card>
+                        </div>
+                        <div className={style.card__back + " " + style.card}>
+                            <Card screen4={true} isUser={true}></Card>
+                        </div>
+
+
+
+
+                    </div>
+                    <div className={style.cards__item}>
+                        <div className={style.card__front + " " + style.card}>
+                            <Card screen4={true} isUser={false}></Card>
+                        </div>
+                        <div className={style.card__back + " " + style.card}>
+                            <Card screen4={true} isUser={true}></Card>
+                        </div>
+
+
+
+
+                    </div>
                 </div>
+                <div className={style.btm}>
+                    <button className={"btn " + style.btn}>розыгрыш</button>
+                    <p>Для того, чтобы участвовать в розыгрыше, нужно открыть еще Х карточек</p>
+                </div>
+
             </div>
 
         </div>

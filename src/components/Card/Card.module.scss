@@ -101,9 +101,6 @@
 }
 
 .card__btns {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
     background: var(--orange);
     height: 44px;
     display: flex;
@@ -147,6 +144,8 @@
 .wrapper {
     position: relative;
     display: inline-block;
+    perspective: 0;
+
 }
 
 .btnImg {
@@ -156,10 +155,22 @@
     z-index: 99;
 }
 
+.wrapper {
+    box-shadow: 0px 18px 100px 0px rgba(66, 227, 180, 0), -2px -11px 44.2px 0px rgb(241, 232, 19, 0);
+    transform: rotateZ(1deg);
+
+}
+
+.wrapper.odd {
+    transform: rotateZ(-1deg);
+}
+
 .wrapper.userClick {
     box-shadow: 0px 18px 100px 0px rgb(66, 227, 180), -2px -11px 44.2px 0px rgb(241, 232, 19);
 
     .card {
+        padding-bottom: 0px;
+
         .card__photo {
             box-shadow: inset 0px 0px 4.9px 0px rgba(0, 0, 0, 0.25);
             background: linear-gradient(225.32deg, rgb(66, 227, 180) 8.753%, rgb(8, 166, 82) 98.582%);
@@ -167,8 +178,14 @@
 
         .card__btns {
             background: #08A652;
+            width: calc(100% + 16px);
+            margin-left: -8px;
         }
+
+
     }
+
+
 
     .info__job span:first-child {
         color: #08A652;

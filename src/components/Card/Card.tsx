@@ -3,11 +3,12 @@ import style from "./Card.module.scss"
 interface IProps {
     screen4?: boolean;
     isUser?: boolean;
+    isOdd?: boolean;
 }
 function Card(props: IProps) {
-    const { screen4, isUser } = props;
+    const { screen4, isUser, isOdd } = props;
     return (
-        <div className={style.wrapper + " " + (isUser ? style.userClick : "")}>
+        <div className={style.wrapper + " " + (isUser ? style.userClick : "") + " " + (isOdd ? style.odd : "")}>
             {!screen4 && <div className={style.btnImg}>
                 <img src="images/sceen2/btn-card.png" alt="calc" />
             </div>}
