@@ -22,6 +22,7 @@ function Screen4() {
                     </div>
                 </div>
                 <div className={style.cards}>
+
                     <div className={style.cards__item}>
                         <div className={style.card__front + " " + style.card}>
                             <Card screen4={true} isUser={false}></Card>
@@ -213,7 +214,11 @@ function Screen4() {
 
             </div>
             <div className={style.lampBtm}>
-                <img src="./images/lamp.svg" alt="lamp" />
+                <div className={style.lampBtm__wrapper}>
+                    <img src="./images/lamp.svg" alt="lamp" className={style.lampImg} />
+
+                </div>
+
             </div>
         </div>
     );
