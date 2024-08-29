@@ -206,6 +206,7 @@ function Screen4() {
                     <div className={style.lampCards}>
                         <img src="./images/lamp.svg" alt="lamp" />
                     </div>
+
                 </div>
                 <div className={style.btm}>
                     <button className={"btn " + style.btn}>розыгрыш</button>
@@ -217,6 +218,14 @@ function Screen4() {
                 <div className={style.lampBtm__wrapper}>
                     <img src="./images/lamp.svg" alt="lamp" className={style.lampImg} />
 
+                </div>
+
+            </div>
+            <div className={style.lampPurpleCards}>
+                <div className={style.lampPurpleCards__wrapper}>
+                    <img src="./images/screen4/lamp-purple.svg" alt="lamp-purple" className={style.lampImg} />
+                    <img src="./images/screen4/bg-candy.svg" alt="candy" className={style.candyImg} />
+                    <img src="./images/screen4/water-purple.png" alt="water-purple" className={style.waterImg} />
                 </div>
 
             </div>
