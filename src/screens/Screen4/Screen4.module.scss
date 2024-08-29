@@ -154,13 +154,36 @@
         right: 0px;
         top: 0px;
         width: 150vw;
-        transform: rotate(219deg) translateX(-39%) translateY(-28%);
+        // transform: translateX(-39%) translateY(-28%);
         z-index: -1;
         height: calc(var(--vh, 1vh) * 100);
 
-        img {
+        &__wrapper {
+            position: relative;
             height: 100%;
             width: 100%;
+
+            .lampCardsImg {
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                right: 0;
+                transform: translateX(23%) translateY(72%) rotate(219deg);
+
+                img:first-child {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                // .calcImg {
+                //     width: 100%;
+                //     height: auto;
+                //     transform: translateX(100%) translateY(100%);
+
+                // }
+            }
+
 
         }
     }
@@ -214,13 +237,28 @@
             z-index: -1;
         }
     }
+
+    // &>*:nth-child(9) {
+    //     position: relative;
+
+    //     &::after {
+    //         content: url("/images/screen4/bg-calc.svg");
+    //         position: absolute;
+    //         bottom: 50px;
+    //         right: -100px;
+    //         z-index: -1;
+    //     }
+    // }
 }
 
-@media (min-width: 1000px) and (max-height:800px) {
+@media ((min-width: 1000px) and (max-height:800px)) {
     .cards {
-        .lampCards {
-            transform: rotate(210deg) translateX(-39%) translateY(-60%);
+        .lampCards__wrapper {
+            .lampCardsImg {
+                transform: rotate(210deg) translateX(-39%) translateY(-60%);
+            }
         }
+
     }
 }
 
