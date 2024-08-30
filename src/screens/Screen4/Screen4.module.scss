@@ -2,6 +2,7 @@
     width: 100vw;
     overflow-x: hidden;
     min-height: 100vh;
+    --marginLeft: calc((100vw - 1140px)/2);
 }
 
 .cards {
@@ -161,6 +162,7 @@
 .cards {
     position: relative;
 
+
     &>*:nth-child(1) {
         position: relative;
 
@@ -209,17 +211,18 @@
     //     }
     // }
 
-    // &>*:nth-child(9) {
-    //     position: relative;
+    &>*:nth-child(14) {
+        position: relative;
 
-    //     &::after {
-    //         content: url("/images/screen4/bg-calc.svg");
-    //         position: absolute;
-    //         bottom: 50px;
-    //         right: -100px;
-    //         z-index: -1;
-    //     }
-    // }
+        &::after {
+            content: url("./images/screen4/water-purple.png");
+            position: absolute;
+            bottom: -200px;
+            right: -20px;
+            z-index: -1;
+            transform: scale(.9) rotate(107deg);
+        }
+    }
 }
 
 
@@ -236,7 +239,7 @@
         width: 100%;
         height: 100%;
 
-        --marginLeft: calc((100vw - 1140px)/2);
+
 
         .lampCardsImg {
             position: absolute;
@@ -283,35 +286,6 @@
             transform: scale(.8) rotate(106deg) translateX(20%) translateY(-10%);
         }
     }
-
-    // &__wrapper {
-    //     position: relative;
-    //     height: 100%;
-    //     width: 100%;
-
-    //     .lampCardsImg {
-    //         height: 100%;
-    //         width: 100%;
-    //         position: absolute;
-    //         top: 0;
-    //         right: 0;
-    //         transform: translateX(23%) translateY(72%) rotate(219deg);
-
-    //         img:first-child {
-    //             width: 100%;
-    //             height: 100%;
-    //         }
-
-    //         // .calcImg {
-    //         //     width: 100%;
-    //         //     height: auto;
-    //         //     transform: translateX(100%) translateY(100%);
-
-    //         // }
-    //     }
-
-
-    // }
 }
 
 
@@ -321,8 +295,7 @@
     bottom: 0;
     left: 0;
     height: calc(var(--vh, 1vh) * 100);
-    width: 150vw;
-    transform: rotate(-10deg) translateX(-18%) translateY(-6%);
+    width: 100vw;
     z-index: -1;
 
     &__wrapper {
@@ -332,10 +305,32 @@
 
         .lampImg {
             height: 100%;
-            width: 100%;
+            width: 150vw;
             position: absolute;
             top: 0;
             left: 0;
+            transform: rotate(-10deg) translateX(-18%) translateY(-6%);
+        }
+
+        .water1lampBtmImg {
+            position: absolute;
+            transform-origin: 0 0;
+            top: 0;
+            left: calc(var(--marginLeft) + 1190px);
+            transform: scale(0.8) rotate(83deg) translateY(-40%) translateX(-22%);
+            mix-blend-mode: luminosity;
+            opacity: .6;
+
+        }
+
+        .water2lampBtmImg {
+            position: absolute;
+            transform-origin: 0 0;
+            bottom: 25vh;
+            left: calc(var(--marginLeft) + 1170px);
+            transform: scale(0.8) rotate(83deg) translateY(-40%) translateX(-22%);
+            mix-blend-mode: luminosity;
+            opacity: .6;
         }
 
     }

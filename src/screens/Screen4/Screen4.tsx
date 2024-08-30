@@ -227,6 +227,8 @@ function Screen4() {
             <div className={style.lampBtm}>
                 <div className={style.lampBtm__wrapper}>
                     <img src="./images/lamp.svg" alt="lamp" className={style.lampImg} />
+                    <img src="./images/screen4/water-purple.png" alt="water-purple" className={style.water1lampBtmImg} />
+                    <img src="./images/screen4/water-purple.png" alt="water-purple" className={style.water2lampBtmImg} />
 
                 </div>
 
