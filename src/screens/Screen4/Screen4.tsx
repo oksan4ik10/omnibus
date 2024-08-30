@@ -219,6 +219,7 @@ function Screen4() {
                     <img src="/images/screen4/bg-calc.svg" alt="calc" className={style.caclCardsImg} />
                     <img src="/images/screen4/bg-head.svg" alt="calc" className={style.headCardsImg} />
                     <img src="/images/screen4/bg-book.svg" alt="calc" className={style.bookCardsImg} />
+                    <img src="./images/screen4/water-purple.png" alt="water-purple" className={style.waterCardImg} />
                     {/* <img src="/images/screen4/bg-calc.svg" alt="calc" className={style.calcImg} /> */}
                 </div>
 
