@@ -215,7 +215,10 @@ function Screen4() {
             <div className={style.lampCards}>
                 <div className={style.lampCards__wrapper}>
 
-                    <img src="/images/lamp.svg" alt="lamp" className={style.lampCardsImg} />
+                    <img src="/images/screen4/lamp-right.svg" alt="lamp" className={style.lampCardsImg} />
+                    <img src="/images/screen4/bg-calc.svg" alt="calc" className={style.caclCardsImg} />
+                    <img src="/images/screen4/bg-head.svg" alt="calc" className={style.headCardsImg} />
+                    <img src="/images/screen4/bg-book.svg" alt="calc" className={style.bookCardsImg} />
                     {/* <img src="/images/screen4/bg-calc.svg" alt="calc" className={style.calcImg} /> */}
                 </div>
 

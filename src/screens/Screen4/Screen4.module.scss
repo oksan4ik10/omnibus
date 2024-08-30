@@ -176,29 +176,29 @@
         }
     }
 
-    &>*:nth-child(7) {
-        position: relative;
+    // &>*:nth-child(7) {
+    //     position: relative;
 
-        &::after {
-            content: url("/images/screen4/bg-book.svg");
-            position: absolute;
-            top: -40px;
-            left: -150px;
-            z-index: -1;
-        }
-    }
+    //     &::after {
+    //         content: url("/images/screen4/bg-book.svg");
+    //         position: absolute;
+    //         top: -40px;
+    //         left: -150px;
+    //         z-index: -1;
+    //     }
+    // }
 
-    &>*:nth-child(4) {
-        position: relative;
+    // &>*:nth-child(4) {
+    //     position: relative;
 
-        &::after {
-            content: url("/images/screen4/bg-head.svg");
-            position: absolute;
-            bottom: -20px;
-            left: -150px;
-            z-index: -1;
-        }
-    }
+    //     &::after {
+    //         content: url("/images/screen4/bg-head.svg");
+    //         position: absolute;
+    //         bottom: -20px;
+    //         left: -150px;
+    //         z-index: -1;
+    //     }
+    // }
 
     // &>*:nth-child(9) {
     //     position: relative;
@@ -238,14 +238,41 @@
         width: 100%;
         height: 100%;
 
+        --marginLeft: calc((100vw - 1140px)/2);
+
         .lampCardsImg {
             position: absolute;
             top: 0;
-            left: 0;
-            width: 150vw;
+            right: 0;
+            width: 177vw;
             height: 100%;
-            transform: rotate(212deg) translateX(10vw) translateY(-30vh);
+            transform: translateX(23%) translateY(-1%) rotate(7deg);
 
+        }
+
+        .caclCardsImg {
+            position: absolute;
+            bottom: 10vh;
+            left: 0px;
+            transform: translateX(calc(var(--marginLeft) + 1140px)) translateY(0%);
+        }
+
+        .headCardsImg {
+            position: absolute;
+            top: 10vh;
+            left: var(--marginLeft);
+            transform: translateX(-105%);
+            // height: 15.5vh;
+            // width: auto;
+        }
+
+        .bookCardsImg {
+            position: absolute;
+            top: 25vh;
+            left: var(--marginLeft);
+            transform: translateX(-80%) translateY(10%);
+            // height: 17vh;
+            // width: auto;
         }
     }
 
