@@ -1,8 +1,13 @@
 import Card from "../../components/Card/Card";
 import style from "./Screen4.module.scss"
 function Screen4() {
+    const scroll = () => {
+        console.log("scroll");
+
+    }
     return (
-        <div className={style.container}>
+        <div className={style.container} onScroll={scroll}>
+
             <div className={style.wrapper}>
                 <div className={style.header}>
                     <div className={style.lampLogo}>
@@ -224,20 +229,21 @@ function Screen4() {
                 </div>
 
             </div>
+
+            <div className={style.lampPurpleCards}>
+                <div className={style.lampPurpleCards__wrapper}>
+                    <img src="./images/screen4/lamp-purple.svg" alt="lamp-purple" className={style.lampImg} />
+                    <img src="./images/screen4/bg-candy.svg" alt="candy" className={style.candyImg} />
+                    <img src="./images/screen4/water-purple.png" alt="water-purple" className={style.waterImg} />
+                </div>
+
+            </div>
             <div className={style.lampBtm}>
                 <div className={style.lampBtm__wrapper}>
                     <img src="./images/lamp.svg" alt="lamp" className={style.lampImg} />
                     <img src="./images/screen4/water-purple.png" alt="water-purple" className={style.water1lampBtmImg} />
                     <img src="./images/screen4/water-purple.png" alt="water-purple" className={style.water2lampBtmImg} />
 
-                </div>
-
-            </div>
-            <div className={style.lampPurpleCards}>
-                <div className={style.lampPurpleCards__wrapper}>
-                    <img src="./images/screen4/lamp-purple.svg" alt="lamp-purple" className={style.lampImg} />
-                    <img src="./images/screen4/bg-candy.svg" alt="candy" className={style.candyImg} />
-                    <img src="./images/screen4/water-purple.png" alt="water-purple" className={style.waterImg} />
                 </div>
 
             </div>

@@ -4,6 +4,8 @@
     min-height: 100vh;
     --marginLeft: calc((100vw - 1140px)/2);
     --widthContainer: 1140px;
+    height: 100%;
+    overflow-y: auto;
 }
 
 .cards {
@@ -445,8 +447,23 @@
     }
 
     .lampBtm {
-        position: fixed;
-        top: 20vh;
-        bottom: auto;
+        display: none;
+    }
+
+    .lampCards {
+        display: none;
+    }
+
+    .lampLogo,
+    .waterLogo {
+        display: none;
+    }
+
+    .cards>*:nth-child(1)::after {
+        display: none;
+    }
+
+    .lampPurpleCards {
+        display: none;
     }
 }

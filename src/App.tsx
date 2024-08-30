@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   useWindowSize
 } from '@react-hook/window-size'
+import style from "./App.module.scss"
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -56,15 +57,19 @@ function App() {
     handleNext()
   }
 
+  const scroll = () => {
+    console.log("scrollllll");
 
+  }
   return (
     <>
-      <div className={"wrapper" + (isScreen4 ? " screen4" : "")} >
+      <div className={"wrapper" + (isScreen4 ? " screen4" : "")} onScroll={scroll}>
         <Swiper
           ref={sliderRef}
           autoHeight={true}
           slidesPerView={'auto'}
           allowTouchMove={false}
+          speed={700}
 
         >
           {/* <SwiperSlide><Screen1 changeSlide={handleNext}></Screen1></SwiperSlide>
@@ -72,7 +77,13 @@ function App() {
           {isMobile && <SwiperSlide><Screen3 isScreen3Mobile={isScreen3Mobile} screen={screen} startGame={startGame}></Screen3></SwiperSlide>} */}
           <SwiperSlide><Screen4></Screen4></SwiperSlide>
         </Swiper>
+        <div className={style.lampBtm}>
+          <div className={style.lampBtm__wrapper}>
+            <img src="./images/lamp.svg" alt="lamp" className={style.lampImg} />
 
+          </div>
+
+        </div>
         {gap && <Footer gap={gap}></Footer>}
 
       </div>
