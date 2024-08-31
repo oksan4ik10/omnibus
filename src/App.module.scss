@@ -1,4 +1,5 @@
 .lampBtm {
+    display: block;
     position: fixed;
     top: 10vh;
     left: 0;
@@ -17,7 +18,8 @@
             position: absolute;
             top: 0;
             left: 0;
-            transform: rotate(-10deg) translateX(-18%) translateY(-6%);
+            width: 172vw;
+            transform: rotate(0deg) translateX(-34%) translateY(-5%);
         }
 
     }
@@ -26,7 +28,49 @@
 
 @media (min-width: 941px) {
     .lampBtm {
-        opacity: 0;
+        display: none;
+    }
+
+}
+
+@media (max-width:770px) {
+    .lampBtm {
+        &__wrapper {
+            height: 70vh;
+
+            .lampImg {
+                height: 100%;
+                width: 192vw;
+                transform: rotate(0deg) translateX(-39%) translateY(-5%);
+            }
+        }
+    }
+
+
+}
+
+.waterBtmM {
+    display: none;
+}
+
+@media (max-width:770px) {
+    .wrapper {
+        position: relative;
+    }
+
+    .waterBtmM {
+        display: block;
+        position: absolute;
+        bottom: -11vw;
+        right: 0;
+        z-index: -2;
+        background-color: var(--color-black);
+
+        img {
+            transform: rotate(143deg) translateX(-8%) translateY(-27%);
+            mix-blend-mode: luminosity;
+
+        }
     }
 
 }

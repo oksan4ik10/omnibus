@@ -8,6 +8,10 @@
     overflow-y: auto;
 }
 
+.waterBtmM {
+    display: none;
+}
+
 .cards {
     &__item {
         perspective: 2000px;
@@ -139,10 +143,16 @@
         height: 100%;
         width: auto;
     }
+
+
 }
 
 .header__img {
     position: relative;
+
+    .logoM {
+        display: none;
+    }
 }
 
 .wrapper .header__img .waterLogo {
@@ -442,9 +452,6 @@
 }
 
 @media (max-width: 940px) {
-    .container {
-        position: relative;
-    }
 
     .lampBtm {
         display: none;
@@ -466,4 +473,87 @@
     .lampPurpleCards {
         display: none;
     }
+
+    .logoD {
+        display: none;
+    }
+
+    .header__img .logoM {
+        display: block;
+    }
+
+
+}
+
+@media (max-width: 770px) {
+    .container {
+        --widthContainer: 90%;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        margin-bottom: 60px;
+
+        >*:last-child {
+            grid-column: 1/2;
+
+            &::after {
+                display: none;
+            }
+        }
+
+        >*:nth-child(odd) {
+            justify-self: center;
+        }
+
+        >*:nth-child(even) {
+            justify-self: center;
+        }
+
+    }
+
+    .btm {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 40px;
+        margin-bottom: 30px;
+        max-width: 320px;
+
+        p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+    }
+}
+
+@media (max-width: 570px) {
+    .wrapper {
+        .header {
+            margin-top: 40px;
+            margin-bottom: 50px;
+
+            &__counter {
+                span {
+                    font-size: 24px;
+
+                    &:last-child {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        .header__img {
+            width: 170px;
+            height: auto;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+
 }

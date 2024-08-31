@@ -17,7 +17,8 @@ function Screen4() {
                         <div className={style.waterLogo}>
                             <img src="./images/sceen2/water-btn.png" alt="water" />
                         </div>
-                        <img src="images/screen4/logoDesktop.png" alt="logo" />
+                        <img src="images/screen4/logo.png" alt="logo" className={style.logoM} />
+                        <img src="images/screen4/logoDesktop.png" alt="logo" className={style.logoD} />
 
                     </div>
                     <div className={style.header__counter}>
@@ -247,6 +248,8 @@ function Screen4() {
                 </div>
 
             </div>
+
+
         </div>
     );
 }

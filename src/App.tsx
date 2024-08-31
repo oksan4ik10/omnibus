@@ -63,10 +63,10 @@ function App() {
   }
   return (
     <>
-      <div className={"wrapper" + (isScreen4 ? " screen4" : "")} onScroll={scroll}>
+      <div className={"wrapper" + (isScreen4 ? " screen4" : "") + " " + style.wrapper} onScroll={scroll}>
         <Swiper
           ref={sliderRef}
-          autoHeight={true}
+          // autoHeight={true}
           slidesPerView={'auto'}
           allowTouchMove={false}
           speed={700}
@@ -83,6 +83,9 @@ function App() {
 
           </div>
 
+        </div>
+        <div className={style.waterBtmM}>
+          <img src="./images/screen4/water-purple.png" alt="water-purple" className={style.waterBtmMImg} />
         </div>
         {gap && <Footer gap={gap}></Footer>}
 
