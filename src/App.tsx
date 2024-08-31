@@ -80,6 +80,7 @@ function App() {
         <div className={style.lampBtm}>
           <div className={style.lampBtm__wrapper}>
             <img src="./images/lamp.svg" alt="lamp" className={style.lampImg} />
+            <img src="./images/screen4/waterLampBtmM.png" alt="water" className={style.waterLampBtmM} />
 
           </div>
 

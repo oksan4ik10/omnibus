@@ -23,15 +23,34 @@
         }
 
     }
+}
+
+.waterLampBtmM {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(-30%);
+    width: 150vw;
+    height: auto;
+    filter: contrast(200%) invert(100%);
+    opacity: .6;
+    // mix-blend-mode: difference;
 
 }
+
 
 @media (min-width: 941px) {
     .lampBtm {
         display: none;
     }
 
+    .waterLampBtmM {
+        display: none;
+    }
+
 }
+
 
 @media (max-width:770px) {
     .lampBtm {
@@ -53,6 +72,7 @@
     display: none;
 }
 
+
 @media (max-width:770px) {
     .wrapper {
         position: relative;
@@ -73,4 +93,13 @@
         }
     }
 
+}
+
+@media (max-width:570px) {
+
+    .waterLampBtmM {
+        transform: translateX(-60%) translateY(-12%);
+        width: 170vw;
+
+    }
 }
