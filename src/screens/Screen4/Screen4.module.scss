@@ -451,7 +451,7 @@
 
 }
 
-@media (max-width: 940px) {
+@media (max-width: 1300px) {
 
     .lampBtm {
         display: none;
@@ -467,6 +467,10 @@
     }
 
     .cards>*:nth-child(1)::after {
+        display: none;
+    }
+
+    .cards>*:last-child::after {
         display: none;
     }
 
@@ -496,10 +500,6 @@
 
         >*:last-child {
             grid-column: 1/2;
-
-            &::after {
-                display: none;
-            }
         }
 
         >*:nth-child(odd) {
