@@ -1,13 +1,13 @@
 import Card from "../../components/Card/Card";
+import Forms from "../../components/Forms/Forms";
 import style from "./Screen4.module.scss"
+import { disablePageScroll } from 'scroll-lock';
 function Screen4() {
-    const scroll = () => {
-        console.log("scroll");
-
-    }
+    disablePageScroll();
     return (
-        <div className={style.container} onScroll={scroll}>
 
+        <div className={style.container}>
+            <Forms></Forms>
             <div className={style.wrapper}>
                 <div className={style.header}>
                     <div className={style.lampLogo}>
