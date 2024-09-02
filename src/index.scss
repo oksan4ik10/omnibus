@@ -16,8 +16,8 @@
   --purple: #8F00FF;
   --bg-form: #FFFAF4;
 
-  --scrollbar-track-color: rgba(249, 221, 189, .5);
-  --scrollbar-color: rgba(223, 218, 215, .5);
+  --scrollbar-track-color: rgba(223, 218, 215, .3);
+  --scrollbar-color: rgba(249, 221, 189, .5);
   --scrollbar-width: 2px;
 
   --scrollbar-size: .2rem;
@@ -43,8 +43,6 @@ body {
 ::-webkit-scrollbar {
   height: var(--scrollbar-size);
   width: var(--scrollbar-size);
-  display: none;
-
 }
 
 ::-webkit-scrollbar-track {
