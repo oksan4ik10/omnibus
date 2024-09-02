@@ -31,7 +31,7 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%) translateY(-30%);
-    width: 150vw;
+    width: min(150vw, 1200px);
     height: auto;
     filter: contrast(200%) invert(100%);
     opacity: .6;

@@ -22,7 +22,7 @@
     backdrop-filter: blur(25.4px);
     background: linear-gradient(180.00deg, rgba(255, 255, 255, 0.26) 32.446%, rgba(255, 255, 255, 0) 51.579%, rgba(255, 255, 255, 0.2) 71.098%);
     position: absolute;
-    top: 40%;
+    top: 42%;
     transform: translateY(40%) translateX(70%) rotateZ(5deg) rotateY(10deg);
 
     span {
@@ -217,7 +217,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 70%;
+    width: min(70%, 1000px);
     transform: scale(0);
 
     img {

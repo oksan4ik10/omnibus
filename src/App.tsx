@@ -14,6 +14,7 @@ import Screen1 from './screens/Screen1/Screen1.tsx';
 import Screen2 from './screens/Screen2/Screen2.tsx';
 import Screen3 from './screens/Screen3/Screen3.tsx';
 import Screen4 from './screens/Screen4/Screen4.tsx';
+import Forms from './components/Forms/Forms.tsx';
 import { resize } from './resize.ts'
 
 import Footer from './components/Footer/Footer.tsx';
@@ -51,7 +52,7 @@ function App() {
     handleNext();
   }
 
-  const [isScreen4, setIsScreen4] = useState(true);
+  const [isScreen4, setIsScreen4] = useState(false);
   const startGame = () => {
     setIsScreen4(true);
     handleNext()
@@ -61,8 +62,13 @@ function App() {
     console.log("scrollllll");
 
   }
+  const [isForm, setIsForm] = useState(false);
+  const viewForm = () => {
+    setIsForm(true);
+  }
   return (
     <>
+
       <div className={"wrapper" + (isScreen4 ? " screen4" : "") + " " + style.wrapper} onScroll={scroll}>
         <Swiper
           ref={sliderRef}
@@ -72,22 +78,27 @@ function App() {
           speed={700}
 
         >
-          {/* <SwiperSlide><Screen1 changeSlide={handleNext}></Screen1></SwiperSlide>
+          <SwiperSlide><Screen1 changeSlide={handleNext}></Screen1></SwiperSlide>
           <SwiperSlide><Screen2 changeSlide={nextScreen3Mobile} isMobile={isMobile} screen={screen} startGame={startGame}></Screen2></SwiperSlide>
-          {isMobile && <SwiperSlide><Screen3 isScreen3Mobile={isScreen3Mobile} screen={screen} startGame={startGame}></Screen3></SwiperSlide>} */}
-          <SwiperSlide><Screen4></Screen4></SwiperSlide>
+          {isMobile && <SwiperSlide><Screen3 isScreen3Mobile={isScreen3Mobile} screen={screen} startGame={startGame}></Screen3></SwiperSlide>}
+          <SwiperSlide>
+
+            <Screen4 isScreen4={isScreen4} viewForm={viewForm}></Screen4>
+
+          </SwiperSlide>
         </Swiper>
-        <div className={style.lampBtm}>
+        {isForm && <Forms></Forms>}
+        {isScreen4 && <div className={style.lampBtm}>
           <div className={style.lampBtm__wrapper}>
             <img src="./images/lamp.svg" alt="lamp" className={style.lampImg} />
             <img src="./images/screen4/waterLampBtmM.png" alt="water" className={style.waterLampBtmM} />
 
           </div>
 
-        </div>
-        <div className={style.waterBtmM}>
+        </div>}
+        {isScreen4 && <div className={style.waterBtmM}>
           <img src="./images/screen4/water-purple.png" alt="water-purple" className={style.waterBtmMImg} />
-        </div>
+        </div>}
         {gap && <Footer gap={gap}></Footer>}
 
       </div>
