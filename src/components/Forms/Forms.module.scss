@@ -24,7 +24,7 @@
     justify-content: center;
     height: 64.8vh;
     min-height: 550px;
-    max-height: 800px;
+    max-height: 664px;
 
     &__wrapper {
         display: flex;
@@ -47,15 +47,22 @@
     &__text {
         color: rgb(41, 48, 55);
         font-family: Inter;
-        font-size: 20px;
+        font-size: min(20px, calc(12px + (20 - 12) * ((100vw - 390px) / (1440 - 390))));
         font-weight: 400;
-        line-height: 30px;
+        line-height: 150%;
         text-align: center;
         width: 73%;
     }
 
+    &__items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
     &__label {
-        width: 51%;
+        width: 60%;
         min-width: 350px;
 
         input {
@@ -69,7 +76,7 @@
                 color: #D4D7D9;
                 font-family: Inter;
                 font-style: italic;
-                font-size: 20px;
+                font-size: min(20px, calc(12px + (20 - 12) * ((100vw - 390px) / (1440 - 390))));
                 font-weight: 400;
                 line-height: 30px;
                 text-align: left;
@@ -82,15 +89,16 @@
         display: flex;
         align-items: center;
         gap: 24px;
-        width: 51%;
+        width: 60%;
         min-width: 350px;
+        margin-top: 10px;
 
         span {
             color: rgb(41, 48, 55);
             font-family: Inter;
-            font-size: 12px;
+            font-size: min(12px, calc(8px + (12 - 8) * ((100vw - 390px) / (1440 - 390))));
             font-weight: 400;
-            line-height: 15px;
+            line-height: 125%;
             text-align: left;
 
             a {
@@ -111,24 +119,57 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    width: 1.5em;
-    height: 1.5em;
+    width: 30px;
+    height: 30px;
     font: inherit;
-    border: 0.1em solid var(--peach);
-    margin-bottom: -0.125em;
+    border: 1px solid var(--peach);
+    margin-bottom: 0;
 }
 
 .form__checkbox input[type=checkbox] {
-    border-radius: 0.25em;
+    border-radius: 10%
 }
 
 .form__checkbox input:checked {
-    border-color: transparent;
+    border-color: var(--peach);
     background: var(--orange) border-box;
-    box-shadow: 0 0 0 0.1em inset #fff;
+    box-shadow: 0 0 0 3px inset #fff;
 }
 
-.form__checkbox input:not(:checked):hover {
-    border-color: transparent;
-    background: linear-gradient(#fff, #fff) padding-box, var(--orange) border-box;
+// .form__checkbox input:not(:checked):hover {
+//     border-color: transparent;
+//     background: linear-gradient(#fff, #fff) padding-box, var(--orange) border-box;
+// }
+@media (max-width: 650px) {
+    .form {
+        width: 82%;
+        min-height: 400px;
+        max-height: 500px;
+        height: 55.8vh;
+
+        &__text {
+            width: 86%;
+
+        }
+
+        &__label {
+            min-width: 280px;
+
+            input {
+                padding: 12px 15px;
+            }
+        }
+
+        &__checkbox {
+            min-width: 280px;
+            gap: 14px;
+        }
+
+        &__btn {
+            text-transform: uppercase;
+        }
+
+    }
+
+
 }
