@@ -1,7 +1,6 @@
 .card {
-    position: relative;
     background: var(--white);
-    height: 634px;
+    height: 100%;
     width: 360px;
     overflow: hidden;
     padding: 0px 8px 69px;
@@ -9,10 +8,6 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 10px;
-
-    // >* {
-    //     flex: 0 0 auto;
-    // }
 
     .card__photo {
         flex: 0 0 215px;
@@ -145,13 +140,6 @@
     left: -46px;
 }
 
-.wrapper {
-    position: relative;
-    display: inline-block;
-    perspective: 0;
-
-}
-
 .btnImg {
     position: absolute;
     top: -25px;
@@ -160,14 +148,17 @@
 }
 
 .wrapper {
-    box-shadow: 0px 18px 100px 0px rgba(66, 227, 180, 0), -2px -11px 44.2px 0px rgb(241, 232, 19, 0);
+    box-shadow: none;
     transform: rotateZ(0deg);
+    height: 634px;
+    overflow: hidden;
+    perspective: 0;
 
 }
 
-.wrapper.odd {
-    transform: rotateZ(-1deg);
-}
+// .wrapper.odd {
+//     transform: rotateZ(-1deg);
+// }
 
 .wrapper.userClick {
     box-shadow: 0px 18px 100px 0px rgb(66, 227, 180), -2px -11px 44.2px 0px rgb(241, 232, 19);
@@ -199,11 +190,10 @@
 @media (max-width: 570px) {
     .card {
         width: 318px;
-        height: 564px;
         padding-bottom: 55px;
 
         .card__photo {
-            height: 183px;
+            flex: 0 0 183px;
             mask: url(images/maskM.svg);
             -webkit-mask: url(images/maskM.svg);
         }

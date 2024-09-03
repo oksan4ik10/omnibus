@@ -16,7 +16,7 @@
     &__item {
         perspective: 2000px;
         position: relative;
-        height: 634px;
+        height: 633px;
         width: 360px;
 
         &:hover .card__front {
@@ -26,6 +26,7 @@
 
         &:hover .card__back {
             transform: rotateY(360deg);
+
 
         }
     }
