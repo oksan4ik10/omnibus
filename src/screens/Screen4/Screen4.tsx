@@ -1,7 +1,6 @@
 
 
 import Card from "../../components/Card/Card";
-import Answer from "../../components/Answer/Answer";
 import style from "./Screen4.module.scss"
 import { disablePageScroll } from 'scroll-lock';
 
@@ -44,7 +43,7 @@ function Screen4(props: IProps) {
 
                         <div className={style.cards__item}>
                             <div className={style.card__front + " " + style.card}>
-                                <Answer></Answer>
+                                <Card screen4={true} isUser={true}></Card>
                             </div>
                             <div className={style.card__back + " " + style.card}>
                                 <Card screen4={true} isUser={true}></Card>

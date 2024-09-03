@@ -16,18 +16,18 @@
     &__item {
         perspective: 2000px;
         position: relative;
-        height: 502px;
+        height: 634px;
         width: 360px;
 
-        // &:hover .card__front {
-        //     transform: rotateY(180deg);
+        &:hover .card__front {
+            transform: rotateY(180deg);
 
-        // }
+        }
 
-        // &:hover .card__back {
-        //     transform: rotateY(360deg);
+        &:hover .card__back {
+            transform: rotateY(360deg);
 
-        // }
+        }
     }
 
     .card {
@@ -558,7 +558,7 @@
 
     .cards__item {
         width: 318px;
-        height: 443px;
+        height: 564px;
     }
 
 

@@ -1,21 +1,23 @@
 .card {
     position: relative;
     background: var(--white);
-    height: 502px;
+    height: 634px;
     width: 360px;
     overflow: hidden;
     padding: 0px 8px 69px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 10px;
 
-    >* {
-        flex: 0 0 auto;
-    }
+    // >* {
+    //     flex: 0 0 auto;
+    // }
 
     .card__photo {
+        flex: 0 0 215px;
         background-color: var(--card-bg);
-        height: 215px;
+        // height: 215px;
         overflow: hidden;
         mask: url("images/mask.svg");
         -webkit-mask: url("images/mask.svg");
@@ -31,10 +33,11 @@
 }
 
 .info {
+    flex: 1 0 auto;
     padding: 0px 22px;
     display: flex;
     flex-direction: column;
-    gap: 27px;
+    gap: 10px;
     color: var(--dark-grey);
 
     &__titleLogo {
@@ -97,12 +100,13 @@
         font-size: 13px;
         font-weight: 400;
         line-height: 16px;
+        margin-top: 10px;
     }
 }
 
 .card__btns {
+    flex: 0 0 44px;
     background: var(--orange);
-    height: 44px;
     display: flex;
     width: 100%;
     padding: 6px 0px;
@@ -195,7 +199,7 @@
 @media (max-width: 570px) {
     .card {
         width: 318px;
-        height: 443px;
+        height: 564px;
         padding-bottom: 55px;
 
         .card__photo {
