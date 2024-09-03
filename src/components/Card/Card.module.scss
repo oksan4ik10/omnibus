@@ -188,6 +188,10 @@
 }
 
 @media (max-width: 570px) {
+    .wrapper {
+        height: 564px;
+    }
+
     .card {
         width: 318px;
         padding-bottom: 55px;
