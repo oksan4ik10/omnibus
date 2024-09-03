@@ -54,14 +54,10 @@ function App() {
 
   const [isScreen4, setIsScreen4] = useState(false);
   const startGame = () => {
-    setIsScreen4(true);
+    setTimeout(() => { setIsScreen4(true); }, 1200)
     handleNext()
   }
 
-  const scroll = () => {
-    console.log("scrollllll");
-
-  }
   const [isForm, setIsForm] = useState(false);
   const viewForm = () => {
     setIsForm(true);
@@ -69,16 +65,16 @@ function App() {
   return (
     <>
 
-      <div className={"wrapper" + (isScreen4 ? " screen4" : "") + " " + style.wrapper} onScroll={scroll}>
+      <div className={"wrapper" + (isScreen4 ? " screen4" : "") + " " + style.wrapper}>
         <Swiper
           ref={sliderRef}
-          // autoHeight={true}
+          autoHeight={true}
           slidesPerView={'auto'}
           allowTouchMove={false}
-          speed={700}
+          speed={1200}
 
         >
-          {/* <SwiperSlide><Screen1 changeSlide={handleNext}></Screen1></SwiperSlide> */}
+          <SwiperSlide><Screen1 changeSlide={handleNext}></Screen1></SwiperSlide>
           <SwiperSlide><Screen2 changeSlide={nextScreen3Mobile} isMobile={isMobile} screen={screen} startGame={startGame}></Screen2></SwiperSlide>
           {isMobile && <SwiperSlide><Screen3 isScreen3Mobile={isScreen3Mobile} screen={screen} startGame={startGame}></Screen3></SwiperSlide>}
           <SwiperSlide>
