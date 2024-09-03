@@ -1,5 +1,6 @@
 
 
+
 import Card from "../../components/Card/Card";
 import style from "./Screen4.module.scss"
 import { disablePageScroll } from 'scroll-lock';
@@ -7,17 +8,20 @@ import { disablePageScroll } from 'scroll-lock';
 interface IProps {
     viewForm: () => void;
     isScreen4: boolean;
+    openAnswer: () => void;
 }
 function Screen4(props: IProps) {
-    const { viewForm, isScreen4 } = props;
+    const { openAnswer, viewForm, isScreen4 } = props;
 
     const clickBtn = () => {
         viewForm();
         disablePageScroll();
 
     }
+
     return (
         <>
+
             <div className={style.container}>
 
                 <div className={style.wrapper}>
@@ -39,7 +43,7 @@ function Screen4(props: IProps) {
                             <span>15</span>
                         </div>
                     </div>
-                    <div className={style.cards}>
+                    <div className={style.cards} onClick={openAnswer}>
 
                         <div className={style.cards__item}>
                             <div className={style.card__front + " " + style.card}>

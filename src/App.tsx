@@ -18,6 +18,8 @@ import Forms from './components/Forms/Forms.tsx';
 import { resize } from './resize.ts'
 
 import Footer from './components/Footer/Footer.tsx';
+import Answer from './components/Answer/Answer.tsx';
+import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 
 resize();
 function App() {
@@ -52,7 +54,7 @@ function App() {
     handleNext();
   }
 
-  const [isScreen4, setIsScreen4] = useState(false);
+  const [isScreen4, setIsScreen4] = useState(true);
   const startGame = () => {
     setTimeout(() => { setIsScreen4(true); }, 1200)
     handleNext()
@@ -61,6 +63,15 @@ function App() {
   const [isForm, setIsForm] = useState(false);
   const viewForm = () => {
     setIsForm(true);
+  }
+  const [isAnswer, setIsAnswer] = useState(true);
+  const openAnswer = () => {
+    setIsAnswer(true)
+    disablePageScroll();
+  }
+  const closeAnswer = () => {
+    setIsAnswer(false);
+    enablePageScroll();
   }
   return (
     <>
@@ -74,16 +85,17 @@ function App() {
           speed={1200}
 
         >
-          <SwiperSlide><Screen1 changeSlide={handleNext}></Screen1></SwiperSlide>
+          {/* <SwiperSlide><Screen1 changeSlide={handleNext}></Screen1></SwiperSlide>
           <SwiperSlide><Screen2 changeSlide={nextScreen3Mobile} isMobile={isMobile} screen={screen} startGame={startGame}></Screen2></SwiperSlide>
-          {isMobile && <SwiperSlide><Screen3 isScreen3Mobile={isScreen3Mobile} screen={screen} startGame={startGame}></Screen3></SwiperSlide>}
+          {isMobile && <SwiperSlide><Screen3 isScreen3Mobile={isScreen3Mobile} screen={screen} startGame={startGame}></Screen3></SwiperSlide>} */}
           <SwiperSlide>
 
-            <Screen4 isScreen4={isScreen4} viewForm={viewForm}></Screen4>
+            <Screen4 openAnswer={openAnswer} isScreen4={isScreen4} viewForm={viewForm}></Screen4>
 
           </SwiperSlide>
         </Swiper>
         {isForm && <Forms></Forms>}
+        {isAnswer && <Answer closeAnswer={closeAnswer}></Answer>}
         {isScreen4 && <div className={style.lampBtm}>
           <div className={style.lampBtm__wrapper}>
             <img src="./images/lamp.svg" alt="lamp" className={style.lampImg} />
