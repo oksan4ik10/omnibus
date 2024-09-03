@@ -106,6 +106,8 @@
     width: 100%;
     padding: 6px 0px;
     cursor: pointer;
+    width: calc(100% + 16px);
+    margin-left: -8px;
 
     span {
         color: var(--white);
@@ -140,12 +142,6 @@
     left: -46px;
 }
 
-.btnImg {
-    position: absolute;
-    top: -25px;
-    right: -25px;
-    z-index: 99;
-}
 
 .wrapper {
     box-shadow: none;
@@ -173,8 +169,7 @@
 
         .card__btns {
             background: #08A652;
-            width: calc(100% + 16px);
-            margin-left: -8px;
+
         }
 
 
@@ -184,6 +179,12 @@
 
     .info__job span:first-child {
         color: #08A652;
+    }
+}
+
+.wrapper.pBtm {
+    .card {
+        padding-bottom: 0;
     }
 }
 

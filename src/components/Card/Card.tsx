@@ -8,10 +8,7 @@ interface IProps {
 function Card(props: IProps) {
     const { screen4, isUser, isOdd } = props;
     return (
-        <div className={style.wrapper + " " + (isUser ? style.userClick : "") + " " + (isOdd ? style.odd : "")}>
-            {!screen4 && <div className={style.btnImg}>
-                <img src="images/sceen2/btn-card.png" alt="calc" />
-            </div>}
+        <div className={style.wrapper + " " + (isUser ? style.userClick : "") + " " + (isOdd ? style.odd : "") + " " + (!screen4 ? style.pBtm : "")} >
             <div className={style.card}>
 
                 <div className={style.card__photo}>
@@ -40,7 +37,7 @@ function Card(props: IProps) {
                         <img src="images/cards/water.svg" alt="water" />
                     </div>
                 </div>
-                {isUser && <div className={style.card__btns}>
+                {(isUser || !screen4) && <div className={style.card__btns}>
                     <span>По специальности</span>
                     <span>Не по специальности</span>
                 </div>}

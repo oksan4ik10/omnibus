@@ -83,6 +83,15 @@
     .man {
         transform: scale(.7) rotate(-15deg) translateX(220px) translateY(var(--translateY));
         box-shadow: -30.58px 34.56px 5.32px 0px rgba(0, 0, 0, 0.5);
+        position: relative;
+
+        .btnImg {
+            position: absolute;
+            top: -25px;
+            right: -25px;
+            z-index: 99;
+        }
+
     }
 
     .bookImg {
@@ -272,7 +281,7 @@
         }
 
         .man {
-            transform: scale(1) rotate(-15deg);
+            transform: scale(1) rotate(-8deg);
         }
 
         .bookImg {
