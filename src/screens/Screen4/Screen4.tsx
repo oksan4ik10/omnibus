@@ -4,6 +4,7 @@
 import Card from "../../components/Card/Card";
 import style from "./Screen4.module.scss"
 import { disablePageScroll } from 'scroll-lock';
+import data from "../../data/cards.json"
 
 interface IProps {
     viewForm: () => void;
@@ -44,187 +45,20 @@ function Screen4(props: IProps) {
                         </div>
                     </div>
                     <div className={style.cards} onClick={openAnswer}>
-
-                        <div className={style.cards__item}>
-                            <div className={style.card__front + " " + style.card}>
-                                <Card screen4={true} isUser={true}></Card>
-                            </div>
-                            <div className={style.card__back + " " + style.card}>
-                                <Card screen4={true} isUser={true}></Card>
-                            </div>
-
-
-
-
-                        </div>
-                        <div className={style.cards__item}>
-                            <div className={style.card__front + " " + style.card}>
-                                <Card screen4={true} isOdd={true} isUser={false}></Card>
-                            </div>
-                            <div className={style.card__back + " " + style.card}>
-                                <Card screen4={true} isOdd={true} isUser={true}></Card>
-                            </div>
+                        {data.map((item, index) =>
+                            <div className={style.cards__item} key={index}>
+                                <div className={style.card__front + " " + style.card}>
+                                    <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={false}></Card>
+                                </div>
+                                <div className={style.card__back + " " + style.card}>
+                                    <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true}></Card>
+                                </div>
 
 
 
 
-                        </div>
-                        <div className={style.cards__item}>
-                            <div className={style.card__front + " " + style.card}>
-                                <Card screen4={true} isUser={false}></Card>
-                            </div>
-                            <div className={style.card__back + " " + style.card}>
-                                <Card screen4={true} isUser={true}></Card>
-                            </div>
+                            </div>)}
 
-
-
-
-                        </div>
-                        <div className={style.cards__item}>
-                            <div className={style.card__front + " " + style.card}>
-                                <Card screen4={true} isUser={false}></Card>
-                            </div>
-                            <div className={style.card__back + " " + style.card}>
-                                <Card screen4={true} isUser={true}></Card>
-                            </div>
-
-
-
-
-                        </div>
-                        <div className={style.cards__item}>
-                            <div className={style.card__front + " " + style.card}>
-                                <Card screen4={true} isUser={false}></Card>
-                            </div>
-                            <div className={style.card__back + " " + style.card}>
-                                <Card screen4={true} isUser={true}></Card>
-                            </div>
-
-
-
-
-                        </div>
-                        <div className={style.cards__item}>
-                            <div className={style.card__front + " " + style.card}>
-                                <Card screen4={true} isUser={false}></Card>
-                            </div>
-                            <div className={style.card__back + " " + style.card}>
-                                <Card screen4={true} isUser={true}></Card>
-                            </div>
-
-
-
-
-                        </div>
-                        <div className={style.cards__item}>
-                            <div className={style.card__front + " " + style.card}>
-                                <Card screen4={true} isUser={false}></Card>
-                            </div>
-                            <div className={style.card__back + " " + style.card}>
-                                <Card screen4={true} isUser={true}></Card>
-                            </div>
-
-
-
-
-                        </div>
-                        <div className={style.cards__item}>
-                            <div className={style.card__front + " " + style.card}>
-                                <Card screen4={true} isOdd={true} isUser={false}></Card>
-                            </div>
-                            <div className={style.card__back + " " + style.card}>
-                                <Card screen4={true} isOdd={true} isUser={true}></Card>
-                            </div>
-
-
-
-
-                        </div>
-                        <div className={style.cards__item}>
-                            <div className={style.card__front + " " + style.card}>
-                                <Card screen4={true} isUser={false}></Card>
-                            </div>
-                            <div className={style.card__back + " " + style.card}>
-                                <Card screen4={true} isUser={true}></Card>
-                            </div>
-
-
-
-
-                        </div>
-                        <div className={style.cards__item}>
-                            <div className={style.card__front + " " + style.card}>
-                                <Card screen4={true} isUser={false}></Card>
-                            </div>
-                            <div className={style.card__back + " " + style.card}>
-                                <Card screen4={true} isUser={true}></Card>
-                            </div>
-
-
-
-
-                        </div>
-                        <div className={style.cards__item}>
-                            <div className={style.card__front + " " + style.card}>
-                                <Card screen4={true} isUser={false}></Card>
-                            </div>
-                            <div className={style.card__back + " " + style.card}>
-                                <Card screen4={true} isUser={true}></Card>
-                            </div>
-
-
-
-
-                        </div>
-                        <div className={style.cards__item}>
-                            <div className={style.card__front + " " + style.card}>
-                                <Card screen4={true} isUser={false}></Card>
-                            </div>
-                            <div className={style.card__back + " " + style.card}>
-                                <Card screen4={true} isUser={true}></Card>
-                            </div>
-
-
-
-
-                        </div>
-                        <div className={style.cards__item}>
-                            <div className={style.card__front + " " + style.card}>
-                                <Card screen4={true} isUser={false}></Card>
-                            </div>
-                            <div className={style.card__back + " " + style.card}>
-                                <Card screen4={true} isUser={true}></Card>
-                            </div>
-
-
-
-
-                        </div>
-                        <div className={style.cards__item}>
-                            <div className={style.card__front + " " + style.card}>
-                                <Card screen4={true} isOdd={true} isUser={false}></Card>
-                            </div>
-                            <div className={style.card__back + " " + style.card}>
-                                <Card screen4={true} isOdd={true} isUser={true}></Card>
-                            </div>
-
-
-
-
-                        </div>
-                        <div className={style.cards__item}>
-                            <div className={style.card__front + " " + style.card}>
-                                <Card screen4={true} isUser={false}></Card>
-                            </div>
-                            <div className={style.card__back + " " + style.card}>
-                                <Card screen4={true} isUser={true}></Card>
-                            </div>
-
-
-
-
-                        </div>
 
 
                     </div>

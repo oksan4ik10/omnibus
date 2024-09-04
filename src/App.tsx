@@ -64,7 +64,7 @@ function App() {
   const viewForm = () => {
     setIsForm(true);
   }
-  const [isAnswer, setIsAnswer] = useState(true);
+  const [isAnswer, setIsAnswer] = useState(false);
   const openAnswer = () => {
     setIsAnswer(true)
     disablePageScroll();

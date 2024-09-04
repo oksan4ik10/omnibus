@@ -1,37 +1,42 @@
+import { ICard } from "../../models/type";
 import style from "./Card.module.scss"
+import { CSSProperties } from "react";
 
 interface IProps {
     screen4?: boolean;
     isUser?: boolean;
     isOdd?: boolean;
+    item: ICard;
+    index: number;
 }
 function Card(props: IProps) {
-    const { screen4, isUser, isOdd } = props;
+    const { screen4, isUser, isOdd, item, index } = props;
+
     return (
-        <div className={style.wrapper + " " + (isUser ? style.userClick : "") + " " + (isOdd ? style.odd : "") + " " + (!screen4 ? style.pBtm : "")} >
+        <div className={style.wrapper + " " + (isUser ? style.userClick : "") + " " + (isOdd ? style.odd : "") + " " + (!screen4 ? style.pBtm : "") + " " + (item.bgPhoto ? "" : style.bgGradient)} style={{ "--colorBtn": item.colorBtn, "--color-job": item.colorJob, "--color-bg": item.bgPhoto } as CSSProperties}>
             <div className={style.card}>
 
                 <div className={style.card__photo}>
-                    <img src="/images/cards/1.png" alt="test" />
+                    <img src={`/images/cards/${index}.png`} alt="test" />
 
                 </div>
                 <div className={style.card__info + " " + style.info}>
                     <div className={style.info__titleLogo}>
                         <div className={style.info__title}>
-                            <span className={style.info__name}>Ксюша</span>
-                            <span className={style.info__age}>23 года</span>
+                            <span className={style.info__name}>{item.name}</span>
+                            <span className={style.info__age}>{item.age}</span>
                         </div>
                         {isUser && <div className={style.info__logo}>
-                            <img src="images/cards/company/1.png" alt="sber" />
+                            <img src={`/images/cards/company/${index}.png`} alt="sber" />
                         </div>}
                     </div>
 
                     <div className={style.info__job}>
-                        <span>FutureToday </span>
-                        <span>Старший бренд-менеджер в департаменте маркетинга в группе по управлению брендом Flash Up</span>
+                        <span dangerouslySetInnerHTML={{ __html: item.work }} />
+                        <span dangerouslySetInnerHTML={{ __html: item.workDesc }} />
                     </div>
                     <div className={style.info__text}>
-                        <span>На вопрос родственников «чем ты занимаешься?» отвечаю: делаю так, чтобы безалкогольные бренды росли и приносили хорошие деньги нашей компании:) Я управляю всеми аспектами бренда: от стратегии до упаковки. Результаты своей работы вижу на полках магазина — каждый раз долго любуюсь какой‑нибудь бутылкой кваса, зная, что она когда‑то была у меня в разработке в ноутбуке. А теперь красуется здесь!</span>
+                        <span dangerouslySetInnerHTML={{ __html: item.cardDesc }} />
                     </div>
                     <div className={style.water}>
                         <img src="images/cards/water.svg" alt="water" />
