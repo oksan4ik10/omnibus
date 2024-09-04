@@ -27,7 +27,7 @@
     width: 100%;
     overflow: hidden;
     padding: 0px 30px;
-    padding-bottom: min(2vh, 30px);
+    padding-bottom: min(4vh, 40px);
     display: flex;
     flex-direction: column;
 
@@ -66,7 +66,7 @@
     &__arrow {
         position: relative;
         z-index: 2;
-        margin-top: min(2vh, 30px);
+        margin-top: min(4.9vh, 51px);
         flex: 0 0 27px;
         height: 27px;
 
@@ -207,7 +207,7 @@
 
 }
 
-@media (max-width: 570px) {
+@media (max-width:800px) {
 
 
     .wrapper {
