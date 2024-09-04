@@ -2,6 +2,7 @@
 
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 import {
   useWindowSize
 } from '@react-hook/window-size'
@@ -19,7 +20,9 @@ import { resize } from './resize.ts'
 
 import Footer from './components/Footer/Footer.tsx';
 import Answer from './components/Answer/Answer.tsx';
-import { disablePageScroll, enablePageScroll } from 'scroll-lock';
+
+
+import data from "./data/cards.json"
 
 resize();
 function App() {
@@ -65,7 +68,13 @@ function App() {
     setIsForm(true);
   }
   const [isAnswer, setIsAnswer] = useState(false);
-  const openAnswer = () => {
+  const [isWin, setIsWin] = useState(false);
+  const [answerData, setAnswerData] = useState(data[0])
+  const [doubleClick, setDoubleClick] = useState(false);
+  const openAnswer = (index: number, isDoubleClick: boolean, win: boolean) => {
+    setIsWin(win)
+    setAnswerData(data[index])
+    setDoubleClick(isDoubleClick)
     setIsAnswer(true)
     disablePageScroll();
   }
@@ -95,7 +104,7 @@ function App() {
           </SwiperSlide>
         </Swiper>
         {isForm && <Forms></Forms>}
-        {isAnswer && <Answer closeAnswer={closeAnswer}></Answer>}
+        {isAnswer && <Answer isWin={isWin} doubleClick={doubleClick} data={answerData} closeAnswer={closeAnswer}></Answer>}
         {isScreen4 && <div className={style.lampBtm}>
           <div className={style.lampBtm__wrapper}>
             <img src="./images/lamp.svg" alt="lamp" className={style.lampImg} />

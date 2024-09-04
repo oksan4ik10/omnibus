@@ -110,6 +110,7 @@
     width: calc(100% + 16px);
     margin-left: -8px;
 
+
     span {
         color: var(--white);
         flex: 1 0 50%;
@@ -121,6 +122,7 @@
         font-weight: 500;
         line-height: 16px;
         text-align: center;
+        cursor: pointer;
     }
 
     span:first-child {
@@ -141,6 +143,7 @@
     position: absolute;
     bottom: -219px;
     left: -46px;
+    z-index: -1;
 }
 
 

@@ -1,9 +1,15 @@
+import { ICard } from "../../models/type";
 import style from "./Answer.module.scss"
 interface IProps {
     closeAnswer: () => void;
+    data: ICard;
+    doubleClick: boolean;
+    isWin: boolean;
 }
 function Answer(props: IProps) {
-    const { closeAnswer } = props;
+    const { closeAnswer, data } = props;
+    console.log(data);
+
     return (
         <div className={style.container}>
             <div className={style.wrapper}>

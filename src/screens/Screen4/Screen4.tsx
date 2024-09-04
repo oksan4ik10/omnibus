@@ -5,11 +5,12 @@ import Card from "../../components/Card/Card";
 import style from "./Screen4.module.scss"
 import { disablePageScroll } from 'scroll-lock';
 import data from "../../data/cards.json"
+import { useState } from "react";
 
 interface IProps {
     viewForm: () => void;
     isScreen4: boolean;
-    openAnswer: () => void;
+    openAnswer: (index: number, isDoubleClick: boolean, isWin: boolean) => void;
 }
 function Screen4(props: IProps) {
     const { openAnswer, viewForm, isScreen4 } = props;
@@ -19,6 +20,18 @@ function Screen4(props: IProps) {
         disablePageScroll();
 
     }
+    const [userAnswer, setUserAnswer] = useState<boolean[]>([]);
+    const clickCard = (index: number) => {
+        if (!userAnswer[index]) return;
+        openAnswer(index, true, false);
+    }
+    const clickAnswerUser = (index: number, answer: string) => {
+        userAnswer[index] = true;
+        setUserAnswer(userAnswer);
+        openAnswer(index, false, data[index].answerRight === answer);
+
+    }
+
 
     return (
         <>
@@ -44,14 +57,14 @@ function Screen4(props: IProps) {
                             <span>15</span>
                         </div>
                     </div>
-                    <div className={style.cards} onClick={openAnswer}>
+                    <div className={style.cards}>
                         {data.map((item, index) =>
-                            <div className={style.cards__item} key={index}>
+                            <div className={style.cards__item} key={index} onClick={() => clickCard(index)}>
                                 <div className={style.card__front + " " + style.card}>
                                     <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={false}></Card>
                                 </div>
                                 <div className={style.card__back + " " + style.card}>
-                                    <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true}></Card>
+                                    <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true} clickAnswerUser={(answer: string) => clickAnswerUser(index, answer)}></Card>
                                 </div>
 
 

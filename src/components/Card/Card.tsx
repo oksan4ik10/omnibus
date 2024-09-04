@@ -8,9 +8,15 @@ interface IProps {
     isOdd?: boolean;
     item: ICard;
     index: number;
+    clickAnswerUser?: (answer: string) => void;
 }
 function Card(props: IProps) {
-    const { screen4, isUser, isOdd, item, index } = props;
+    const { screen4, isUser, isOdd, item, index, clickAnswerUser } = props;
+
+    const click = (answer: string) => {
+        if (!clickAnswerUser) return;
+        clickAnswerUser(answer)
+    }
 
     return (
         <div className={style.wrapper + " " + (isUser ? style.userClick : "") + " " + (isOdd ? style.odd : "") + " " + (!screen4 ? style.pBtm : "") + " " + (item.bgPhoto ? "" : style.bgGradient)} style={{ "--colorBtn": item.colorBtn, "--color-job": item.colorJob, "--color-bg": item.bgPhoto } as CSSProperties}>
@@ -43,8 +49,8 @@ function Card(props: IProps) {
                     </div>
                 </div>
                 {(isUser || !screen4) && <div className={style.card__btns}>
-                    <span>По специальности</span>
-                    <span>Не по специальности</span>
+                    <span onClick={() => click('right')}>По специальности</span>
+                    <span onClick={() => click('left')}>Не по специальности</span>
                 </div>}
             </div>
         </div>
