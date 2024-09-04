@@ -13,20 +13,49 @@
     justify-content: center;
 }
 
+.wrapper {
+    height: 90vh;
+    max-height: 1000px;
+    width: 60vh;
+    max-width: 620px;
+}
+
 .card {
     position: relative;
     background: var(--white);
-    height: 502px;
-    width: 360px;
+    height: 100%;
+    width: 100%;
     overflow: hidden;
-    padding: 0px 8px;
-    padding-top: 110px;
+    padding: 0px 30px;
+    padding-bottom: min(2vh, 30px);
+    display: flex;
+    flex-direction: column;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("images/cards/water-top.svg") no-repeat;
+        background-position: top right;
+        background-size: 100%;
+        z-index: 1;
+
+    }
+
+    // padding-top: 110px;
 
     &__answer {
-        position: absolute;
-        top: 10px;
-        left: 30px;
-        height: 60px;
+        // position: absolute;
+        // top: 10px;
+        // left: 30px;
+        flex: 0 0 auto;
+        height: 10.6vh;
+        max-height: 109px;
+        margin-top: min(3vh, 38px);
+        margin-bottom: min(5.9vh, 61px);
 
         img {
             width: auto;
@@ -35,10 +64,11 @@
     }
 
     &__arrow {
-        position: absolute;
-        bottom: 30px;
-        left: 30px;
-        height: 20px;
+        position: relative;
+        z-index: 2;
+        margin-top: min(2vh, 30px);
+        flex: 0 0 27px;
+        height: 27px;
 
         img {
             width: auto;
@@ -47,7 +77,10 @@
     }
 
     .info {
-        padding: 0px 22px;
+        position: relative;
+        z-index: 2;
+        flex: 1;
+
         display: flex;
         flex-direction: column;
         gap: 14px;
@@ -60,19 +93,37 @@
 
         }
 
-        &__logo {
-            img {
-                height: 27px;
-                width: auto;
+
+        &__job {
+            display: flex;
+            flex-direction: column;
+            font-family: Inter;
+            font-size: 19px;
+            font-weight: 500;
+            line-height: 120%;
+
+            span:nth-child(1) {
+                font-weight: 600;
+                color: var(--orange);
+                font-size: 22px;
             }
         }
 
+        &__wrapperText {
+            flex: 1;
+            position: relative;
+        }
+
         &__text {
+            position: absolute;
+            top: 0;
+            left: 0;
             font-family: Inter;
-            font-size: 13px;
+            font-size: 20px;
             font-weight: 400;
-            line-height: 16px;
-            max-height: 260px;
+            line-height: 123%;
+            height: 100%;
+            width: 100%;
             overflow-y: auto;
 
             p:not(:last-child) {
@@ -89,7 +140,7 @@
 
         &__name {
             font-family: Cormorant Infant;
-            font-size: 32px;
+            font-size: 44px;
             font-weight: 700;
         }
 
@@ -101,42 +152,14 @@
             justify-content: center;
             background-color: var(--peach);
             font-family: Inter;
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 700;
             border-radius: 15px;
         }
     }
 }
 
-@media (max-width: 570px) {
-    .card {
-        width: 318px;
-        height: 443px;
-        padding-bottom: 55px;
-    }
 
-    .info {
-        &__name {
-            font-size: 28px;
-        }
-
-        &__title {
-            gap: 2px;
-        }
-
-        &__age {
-            font-size: 14px;
-            height: 26px;
-        }
-
-        &__text {
-            font-size: 12px;
-        }
-
-    }
-
-
-}
 
 .rect {
     position: absolute;
@@ -147,4 +170,96 @@
     background: rgb(33, 160, 56);
     mask: url("images/test.png");
     -webkit-mask: url("images/test.png");
+}
+
+@media ((min-width: 1000px) and (max-height:900px)) {
+    .card {
+        &__answer {
+            height: 7vh;
+            margin-top: 2vh;
+            margin-bottom: 2vh;
+        }
+
+
+        .info {
+            &__name {
+                font-size: 32px;
+            }
+
+            &__age {
+                font-size: 16px;
+            }
+
+            &__text {
+                font-size: 13px;
+            }
+
+            &__job {
+
+                font-size: 13px;
+
+                span:nth-child(1) {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+}
+
+@media (max-width: 570px) {
+
+
+    .wrapper {
+        height: 564px;
+        width: 318px;
+    }
+
+    .card {
+        height: 100%;
+        padding-bottom: 37px;
+
+        &__answer {
+            height: 56px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        &__arrow {
+            height: 14px;
+        }
+
+        .info {
+            &__name {
+                font-size: 23px;
+            }
+
+            &__title {
+                gap: 2px;
+            }
+
+            &__age {
+                font-size: 10px;
+                height: 23px;
+            }
+
+            &__text {
+                font-size: 10px;
+            }
+
+            &__job {
+
+                font-size: 10px;
+
+                span:nth-child(1) {
+                    font-size: 12px;
+                }
+            }
+
+        }
+    }
+
+
+
+
 }
