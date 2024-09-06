@@ -1,23 +1,29 @@
+import { useEffect, useState } from "react";
 import { ICard } from "../../models/type";
 import style from "./Answer.module.scss"
 interface IProps {
     closeAnswer: () => void;
     data: ICard;
-    doubleClick: boolean;
+    doubleClick: number;
     isWin: boolean;
 }
 function Answer(props: IProps) {
-    const { closeAnswer, data } = props;
-    console.log(data);
+    const { closeAnswer, data, isWin, doubleClick} = props;
+    console.log(data, isWin, doubleClick);
+    const [isDoubleClick, setIsDoubleClick] = useState(false)
+    useEffect(()=> {
+        setIsDoubleClick(doubleClick === 1 ? false : true)
+    }, [])
+
 
     return (
         <div className={style.container}>
             <div className={style.wrapper}>
                 <div className={style.card}>
-                    <div className={style.card__answer}>
-                        <img src="/images/cards/success.svg" alt="success" />
-
-                    </div>
+                   {!isDoubleClick && <div className={style.card__answer}>
+                       {isWin&& <img src="/images/cards/success.svg" alt="success" />}
+                       {!isWin && <img src="/images/cards/error.svg" alt="error" />}
+                    </div>}
 
 
                     <div className={style.card__info + " " + style.info}>
@@ -29,10 +35,10 @@ function Answer(props: IProps) {
                                 </div>
 
                             </div>
-                            <div className={style.info__job}>
+                           {isDoubleClick && <div className={style.info__job}>
                                 <span>FutureToday </span>
                                 <span>Старший бренд-менеджер в департаменте маркетинга в группе по управлению брендом Flash Up</span>
-                            </div>
+                            </div>}
 
                         </div>
 

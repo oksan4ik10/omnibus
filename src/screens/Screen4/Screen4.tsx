@@ -23,11 +23,21 @@ function Screen4(props: IProps) {
     const [userAnswer, setUserAnswer] = useState<boolean[]>([]);
     const clickCard = (index: number) => {
         if (!userAnswer[index]) return;
+        console.log("clickCARD");
+        
         openAnswer(index, true, false);
     }
-    const clickAnswerUser = (index: number, answer: string) => {
+    const clickAnswerUser = (e:React.MouseEvent<HTMLSpanElement>,index: number, answer: string) => {
+        if (userAnswer[index]) return;
+        e.stopPropagation();
         userAnswer[index] = true;
         setUserAnswer(userAnswer);
+        console.log(answer);
+        console.log( data[index].answerRight);
+        console.log(data[index].answerRight === answer);
+        
+        
+        
         openAnswer(index, false, data[index].answerRight === answer);
 
     }
@@ -61,10 +71,10 @@ function Screen4(props: IProps) {
                         {data.map((item, index) =>
                             <div className={style.cards__item} key={index} onClick={() => clickCard(index)}>
                                 <div className={style.card__front + " " + style.card}>
-                                    <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true}></Card>
+                                    <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={false}></Card>
                                 </div>
                                 <div className={style.card__back + " " + style.card}>
-                                    <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true} clickAnswerUser={(answer: string) => clickAnswerUser(index, answer)}></Card>
+                                    <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true} clickAnswerUser={(e: React.MouseEvent<HTMLSpanElement>, answer: string) => clickAnswerUser(e, index, answer)}></Card>
                                 </div>
 
 

@@ -8,14 +8,14 @@ interface IProps {
     isOdd?: boolean;
     item: ICard;
     index: number;
-    clickAnswerUser?: (answer: string) => void;
+    clickAnswerUser?: (e: React.MouseEvent<HTMLSpanElement>, answer: string) => void;
 }
 function Card(props: IProps) {
     const { screen4, isUser, isOdd, item, index, clickAnswerUser } = props;
 
-    const click = (answer: string) => {
+    const click = (e:  React.MouseEvent<HTMLSpanElement>, answer: string) => {
         if (!clickAnswerUser) return;
-        clickAnswerUser(answer)
+        clickAnswerUser(e, answer)
     }
 
     return (
@@ -48,8 +48,8 @@ function Card(props: IProps) {
 
                 </div>
                 {(isUser || !screen4) && <div className={style.card__btns}>
-                    <span onClick={() => click('right')}>По специальности</span>
-                    <span onClick={() => click('left')}>Не по специальности</span>
+                    <span onClick={(e: React.MouseEvent<HTMLSpanElement>) => click(e, 'right')}>По специальности</span>
+                    <span onClick={(e: React.MouseEvent<HTMLSpanElement>) => click(e, 'left')}>Не по специальности</span>
                 </div>}
             </div>
             <div className={style.water}>

@@ -70,12 +70,15 @@ function App() {
   const [isAnswer, setIsAnswer] = useState(false);
   const [isWin, setIsWin] = useState(false);
   const [answerData, setAnswerData] = useState(data[0])
-  const [doubleClick, setDoubleClick] = useState(false);
+  const [doubleClick, setDoubleClick] = useState(0);
   const openAnswer = (index: number, isDoubleClick: boolean, win: boolean) => {
+    console.log(win);
+    
     setIsWin(win)
     setAnswerData(data[index])
-    setDoubleClick(isDoubleClick)
-    setIsAnswer(true)
+    setDoubleClick(doubleClick + 1)
+    setTimeout(()=> { setIsAnswer(true)}, 20)
+   
     disablePageScroll();
   }
   const closeAnswer = () => {
