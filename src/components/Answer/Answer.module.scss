@@ -63,6 +63,7 @@
         }
     }
 
+
     &__arrow {
         position: relative;
         z-index: 2;
@@ -159,7 +160,24 @@
     }
 }
 
+.doubleClick{
+    .card{
+        padding-top: max(88px, min(12vh, 148px));
+    }
+    .card__logo{
+        position: absolute;
+        flex: 0 0 auto;
+        height: var(--logoHeight);
+        top: 30px;
+        left: 30px;
+        img{
+            width: auto;
+            height: 100%;
+        }
+        
+    }
 
+}
 
 .rect {
     position: absolute;

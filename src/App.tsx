@@ -69,21 +69,22 @@ function App() {
   }
   const [isAnswer, setIsAnswer] = useState(false);
   const [isWin, setIsWin] = useState(false);
-  const [answerData, setAnswerData] = useState(data[0])
+  const [answerIndex, setAnswerIndex] = useState(-1)
   const [doubleClick, setDoubleClick] = useState(0);
-  const openAnswer = (index: number, isDoubleClick: boolean, win: boolean) => {
+  const openAnswer = (index: number,  win: boolean) => {
     console.log(win);
     
     setIsWin(win)
-    setAnswerData(data[index])
+    setAnswerIndex(index)
     setDoubleClick(doubleClick + 1)
     setTimeout(()=> { setIsAnswer(true)}, 20)
    
     disablePageScroll();
   }
   const closeAnswer = () => {
-    setIsAnswer(false);
     enablePageScroll();
+    setIsAnswer(false);
+   
   }
   return (
     <>
@@ -107,7 +108,7 @@ function App() {
           </SwiperSlide>
         </Swiper>
         {isForm && <Forms></Forms>}
-        {isAnswer && <Answer isWin={isWin} doubleClick={doubleClick} data={answerData} closeAnswer={closeAnswer}></Answer>}
+        {isAnswer && <Answer isWin={isWin} doubleClick={doubleClick} indexAnswer={answerIndex} closeAnswer={closeAnswer}></Answer>}
         {isScreen4 && <div className={style.lampBtm}>
           <div className={style.lampBtm__wrapper}>
             <img src="./images/lamp.svg" alt="lamp" className={style.lampImg} />

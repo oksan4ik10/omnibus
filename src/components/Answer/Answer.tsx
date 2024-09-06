@@ -1,31 +1,34 @@
 import { CSSProperties, useEffect, useState } from "react";
-import { ICard } from "../../models/type";
+import data from "../../data/cards.json"
 import style from "./Answer.module.scss"
 interface IProps {
     closeAnswer: () => void;
-    data: ICard;
+    indexAnswer: number;
     doubleClick: number;
     isWin: boolean;
 }
 function Answer(props: IProps) {
-    const { closeAnswer, data, isWin, doubleClick} = props;
-    console.log(data, isWin, doubleClick);
+    const { closeAnswer, indexAnswer, isWin, doubleClick} = props;
+    const [dataAnswer, setDataAnswer] = useState(data[0])
+    
     const [isDoubleClick, setIsDoubleClick] = useState(false)
     useEffect(()=> {
+        setDataAnswer(data[indexAnswer])
         setIsDoubleClick(doubleClick === 1 ? false : true)
     }, [])
 
 
     return (
-        <div className={style.container} style={{ "--logoHeight": data.answerLogoHeight, "--color-job": data.colorJob, "--rect-success": data.answerRectColorSuccess,  "--rect-error": data.answerRectColorError, "--rect-answer": data.answerRectColor} as CSSProperties}>
+        <div className={style.container + " " + (isDoubleClick?style.doubleClick : "")} style={{ "--logoHeight": dataAnswer.answerLogoHeight, "--color-job": dataAnswer.colorJob, "--rect-success": dataAnswer.answerRectColorSuccess,  "--rect-error": dataAnswer.answerRectColorError, "--rect-answer": dataAnswer.answerRectColor} as CSSProperties}>
             <div className={style.wrapper}>
                 <div className={style.card}>
                    {!isDoubleClick && <div className={style.card__answer}>
                        {isWin&& <img src="/images/cards/success.svg" alt="success" />}
                        {!isWin && <img src="/images/cards/error.svg" alt="error" />}
                     </div>}
-                    {/* {isDoubleClick && <div className={style.card__logo}>
-                        <img src={data} alt="" /></div>} */}
+                    {isDoubleClick && <div className={style.card__logo}>
+                    <img src={`/images/cards/company/${indexAnswer}.png`} alt="test" />
+                    </div>}
 
 
                     <div className={style.card__info + " " + style.info}>
