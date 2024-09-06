@@ -10,7 +10,7 @@ import { useState } from "react";
 interface IProps {
     viewForm: () => void;
     isScreen4: boolean;
-    openAnswer: (index: number, isDoubleClick: boolean, isWin: boolean) => void;
+    openAnswer: (index: number, isWin: boolean) => void;
 }
 function Screen4(props: IProps) {
     const { openAnswer, viewForm, isScreen4 } = props;
@@ -25,20 +25,15 @@ function Screen4(props: IProps) {
         if (!userAnswer[index]) return;
         console.log("clickCARD");
         
-        openAnswer(index, true, false);
+        openAnswer(index, false);
     }
     const clickAnswerUser = (e:React.MouseEvent<HTMLSpanElement>,index: number, answer: string) => {
         if (userAnswer[index]) return;
         e.stopPropagation();
         userAnswer[index] = true;
         setUserAnswer(userAnswer);
-        console.log(answer);
-        console.log( data[index].answerRight);
-        console.log(data[index].answerRight === answer);
         
-        
-        
-        openAnswer(index, false, data[index].answerRight === answer);
+        openAnswer(index, data[index].answerRight === answer);
 
     }
 
@@ -70,10 +65,10 @@ function Screen4(props: IProps) {
                     <div className={style.cards}>
                         {data.map((item, index) =>
                             <div className={style.cards__item} key={index} onClick={() => clickCard(index)}>
-                                <div className={style.card__front + " " + style.card}>
+                                {!userAnswer[index] && <div className={style.card__front + " " + style.card}>
                                     <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={false}></Card>
-                                </div>
-                                <div className={style.card__back + " " + style.card}>
+                                </div>}
+                                <div className={style.card__back + " " + style.card + " " +(!userAnswer[index] ? "" : style.backFront)}>
                                     <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true} clickAnswerUser={(e: React.MouseEvent<HTMLSpanElement>, answer: string) => clickAnswerUser(e, index, answer)}></Card>
                                 </div>
 

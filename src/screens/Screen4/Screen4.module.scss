@@ -50,6 +50,12 @@
             opacity: 0;
 
         }
+        &.backFront{
+            transform: none;
+            z-index: 1;
+            opacity: 1;
+            cursor: pointer;
+        }
 
     }
 }
