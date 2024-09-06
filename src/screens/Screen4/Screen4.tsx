@@ -61,7 +61,7 @@ function Screen4(props: IProps) {
                         {data.map((item, index) =>
                             <div className={style.cards__item} key={index} onClick={() => clickCard(index)}>
                                 <div className={style.card__front + " " + style.card}>
-                                    <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={false}></Card>
+                                    <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true}></Card>
                                 </div>
                                 <div className={style.card__back + " " + style.card}>
                                     <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true} clickAnswerUser={(answer: string) => clickAnswerUser(index, answer)}></Card>

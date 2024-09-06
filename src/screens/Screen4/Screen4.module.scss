@@ -18,15 +18,19 @@
         position: relative;
         height: 633px;
         width: 360px;
+        transition: opacity .2s;
 
         &:hover .card__front {
             transform: rotateY(180deg);
+            z-index:1;
+            opacity: 1;
 
         }
 
         &:hover .card__back {
             transform: rotateY(360deg);
-
+            z-index:1;
+            opacity: 1;
 
         }
     }
@@ -42,7 +46,8 @@
 
         &__back {
             transform: rotateY(180deg);
-
+            z-index:-1;
+            opacity: 0;
 
         }
 

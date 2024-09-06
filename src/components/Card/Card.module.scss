@@ -1,9 +1,11 @@
 .card {
+    position: relative;
+    z-index: 2;
     background: var(--white);
     height: 100%;
     width: 360px;
     overflow: hidden;
-    padding: 0px 8px 69px;
+    padding: 0px 8px 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -97,6 +99,11 @@
         font-weight: 400;
         line-height: 16px;
         margin-top: 10px;
+        span{
+            max-height: 250px;
+            overflow-y: auto;
+            display: block;
+        }
     }
 }
 
@@ -143,7 +150,7 @@
     position: absolute;
     bottom: -219px;
     left: -46px;
-    z-index: -1;
+    z-index: 1;
 }
 
 
@@ -153,6 +160,7 @@
     height: 634px;
     overflow: hidden;
     perspective: 0;
+    position: relative;
 
 }
 
@@ -179,11 +187,14 @@
 
     }
 
-
+    .info__text span{
+        max-height: 210px;
+    }
 
     .info__job span:first-child {
-        color: #08A652;
+        color: var(--color-job);
     }
+    
 }
 
 .wrapper.userClick.bgGradient {
@@ -207,12 +218,12 @@
 
 @media (max-width: 800px) {
     .wrapper {
-        height: 564px;
+        height: 473px;
     }
 
     .card {
         width: 318px;
-        padding-bottom: 55px;
+       
 
         .card__photo {
             flex: 0 0 183px;
@@ -247,8 +258,14 @@
             }
         }
 
-        &__text {
+        &__text span{
             font-size: 12px;
+            max-height: 135px;
+        }
+    }
+    .wrapper.userClick{
+        .info__text span{
+            max-height: 95px;
         }
     }
 

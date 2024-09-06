@@ -26,6 +26,7 @@ function Card(props: IProps) {
                     <img src={`/images/cards/${index}.png`} alt="test" />
 
                 </div>
+
                 <div className={style.card__info + " " + style.info}>
                     <div className={style.info__titleLogo}>
                         <div className={style.info__title}>
@@ -44,15 +45,16 @@ function Card(props: IProps) {
                     <div className={style.info__text}>
                         <span dangerouslySetInnerHTML={{ __html: item.cardDesc }} />
                     </div>
-                    <div className={style.water}>
-                        <img src="images/cards/water.svg" alt="water" />
-                    </div>
+
                 </div>
                 {(isUser || !screen4) && <div className={style.card__btns}>
                     <span onClick={() => click('right')}>По специальности</span>
                     <span onClick={() => click('left')}>Не по специальности</span>
                 </div>}
             </div>
+            <div className={style.water}>
+                        <img src="images/cards/water.svg" alt="water" />
+                    </div>
         </div>
 
     );
