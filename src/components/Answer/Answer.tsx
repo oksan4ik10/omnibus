@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 import { ICard } from "../../models/type";
 import style from "./Answer.module.scss"
 interface IProps {
@@ -17,13 +17,15 @@ function Answer(props: IProps) {
 
 
     return (
-        <div className={style.container}>
+        <div className={style.container} style={{ "--logoHeight": data.answerLogoHeight, "--color-job": data.colorJob, "--rect-success": data.answerRectColorSuccess,  "--rect-error": data.answerRectColorError, "--rect-answer": data.answerRectColor} as CSSProperties}>
             <div className={style.wrapper}>
                 <div className={style.card}>
                    {!isDoubleClick && <div className={style.card__answer}>
                        {isWin&& <img src="/images/cards/success.svg" alt="success" />}
                        {!isWin && <img src="/images/cards/error.svg" alt="error" />}
                     </div>}
+                    {/* {isDoubleClick && <div className={style.card__logo}>
+                        <img src={data} alt="" /></div>} */}
 
 
                     <div className={style.card__info + " " + style.info}>
@@ -59,7 +61,7 @@ function Answer(props: IProps) {
                         <img src="/images/cards/arrow.svg" alt="arrow" />
 
                     </div>
-                    <div className={style.rect}>
+                    <div className={style.rect + " " + (isDoubleClick ? style.answer : isWin ? style.success: style.error)}>
 
                     </div>
                 </div>

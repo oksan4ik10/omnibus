@@ -104,7 +104,7 @@
 
             span:nth-child(1) {
                 font-weight: 600;
-                color: var(--orange);
+                color: var(--color-job);
                 font-size: 22px;
             }
         }
@@ -167,9 +167,15 @@
     right: 0;
     width: 214px;
     height: 124px;
-    background: rgb(33, 160, 56);
+    background: var(--rect-success);
     mask: url("images/test.png");
     -webkit-mask: url("images/test.png");
+}
+.rect.error{
+    background: var(--rect-error);
+}
+.rect.answer{
+    background: var(--rect-answer);
 }
 
 @media ((min-width: 1000px) and (max-height:900px)) {

@@ -12,6 +12,7 @@ export interface ICard {
     answerText: string;
     answerRectColorSuccess: string;
     answerRectColorError: string;
+    answerRectColor: string;
     answerLogoHeight: string;
 
 }
