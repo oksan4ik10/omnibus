@@ -82,7 +82,8 @@ function App() {
     disablePageScroll();
   }
   const closeAnswer = () => {
-    enablePageScroll();
+   
+    setTimeout(()=> {  enablePageScroll()}, 20)
     setIsAnswer(false);
    
   }

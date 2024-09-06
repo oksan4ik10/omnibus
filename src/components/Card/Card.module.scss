@@ -230,6 +230,9 @@
             mask: url(images/maskM.svg);
             -webkit-mask: url(images/maskM.svg);
         }
+        .card__btns{
+            margin-top: -10px;
+        }
     }
 
     .info {
@@ -260,7 +263,7 @@
 
         &__text span{
             font-size: 12px;
-            max-height: 135px;
+            max-height: 131px;
         }
     }
     .wrapper.userClick{

@@ -18,7 +18,7 @@
         position: relative;
         height: 633px;
         width: 360px;
-        transition: opacity .2s;
+        transition: all .4s;
 
         &:hover .card__front {
             transform: rotateY(180deg);
@@ -46,7 +46,7 @@
 
         &__back {
             transform: rotateY(180deg);
-            z-index:-1;
+            // z-index:-1;
             opacity: 0;
 
         }

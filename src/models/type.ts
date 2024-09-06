@@ -14,5 +14,5 @@ export interface ICard {
     answerRectColorError: string;
     answerRectColor: string;
     answerLogoHeight: string;
-
+    answerLogoMobileHeight: string;
 }

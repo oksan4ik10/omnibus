@@ -13,7 +13,8 @@
         "answerRectColorSuccess": "#08A652",
         "answerRectColorError": "yellow",
         "answerRectColor": "red",
-        "answerLogoHeight": "48px"
+        "answerLogoHeight": "48px",
+        "answerLogoMobileHeight": "25px"
     },
     {
         "name": "Данил",
@@ -29,6 +30,7 @@
         "answerRectColorSuccess": "#4AB8A5",
         "answerRectColorError": "#4AB8A5",
         "answerRectColor": "red",
-        "answerLogoHeight": "57px"
+        "answerLogoHeight": "57px",
+         "answerLogoMobileHeight": "29px"
     }
 ]

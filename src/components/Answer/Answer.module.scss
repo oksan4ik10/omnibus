@@ -76,7 +76,11 @@
             height: 100%;
         }
     }
-
+    .infoWrapper{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
     .info {
         position: relative;
         z-index: 2;
@@ -251,6 +255,7 @@
 
         &__arrow {
             height: 14px;
+            flex: 0 0 14px;
         }
 
         .info {
@@ -281,6 +286,26 @@
             }
 
         }
+    }
+
+
+    .doubleClick{
+        .card{
+            padding-top: 70px;
+        }
+        .card__logo{
+            position: absolute;
+            flex: 0 0 auto;
+            height: var(--logoMobileHeight);
+            top: 20px;
+            left: 20px;
+            img{
+                width: auto;
+                height: 100%;
+            }
+            
+        }
+    
     }
 
 
