@@ -23,8 +23,6 @@ function Screen4(props: IProps) {
     const [userAnswer, setUserAnswer] = useState<boolean[]>([]);
     const clickCard = (index: number) => {
         if (!userAnswer[index]) return;
-        console.log("clickCARD");
-        
         openAnswer(index, false, true);
     }
     const clickAnswerUser = (e:React.MouseEvent<HTMLSpanElement>,index: number, answer: string) => {
@@ -32,7 +30,6 @@ function Screen4(props: IProps) {
         e.stopPropagation();
         userAnswer[index] = true;
         setUserAnswer(userAnswer);
-        
         openAnswer(index, data[index].answerRight === answer, false);
 
     }
@@ -57,9 +54,9 @@ function Screen4(props: IProps) {
 
                         </div>
                         <div className={style.header__counter}>
-                            <span>0</span>
+                            <span>{userAnswer.filter((item)=>item).length}</span>
                             <span>/</span>
-                            <span>15</span>
+                            <span>10</span>
                         </div>
                     </div>
                     <div className={style.cards}>
@@ -82,7 +79,7 @@ function Screen4(props: IProps) {
                     </div>
                     <div className={style.btm}>
                         <button className={"btn " + style.btn} onClick={clickBtn}>розыгрыш</button>
-                        <p>Для того, чтобы участвовать в розыгрыше, нужно открыть еще Х карточек</p>
+                        <p>Для того, чтобы участвовать в розыгрыше, нужно открыть еще {10 - userAnswer.filter((item)=>item).length} карточек</p>
                     </div>
 
                 </div>
