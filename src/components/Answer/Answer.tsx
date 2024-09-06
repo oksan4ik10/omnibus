@@ -4,17 +4,14 @@ import style from "./Answer.module.scss"
 interface IProps {
     closeAnswer: () => void;
     indexAnswer: number;
-    doubleClick: number;
+    isDoubleClick: boolean;
     isWin: boolean;
 }
 function Answer(props: IProps) {
-    const { closeAnswer, indexAnswer, isWin, doubleClick} = props;
+    const { closeAnswer, indexAnswer, isWin, isDoubleClick} = props;
     const [dataAnswer, setDataAnswer] = useState(data[0])
-    
-    const [isDoubleClick, setIsDoubleClick] = useState(false)
     useEffect(()=> {
         setDataAnswer(data[indexAnswer])
-        setIsDoubleClick(doubleClick === 1 ? false : true)
     }, [])
 
 

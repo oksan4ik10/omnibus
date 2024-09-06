@@ -70,13 +70,13 @@ function App() {
   const [isAnswer, setIsAnswer] = useState(false);
   const [isWin, setIsWin] = useState(false);
   const [answerIndex, setAnswerIndex] = useState(-1)
-  const [doubleClick, setDoubleClick] = useState(0);
-  const openAnswer = (index: number,  win: boolean) => {
+  const [isDoubleClick, setIsDoubleClick] = useState(false);
+  const openAnswer = (index: number,  win: boolean, doubleClick: boolean) => {
     console.log(win);
     
     setIsWin(win)
     setAnswerIndex(index)
-    setDoubleClick(doubleClick + 1)
+    setIsDoubleClick(doubleClick)
     setTimeout(()=> { setIsAnswer(true)}, 20)
    
     disablePageScroll();
@@ -108,7 +108,7 @@ function App() {
           </SwiperSlide>
         </Swiper>
         {isForm && <Forms></Forms>}
-        {isAnswer && <Answer isWin={isWin} doubleClick={doubleClick} indexAnswer={answerIndex} closeAnswer={closeAnswer}></Answer>}
+        {isAnswer && <Answer isWin={isWin} isDoubleClick={isDoubleClick} indexAnswer={answerIndex} closeAnswer={closeAnswer}></Answer>}
         {isScreen4 && <div className={style.lampBtm}>
           <div className={style.lampBtm__wrapper}>
             <img src="./images/lamp.svg" alt="lamp" className={style.lampImg} />

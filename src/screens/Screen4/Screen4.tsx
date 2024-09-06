@@ -10,7 +10,7 @@ import { useState } from "react";
 interface IProps {
     viewForm: () => void;
     isScreen4: boolean;
-    openAnswer: (index: number, isWin: boolean) => void;
+    openAnswer: (index: number, isWin: boolean, isDoubleClick: boolean) => void;
 }
 function Screen4(props: IProps) {
     const { openAnswer, viewForm, isScreen4 } = props;
@@ -25,7 +25,7 @@ function Screen4(props: IProps) {
         if (!userAnswer[index]) return;
         console.log("clickCARD");
         
-        openAnswer(index, false);
+        openAnswer(index, false, true);
     }
     const clickAnswerUser = (e:React.MouseEvent<HTMLSpanElement>,index: number, answer: string) => {
         if (userAnswer[index]) return;
@@ -33,7 +33,7 @@ function Screen4(props: IProps) {
         userAnswer[index] = true;
         setUserAnswer(userAnswer);
         
-        openAnswer(index, data[index].answerRight === answer);
+        openAnswer(index, data[index].answerRight === answer, false);
 
     }
 
