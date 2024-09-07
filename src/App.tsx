@@ -59,7 +59,7 @@ function App() {
 
   const [isScreen4, setIsScreen4] = useState(true);
   const startGame = () => {
-    setTimeout(() => { setIsScreen4(true); }, 1200)
+    setTimeout(() => { setIsScreen4(true);   disablePageScroll();}, 1200)
     handleNext()
   }
 

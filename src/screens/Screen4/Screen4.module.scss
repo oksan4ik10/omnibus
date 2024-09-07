@@ -1,3 +1,75 @@
+.education{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: rgba($color: #000000, $alpha: .8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    .header__img{
+        opacity: 0;
+    }
+    .cardEducation{
+        position: relative;
+    }
+    .spanEduc{
+        font-size: 26px;
+        font-weight: 400;
+        font-family: 'Inter';
+        color: #fff;
+        line-height: 120%;
+
+    }
+    .descCard1{
+        position: absolute;
+        top: 0px;
+        display: flex;
+        gap: 5px;
+        transform: translateY(-100%) translateX(30%);
+        width: 150%;
+        &__wrapperImg{
+            height: min(12vh, 112px);
+            img{
+                height: 100%;
+                width: auto;
+            }
+        }
+        span{
+            margin-top: -10px;
+        }
+    }
+    .descCard2{
+        position: absolute;
+        bottom: 0px;
+        display: flex;
+        transform: translateY(50%) translateX(-60%);
+        width: 100%;
+        gap: 5px;
+        &__wrapperImg{
+            height: min(12vh, 112px);
+            img{
+                height: 100%;
+                width: auto;
+            }
+        }
+        span{
+            margin-top: 15px;
+
+        }
+    }
+    .arrowEducation{
+        position: absolute;
+        bottom: 10vh;
+        left: 0px;
+        display: flex;
+        gap: 5px;
+        span{
+            margin-top: 10px;
+        }
+    }
+
+}
 .container {
     width: 100vw;
     overflow-x: hidden;
@@ -19,8 +91,11 @@
         height: 633px;
         width: 360px;
         transition: all .4s;
-
-        &:hover .card__front {
+        .frontStop{
+            cursor: pointer;
+            opacity: 0;
+        }
+        &:hover .card__front:not(.frontStop) {
             transform: rotateY(180deg);
             z-index:1;
             opacity: 1;
@@ -188,7 +263,7 @@
     position: relative;
 
 
-    &>*:nth-child(1) {
+    &:not(.cardsEducation)>*:nth-child(1) {
         position: relative;
 
         &::after {
@@ -440,7 +515,7 @@
             display: none;
         }
 
-        &>:last-child {
+        &:not(.cardsEducation)>:last-child {
             grid-column: 1/3;
             justify-self: center;
 
@@ -570,7 +645,7 @@
 
     .cards__item {
         width: 318px;
-        height: 564px;
+        height: 473px;
     }
 
 
