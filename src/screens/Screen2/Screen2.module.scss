@@ -81,7 +81,7 @@
     }
 
     .man {
-        transform: scale(.7) rotate(-15deg) translateX(220px) translateY(var(--translateY));
+        transform: rotate(-15deg) translateX(220px) translateY(var(--translateY));
         box-shadow: -30.58px 34.56px 5.32px 0px rgba(0, 0, 0, 0.5);
         position: relative;
 
@@ -181,7 +181,7 @@
     }
 
     .card .man {
-        transform: scale(.6) rotate(-15deg) translateX(280px) translateY(calc(var(--translateY) - 20px));
+        transform: scale(.55) rotate(-15deg) translateX(280px) translateY(calc(var(--translateY) - 90px));
     }
 
     .presents__list {

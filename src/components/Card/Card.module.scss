@@ -212,8 +212,19 @@
 
 
 .wrapper.pBtm {
+    height: 434px;
+    width: 246px;
+
     .card {
         padding-bottom: 0;
+        width: 100%;
+        height: 100%;
+
+        .card__photo {
+            flex: 0 0 123px;
+            mask: url(images/maskScreen2.svg);
+            -webkit-mask: url(images/maskScreen2.svg);
+        }
     }
 }
 
