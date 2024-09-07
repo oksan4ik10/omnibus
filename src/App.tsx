@@ -87,6 +87,15 @@ function App() {
     setIsAnswer(false);
    
   }
+
+
+  const [isStepMobile, setIsStepMobile] = useState(false);
+  const educationAnswer = ()=> {
+    if(isStepMobile) return;
+    setIsStepMobile(true)
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  }
   return (
     <>
 
@@ -104,12 +113,12 @@ function App() {
           {isMobile && <SwiperSlide><Screen3 isScreen3Mobile={isScreen3Mobile} screen={screen} startGame={startGame}></Screen3></SwiperSlide>} */}
           <SwiperSlide>
 
-            <Screen4 openAnswer={openAnswer} isScreen4={isScreen4} viewForm={viewForm}></Screen4>
+            <Screen4 isStepMobile={isStepMobile} openAnswer={openAnswer} isScreen4={isScreen4} viewForm={viewForm}></Screen4>
 
           </SwiperSlide>
         </Swiper>
         {isForm && <Forms></Forms>}
-        {isAnswer && <Answer isWin={isWin} isDoubleClick={isDoubleClick} indexAnswer={answerIndex} closeAnswer={closeAnswer}></Answer>}
+        {isAnswer && <Answer setIsStepMobile={educationAnswer}  isWin={isWin} isDoubleClick={isDoubleClick} indexAnswer={answerIndex} closeAnswer={closeAnswer}></Answer>}
         {isScreen4 && <div className={style.lampBtm}>
           <div className={style.lampBtm__wrapper}>
             <img src="./images/lamp.svg" alt="lamp" className={style.lampImg} />

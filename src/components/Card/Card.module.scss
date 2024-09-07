@@ -99,7 +99,8 @@
         font-weight: 400;
         line-height: 16px;
         margin-top: 10px;
-        span{
+
+        span {
             max-height: 250px;
             overflow-y: auto;
             display: block;
@@ -187,14 +188,14 @@
 
     }
 
-    .info__text span{
+    .info__text span {
         max-height: 210px;
     }
 
     .info__job span:first-child {
         color: var(--color-job);
     }
-    
+
 }
 
 .wrapper.userClick.bgGradient {
@@ -221,16 +222,21 @@
         height: 473px;
     }
 
+    .wrapper.odd {
+        transform: rotateZ(0deg);
+    }
+
     .card {
         width: 318px;
-       
+
 
         .card__photo {
             flex: 0 0 183px;
             mask: url(images/maskM.svg);
             -webkit-mask: url(images/maskM.svg);
         }
-        .card__btns{
+
+        .card__btns {
             margin-top: -10px;
         }
     }
@@ -261,13 +267,14 @@
             }
         }
 
-        &__text span{
+        &__text span {
             font-size: 12px;
             max-height: 131px;
         }
     }
-    .wrapper.userClick{
-        .info__text span{
+
+    .wrapper.userClick {
+        .info__text span {
             max-height: 95px;
         }
     }

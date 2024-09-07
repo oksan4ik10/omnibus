@@ -6,10 +6,16 @@ interface IProps {
     indexAnswer: number;
     isDoubleClick: boolean;
     isWin: boolean;
+    setIsStepMobile: ()=> void
 }
 function Answer(props: IProps) {
-    const { closeAnswer, indexAnswer, isWin, isDoubleClick} = props;
+    const { closeAnswer, indexAnswer, isWin, isDoubleClick, setIsStepMobile} = props;
     const [dataAnswer, setDataAnswer] = useState(data[0])
+
+    const backClick = ()=> {
+        setIsStepMobile()
+        closeAnswer()
+    }
     useEffect(()=> {
         setDataAnswer(data[indexAnswer])
     }, [])
@@ -49,7 +55,7 @@ function Answer(props: IProps) {
                         </div>
 
                     </div>
-                    <div className={style.card__arrow} onClick={closeAnswer}>
+                    <div className={style.card__arrow} onClick={backClick}>
                         <div className={style.card__arrowWrapper}>
                         <img src="/images/cards/arrow.svg" alt="arrow" />
                         </div>
