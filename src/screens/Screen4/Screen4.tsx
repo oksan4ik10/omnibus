@@ -74,9 +74,9 @@ function Screen4(props: IProps) {
     useEffect(()=> {
         console.log(isScrollEduc);
         
-        if(isScrollEduc) disablePageScroll()
+        if(isScrollEduc && isScreen4) disablePageScroll()
             else  enablePageScroll()
-    },[isScrollEduc])
+    },[isScrollEduc, isScreen4])
     const changeEducation = ()=> {
         if(step===0) return;
         if(step===1){
@@ -85,15 +85,16 @@ function Screen4(props: IProps) {
             return
         }
         if(step===2){
-            enablePageScroll()
             if(refArrowEducation.current){
                 refArrowEducation.current.scrollIntoView({block:"end", behavior: "smooth"})
                 window.scrollBy({top: 100, behavior:"smooth"})
             }
             
             setStep(3)
+
             return
         }
+        enablePageScroll()
         setIsScrollEduc(false)
         setIsEducation(false)
         window.scrollTo({ top: 0, behavior: 'smooth' });

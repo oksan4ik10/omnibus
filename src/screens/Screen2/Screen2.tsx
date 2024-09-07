@@ -10,7 +10,27 @@ interface IProps {
     startGame: () => void;
 }
 function Screen2(props: IProps) {
+
     const { screen, isMobile, changeSlide, startGame } = props;
+
+
+    const cardInfo=    {
+        "name": "Данил",
+        "age": "23 года",
+        "work": "Сбер",
+        "workDesc": "Старший бренд-менеджер в&nbsp;департаменте маркетинга в&nbsp;группе по&nbsp;управлению брендом Flash Up",
+        "cardDesc": "На вопрос родственников «чем ты занимаешься?» отвечаю: делаю так, чтобы безалкогольные бренды росли и приносили хорошие деньги нашей компании:) Я управляю всеми аспектами бренда: от&nbsp;стратегии до&nbsp;упаковки. Результаты своей работы вижу на&nbsp;полках магазина — каждый раз долго любуюсь какой‑нибудь бутылкой кваса, зная, что она когда‑то была у&nbsp;меня в&nbsp;разработке в&nbsp;ноутбуке. А теперь красуется здесь!",
+        "answerRight": "left",
+        "colorBtn": "#08A652",
+        "colorJob": "#08A652",
+        "bgPhoto": "",
+        "answerText": "<p>Данил учился на&nbsp;менеджера в&nbsp;СПБГЭУ. Ещё в&nbsp;старшей школе видел себя бизнесменом — стремился понять, как работает коммерция, какие существуют бизнес-процессы. В&nbsp;вузе зря времени не&nbsp;терял — участвовал в&nbsp;кейс-чемпионатах, а&nbsp;после выпуска активно искал работу. На&nbsp;дне карьеры узнал о&nbsp;программе «Звезды Балтики», пообщался с&nbsp;эйчаром, попал на&nbsp;первый собес и школьная мечта сбылась! На&nbsp;работе Данил чувствует себя предпринимателем, только управляет не&nbsp;компаний, а&nbsp;отдельным брендом Балтики.</p><p>Свою профессию Данил ценит за&nbsp;динамику и возможность влиять на продукт. А ещё любит коллег, офис со&nbsp;спортзалом, уютной столовой и атмосферу драйва, когда вокруг постоянный штурм идей.</p><p>Чтобы быть предпринимателем не&nbsp;обязательно открывать своё ООО, приходи в&nbsp;Балтику и отвечай за&nbsp;бренды, знакомые каждому)</p>",
+        "answerRectColorSuccess": "#08A652",
+        "answerRectColorError": "yellow",
+        "answerRectColor": "red",
+        "answerLogoHeight": "48px",
+        "answerLogoMobileHeight": "25px"
+    }
     return (
         <div className={style.container + ` ${style['screen' + String(screen)]}` + " " + (isMobile ? style.mobile : "")}>
             <div className={style.waterTop}>
@@ -45,7 +65,7 @@ function Screen2(props: IProps) {
                         <div className={style.btnImg}>
                             <img src="images/sceen2/btn-card.png" alt="calc" />
                         </div>
-                        <Card></Card>
+                        <Card index={1} item={cardInfo}></Card>
                     </div>
                     <div className={style.bookImg}>
                         <img src="images/sceen2/book.svg" alt="book" />
