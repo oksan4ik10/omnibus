@@ -2,6 +2,7 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+
     backdrop-filter: blur(21.2px);
     background: rgba(0, 0, 0, 0.3);
     position: fixed;
@@ -11,6 +12,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: start .3s both;
+}
+
+@keyframes start {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
 }
 
 .wrapper {
@@ -30,6 +43,10 @@
     padding-bottom: min(4vh, 40px);
     display: flex;
     flex-direction: column;
+
+    * {
+        user-select: none;
+    }
 
     &::after {
         content: "";

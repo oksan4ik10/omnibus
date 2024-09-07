@@ -71,8 +71,6 @@ function App() {
   const [answerIndex, setAnswerIndex] = useState(-1)
   const [isDoubleClick, setIsDoubleClick] = useState(false);
   const openAnswer = (index: number,  win: boolean, doubleClick: boolean) => {
-    console.log(win);
-    
     setIsWin(win)
     setAnswerIndex(index)
     setIsDoubleClick(doubleClick)
