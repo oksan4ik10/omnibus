@@ -3,9 +3,9 @@
 
 import Card from "../../components/Card/Card";
 import style from "./Screen4.module.scss"
-import { disablePageScroll } from 'scroll-lock';
+import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 import data from "../../data/cards.json"
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface IProps {
     viewForm: () => void;
@@ -49,9 +49,66 @@ function Screen4(props: IProps) {
        
     }
 
+    //=================EDUCATION============
+    const [isEducation, setIsEducation] = useState(true)
+    const [step, setStep] = useState(0);
+    const [isTouch, setIsTouch] = useState(false)
+    const refArrowEducation = useRef<HTMLDivElement>(null);
+    const refDescCard2 = useRef<HTMLDivElement>(null);
+    const descHeader = useRef<HTMLDivElement>(null);
+
+    useEffect(()=> {
+        const isTouch = () => 'ontouchstart' in window ||  navigator.maxTouchPoints > 0 || window.navigator.maxTouchPoints > 0
+        const  t = isTouch();
+        console.log(t);
+        
+        setIsTouch(t)
+    }, [])
+    const step0 = ()=> {
+        setStep(1)
+        if(refDescCard2.current){
+            refDescCard2.current.scrollIntoView({block:"end", behavior: "smooth"})
+        }
+        // setTimeout(()=> {
+        //     window.scrollTo({ top: 0, behavior: 'smooth' });
+        //     setStep(2)
+        // }, 2500)
+        // setTimeout(()=> {
+        //     if(refArrowEducation.current){
+        //         refArrowEducation.current.scrollIntoView({block:"end", behavior: "smooth"})
+        //     }
+        //     setStep(3)}, 5000)
+        // setTimeout(()=> setIsEducation(false), 7500)
+    }
+    const[isScrollEduc, setIsScrollEduc] = useState(true)
+    useEffect(()=> {
+        if(isScrollEduc) disablePageScroll()
+            else  enablePageScroll()
+    },[isScrollEduc])
+    const changeEducation = ()=> {
+        if(step===0) return;
+        if(step===1){
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setStep(2)
+            return
+        }
+        if(step===2){
+            enablePageScroll()
+            if(refArrowEducation.current){
+                refArrowEducation.current.scrollIntoView({block:"end", behavior: "smooth"})
+                    }
+            setIsScrollEduc(false)
+            setStep(3)
+            return
+        }
+        
+        setIsEducation(false)
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     return (
         <>
-        <div className={style.education + " " + style.container}>
+        {isEducation && <div className={style.education + " " + style.container} onClick={changeEducation}>
         <div className={style.wrapper}>
                     <div className={style.header}>
                         <div className={style.header__img}>
@@ -66,7 +123,7 @@ function Screen4(props: IProps) {
                             <span>10</span>
 
                         </div>
-                        <div className={style.descHeader}>
+                        <div className={style.descHeader + " " + (step === 2 ? "" : style.opacity)}>
                                   <span className={style.spanEduc}>Счётчик показывает,<br/>сколько карточек<br/>было открыто</span>
                                     <div className={style.descCard2__wrapperImg}>
                                         <img src="/images/cards/desc-card2.svg" alt="desc" className={style.educImgD} />
@@ -78,9 +135,9 @@ function Screen4(props: IProps) {
                     </div>
                     <div className={style.cards + " " + style.cardsEducation}>
                         {data.slice(0,2).map((item, index) =>
-                            <div className={style.cards__item + " " + style.cardEducation} key={index}>
-                                {index===0 && <div className={style.card__front + " " + style.card + " " + style.frontStop}>
-                                    <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={false}></Card>
+                            <div className={style.cards__item + " " + style.cardEducation+ " " + style.animation} key={index} onClick={step0}>
+                                {index===0 && <div className={style.card__back + " " + style.card + " " + style.backFront + " " + (step === 0 ? "" : style.opacity)}>
+                                    <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true}></Card>
                                     <div className={style.descCard1}>
                                         <div className={style.descCard1__wrapperImg}>
                                         <img src="/images/cards/desc-card1.svg" alt="desc" className={style.educImgD} />
@@ -100,9 +157,9 @@ function Screen4(props: IProps) {
 
                                     </div>
                                 </div>}
-                                {index===1 && <div className={style.card__back + " " + style.card + " " + style.backFront}>
+                                {index===1 && <div className={style.card__back + " " + style.card + " " + style.backFront + " " + (step === 1 ? "" : style.opacity)}>
                                   <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true} clickAnswerUser={(e: React.MouseEvent<HTMLSpanElement>, answer: string) => clickAnswerUser(e, index, answer)}></Card>
-                                  <div className={style.descCard2}>
+                                  <div className={style.descCard2} ref={refDescCard2}>
                                   <span className={style.spanEduc}>Читай описание<br/>и выбирай ответ</span>
                                         <div className={style.descCard2__wrapperImg}>
                                         <img src="/images/cards/desc-card2.svg" alt="desc" className={style.educImgD}/>
@@ -118,7 +175,7 @@ function Screen4(props: IProps) {
 
                             </div>)}
 
-                            <div className={style.arrowEducation}>
+                <div className={style.arrowEducation  + " " + (step === 3 ? "" : style.opacity)} ref={refArrowEducation}>
                     <div className={style.wrapperArrowEducImg}>
                         <img src="/images/cards/arrow-education.svg" alt="arrow" />
                     </div>
@@ -129,7 +186,7 @@ function Screen4(props: IProps) {
 
                 </div>
               
-        </div>
+        </div>}
 
             <div className={style.container}>
 

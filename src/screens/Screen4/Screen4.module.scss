@@ -7,7 +7,8 @@
     top: 0;
     left: 0;
     z-index: 9;
-    display: none;
+
+
 
     .educImgM {
         display: none;
@@ -82,11 +83,13 @@
 
     .arrowEducation {
         position: absolute;
-        bottom: 10vh;
+        bottom: min(10vh, 0px);
         left: 0px;
         display: flex;
         align-items: center;
         gap: 5px;
+        transition: .5s;
+        transform: translateX(-20%);
 
         span {
             margin-top: 10px;
@@ -279,6 +282,11 @@
         z-index: 1;
         opacity: 1;
     }
+}
+
+.opacity {
+    opacity: 0 !important;
+    transition: .3s !important;
 }
 
 .wrapper {
