@@ -69,19 +69,11 @@ function Screen4(props: IProps) {
         if(refDescCard2.current){
             refDescCard2.current.scrollIntoView({block:"end", behavior: "smooth"})
         }
-        // setTimeout(()=> {
-        //     window.scrollTo({ top: 0, behavior: 'smooth' });
-        //     setStep(2)
-        // }, 2500)
-        // setTimeout(()=> {
-        //     if(refArrowEducation.current){
-        //         refArrowEducation.current.scrollIntoView({block:"end", behavior: "smooth"})
-        //     }
-        //     setStep(3)}, 5000)
-        // setTimeout(()=> setIsEducation(false), 7500)
     }
     const[isScrollEduc, setIsScrollEduc] = useState(true)
     useEffect(()=> {
+        console.log(isScrollEduc);
+        
         if(isScrollEduc) disablePageScroll()
             else  enablePageScroll()
     },[isScrollEduc])
@@ -115,9 +107,24 @@ function Screen4(props: IProps) {
 
     const changeEducationMobile = ()=> {
         if(!isStepMobile) return
-        setStep(2)
-      
+        if(step === 1){
+            enablePageScroll()
+            setStep(2)
+            if(refArrowEducation.current){
+                refArrowEducation.current.scrollIntoView({block:"end", behavior: "smooth"})
+            }
+            return
+        }
+        setIsScrollEduc(false)
+        setIsEducation(false)
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    useEffect(()=> {
+        if(isTouch && refDescCard2.current){
+            setTimeout(()=>
+                refDescCard2.current && refDescCard2.current.scrollIntoView({block:"end", behavior: "smooth"}), 1000)
+        }
+    }, [isTouch])
 
     return (
         <>
@@ -227,7 +234,7 @@ function Screen4(props: IProps) {
                     </div>
                     <div className={style.cards + " " + style.cardsEducation}>
                         {data.slice(0,1).map((item, index) =>
-                            <div className={style.cards__item} key={index}>
+                            <div className={style.cards__item + " " + (!isStepMobile? "" : style.opacity)} key={index}>
                                <div className={style.cards__item + " " + ( (indexAnimationCard === index && isAnimation || (userAnswer[index])) ? style.animation : "")} key={index} onClick={()=>step1(index)}>
                                 <div className={style.card__front + " " + style.card}>
                                     <Card index={index} item={item} screen4={true} isUser={false}></Card>
@@ -236,7 +243,7 @@ function Screen4(props: IProps) {
                                     <Card index={index} item={item} screen4={true} isUser={true} clickAnswerUser={(e: React.MouseEvent<HTMLSpanElement>, answer: string) => clickAnswerUser(e, index, answer)}></Card>
                                 </div>
 
-                                    <div className={style.descCard1 +" "+ (step === 0 ? "" : style.opacity)}>
+                                    <div className={style.descCard1 +" "+ (step === 0 ? "" : style.opacity)} ref={refDescCard2}>
                                         <div className={style.descCard1__wrapperImg}>
                                         <img src="/images/cards/desc-card1.svg" alt="desc" className={style.educImgD} />
                                         <img src="/images/cards/desc-card1M.svg" alt="desc" className={style.educImgM} />
@@ -298,12 +305,8 @@ function Screen4(props: IProps) {
                                     <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={false}></Card>
                                 </div>
                                 <div className={style.card__back + " " + style.card}>
-                                    <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={false} clickAnswerUser={(e: React.MouseEvent<HTMLSpanElement>, answer: string) => clickAnswerUser(e, index, answer)}></Card>
+                                    <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true} clickAnswerUser={(e: React.MouseEvent<HTMLSpanElement>, answer: string) => clickAnswerUser(e, index, answer)}></Card>
                                 </div>
-
-
-
-
                             </div>)}
 
 
