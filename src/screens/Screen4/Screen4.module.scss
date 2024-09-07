@@ -1,4 +1,4 @@
-.education{
+.education {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
@@ -7,18 +7,22 @@
     top: 0;
     left: 0;
     z-index: 9;
-    .educImgM{
+    display: none;
+
+    .educImgM {
         display: none;
     }
 
     // display: none;
-    .header__img{
+    .header__img {
         opacity: 0;
     }
-    .cardEducation{
+
+    .cardEducation {
         position: relative;
     }
-    span.spanEduc{
+
+    span.spanEduc {
         font-size: 26px;
         font-weight: 400;
         font-family: 'Inter';
@@ -26,60 +30,73 @@
         line-height: 120%;
 
     }
-    .descCard1{
+
+    .descCard1 {
         position: absolute;
         top: 0px;
         display: flex;
         gap: 5px;
         transform: translateY(-100%) translateX(30%);
         width: 150%;
-        &__wrapperImg{
+
+        &__wrapperImg {
             height: min(12vh, 112px);
-            img{
+
+            img {
                 height: 100%;
                 width: auto;
             }
         }
-        span{
+
+        span {
             margin-top: -10px;
         }
     }
-    .descCard1M{
+
+    .descCard1M {
         display: none;
     }
-    .descCard2{
+
+    .descCard2 {
         position: absolute;
         bottom: 0px;
         display: flex;
         transform: translateY(50%) translateX(-60%);
         width: 100%;
         gap: 5px;
-        &__wrapperImg{
+
+        &__wrapperImg {
             height: min(12vh, 112px);
-            img{
+
+            img {
                 height: 100%;
                 width: auto;
             }
         }
-        span{
+
+        span {
             margin-top: 15px;
 
         }
     }
-    .arrowEducation{
+
+    .arrowEducation {
         position: absolute;
         bottom: 10vh;
         left: 0px;
         display: flex;
         align-items: center;
         gap: 5px;
-        span{
+
+        span {
             margin-top: 10px;
         }
     }
-    .header__educ{
+
+    .header__educ {
         position: relative;
-        .descHeader{
+
+        .descHeader {
             position: absolute;
             left: 0;
             top: 0px;
@@ -88,55 +105,66 @@
             gap: 5px;
             width: auto;
             transform: translateX(-145%) translateY(-20%);
-            &>*{
+
+            &>* {
                 flex: 1 0 auto;
             }
         }
     }
 
 }
+
 @media (max-width: 800px) {
 
-    .education{
-        span.spanEduc{
+    .education {
+        span.spanEduc {
             font-size: 14px;
             // font-weight: 400;
             // font-family: 'Inter';
             // color: #fff;
             // line-height: 120%;
-        
+
         }
-        .educImgD{
+
+        .educImgD {
             display: none;
         }
-        .educImgM{
+
+        .educImgM {
             display: block;
         }
-        .header__educ{
-            .descHeader{
+
+        .header__educ {
+            .descHeader {
                 transform: translateX(-150%) translateY(10%);
             }
         }
-        .descHeader{
-            span{
+
+        .descHeader {
+            span {
                 transform: translateY(70%);
             }
         }
-        .descCard2__wrapperImg{
+
+        .descCard2__wrapperImg {
             height: 47px;
         }
-        .arrowEducation{
-            bottom:0px;
+
+        .arrowEducation {
+            bottom: 0px;
             transform: translateY(120%);
         }
-        .wrapperArrowEducImg{
+
+        .wrapperArrowEducImg {
             height: 36px;
-            img{
+
+            img {
                 height: 100%;
                 width: auto;
             }
         }
-        .descCard1{
+
+        .descCard1 {
             top: auto;
             bottom: 0px;
             left: auto;
@@ -147,25 +175,29 @@
             width: 50%;
             gap: 10px;
             display: none;
-            span{
+
+            span {
                 margin-top: 0;
                 margin-left: -20px;
             }
-            &__wrapperImg{
+
+            &__wrapperImg {
                 height: 74px;
             }
         }
-        .descCard1M{
+
+        .descCard1M {
             display: flex;
             transform: translateY(105%) translateX(-80%);
         }
 
-    }
-    .cards>*:nth-child(2){
-        display: none;
+        .cards>*:nth-child(2) {
+            display: none;
+        }
     }
 
-    
+
+
 }
 
 .container {
@@ -188,24 +220,26 @@
         position: relative;
         height: 633px;
         width: 360px;
-        transition: all .4s;
-        .frontStop{
+        // transition: all .4s;
+
+        .frontStop {
             cursor: pointer;
             // opacity: 0;
         }
-        &:hover .card__front:not(.frontStop) {
-            transform: rotateY(180deg);
-            z-index:1;
-            opacity: 1;
 
-        }
+        // &:hover .card__front:not(.frontStop) {
+        //     transform: rotateY(180deg);
+        //     z-index:1;
+        //     opacity: 0;
 
-        &:hover .card__back {
-            transform: rotateY(360deg);
-            z-index:1;
-            opacity: 1;
+        // }
 
-        }
+        // &:hover .card__back {
+        //     transform: rotateY(360deg);
+        //     z-index:1;
+        //     opacity: 1;
+
+        // }
     }
 
     .card {
@@ -216,6 +250,7 @@
         left: 0;
         transition: 1s;
         backface-visibility: hidden;
+        cursor: pointer;
 
         &__back {
             transform: rotateY(180deg);
@@ -223,13 +258,26 @@
             opacity: 0;
 
         }
-        &.backFront{
+
+        &.backFront {
             transform: none;
             z-index: 1;
             opacity: 1;
             cursor: pointer;
         }
 
+    }
+}
+
+.cards__item.animation {
+    .card__front {
+        transform: rotateY(180deg);
+    }
+
+    .card__back {
+        transform: rotateY(360deg);
+        z-index: 1;
+        opacity: 1;
     }
 }
 

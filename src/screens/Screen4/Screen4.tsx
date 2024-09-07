@@ -22,7 +22,7 @@ function Screen4(props: IProps) {
     }
     const [userAnswer, setUserAnswer] = useState<boolean[]>([]);
     const clickCard = (index: number) => {
-        if (!userAnswer[index]) return;
+        
         openAnswer(index, false, true);
     }
     const clickAnswerUser = (e:React.MouseEvent<HTMLSpanElement>,index: number, answer: string) => {
@@ -33,7 +33,21 @@ function Screen4(props: IProps) {
         openAnswer(index, data[index].answerRight === answer, false);
 
     }
-
+    const [isAnimation, setIsAnimation] = useState(false);
+    const [indexAnimationCard, setIndexAnimationCard] = useState(-1);
+    const transformCard = (index: number)=> {
+        if (userAnswer[index]) {
+            clickCard(index);
+            return
+        }
+        if(index === indexAnimationCard){
+            setIsAnimation(!isAnimation);
+            return
+        }
+        setIsAnimation(true);
+        setIndexAnimationCard(index)
+       
+    }
 
     return (
         <>
@@ -140,7 +154,7 @@ function Screen4(props: IProps) {
                     </div>
                     <div className={style.cards}>
                         {data.map((item, index) =>
-                            <div className={style.cards__item} key={index} onClick={() => clickCard(index)}>
+                            <div className={style.cards__item + " " + ( (indexAnimationCard === index && isAnimation && !userAnswer[index]) ? style.animation : "")} key={index} onClick={()=>transformCard(index)}>
                                 {!userAnswer[index] && <div className={style.card__front + " " + style.card}>
                                     <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={false}></Card>
                                 </div>}
