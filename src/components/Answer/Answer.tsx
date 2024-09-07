@@ -50,7 +50,10 @@ function Answer(props: IProps) {
 
                     </div>
                     <div className={style.card__arrow} onClick={closeAnswer}>
+                        <div className={style.card__arrowWrapper}>
                         <img src="/images/cards/arrow.svg" alt="arrow" />
+                        </div>
+                      
 
                     </div>
                     <div className={style.rect + " " + (isDoubleClick ? style.answer : isWin ? style.success: style.error)}>
