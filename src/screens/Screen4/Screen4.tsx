@@ -154,11 +154,11 @@ function Screen4(props: IProps) {
                     </div>
                     <div className={style.cards}>
                         {data.map((item, index) =>
-                            <div className={style.cards__item + " " + ( (indexAnimationCard === index && isAnimation && !userAnswer[index]) ? style.animation : "")} key={index} onClick={()=>transformCard(index)}>
-                                {!userAnswer[index] && <div className={style.card__front + " " + style.card}>
+                            <div className={style.cards__item + " " + ( (indexAnimationCard === index && isAnimation || (userAnswer[index])) ? style.animation : "")} key={index} onClick={()=>transformCard(index)}>
+                                <div className={style.card__front + " " + style.card}>
                                     <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={false}></Card>
-                                </div>}
-                                <div className={style.card__back + " " + style.card + " " +(!userAnswer[index] ? "" : style.backFront)}>
+                                </div>
+                                <div className={style.card__back + " " + style.card}>
                                     <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true} clickAnswerUser={(e: React.MouseEvent<HTMLSpanElement>, answer: string) => clickAnswerUser(e, index, answer)}></Card>
                                 </div>
 
