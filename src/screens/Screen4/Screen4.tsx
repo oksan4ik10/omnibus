@@ -55,7 +55,8 @@ function Screen4(props: IProps) {
                         <div className={style.descHeader}>
                                   <span className={style.spanEduc}>Счётчик показывает,<br/>сколько карточек<br/>было открыто</span>
                                     <div className={style.descCard2__wrapperImg}>
-                                        <img src="/images/cards/desc-card2.svg" alt="desc" />
+                                        <img src="/images/cards/desc-card2.svg" alt="desc" className={style.educImgD} />
+                                        <img src="/images/cards/desc-card2M.svg" alt="desc" className={style.educImgM} />
                                     </div>    
                             </div>
                         </div>
@@ -68,10 +69,20 @@ function Screen4(props: IProps) {
                                     <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={false}></Card>
                                     <div className={style.descCard1}>
                                         <div className={style.descCard1__wrapperImg}>
-                                        <img src="/images/cards/desc-card1.svg" alt="desc" />
+                                        <img src="/images/cards/desc-card1.svg" alt="desc" className={style.educImgD} />
+                                        <img src="/images/cards/desc-card1M.svg" alt="desc" className={style.educImgM} />
                                         </div>
                                         
                                         <span className={style.spanEduc}>Нажми на карточку, которую хочешь прочитать</span>
+
+                                    </div>
+                                    <div className={style.descCard1 + " " + style.descCard1M}>
+                                        <div className={style.descCard1__wrapperImg}>
+                                        <img src="/images/cards/desc-card1.svg" alt="desc" className={style.educImgD} />
+                                        <img src="/images/cards/desc-card1M.svg" alt="desc" className={style.educImgM} />
+                                        </div>
+                                        
+                                        <span className={style.spanEduc}>Читай описание и выбирай ответ</span>
 
                                     </div>
                                 </div>}
@@ -80,7 +91,7 @@ function Screen4(props: IProps) {
                                   <div className={style.descCard2}>
                                   <span className={style.spanEduc}>Читай описание<br/>и выбирай ответ</span>
                                         <div className={style.descCard2__wrapperImg}>
-                                        <img src="/images/cards/desc-card2.svg" alt="desc" />
+                                        <img src="/images/cards/desc-card2.svg" alt="desc" className={style.educImgD}/>
                                         </div>
                                         
                                       

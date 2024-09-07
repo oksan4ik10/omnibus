@@ -7,6 +7,10 @@
     top: 0;
     left: 0;
     z-index: 9;
+    .educImgM{
+        display: none;
+    }
+
     // display: none;
     .header__img{
         opacity: 0;
@@ -40,6 +44,9 @@
             margin-top: -10px;
         }
     }
+    .descCard1M{
+        display: none;
+    }
     .descCard2{
         position: absolute;
         bottom: 0px;
@@ -64,6 +71,7 @@
         bottom: 10vh;
         left: 0px;
         display: flex;
+        align-items: center;
         gap: 5px;
         span{
             margin-top: 10px;
@@ -87,6 +95,79 @@
     }
 
 }
+@media (max-width: 800px) {
+
+    .education{
+        span.spanEduc{
+            font-size: 14px;
+            // font-weight: 400;
+            // font-family: 'Inter';
+            // color: #fff;
+            // line-height: 120%;
+        
+        }
+        .educImgD{
+            display: none;
+        }
+        .educImgM{
+            display: block;
+        }
+        .header__educ{
+            .descHeader{
+                transform: translateX(-150%) translateY(10%);
+            }
+        }
+        .descHeader{
+            span{
+                transform: translateY(70%);
+            }
+        }
+        .descCard2__wrapperImg{
+            height: 47px;
+        }
+        .arrowEducation{
+            bottom:0px;
+            transform: translateY(120%);
+        }
+        .wrapperArrowEducImg{
+            height: 36px;
+            img{
+                height: 100%;
+                width: auto;
+            }
+        }
+        .descCard1{
+            top: auto;
+            bottom: 0px;
+            left: auto;
+            right: 0;
+            transform: translateY(105%) translateX(30%);
+            flex-direction: column;
+            flex: 1 0 auto;
+            width: 50%;
+            gap: 10px;
+            display: none;
+            span{
+                margin-top: 0;
+                margin-left: -20px;
+            }
+            &__wrapperImg{
+                height: 74px;
+            }
+        }
+        .descCard1M{
+            display: flex;
+            transform: translateY(105%) translateX(-80%);
+        }
+
+    }
+    .cards>*:nth-child(2){
+        display: none;
+    }
+
+    
+}
+
 .container {
     width: 100vw;
     overflow-x: hidden;
