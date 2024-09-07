@@ -45,11 +45,21 @@ function Screen4(props: IProps) {
                             <img src="images/screen4/logoDesktop.png" alt="logo" className={style.logoD} />
 
                         </div>
+                        <div className={style.header__educ}>
                         <div className={style.header__counter}>
                             <span>{userAnswer.filter((item)=>item).length}</span>
                             <span>/</span>
                             <span>10</span>
+
                         </div>
+                        <div className={style.descHeader}>
+                                  <span className={style.spanEduc}>Счётчик показывает,<br/>сколько карточек<br/>было открыто</span>
+                                    <div className={style.descCard2__wrapperImg}>
+                                        <img src="/images/cards/desc-card2.svg" alt="desc" />
+                                    </div>    
+                            </div>
+                        </div>
+
                     </div>
                     <div className={style.cards + " " + style.cardsEducation}>
                         {data.slice(0,2).map((item, index) =>
