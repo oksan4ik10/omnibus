@@ -12,9 +12,10 @@ interface IProps {
     isScreen4: boolean;
     openAnswer: (index: number, isWin: boolean, isDoubleClick: boolean) => void;
     isStepMobile: boolean;
+    width: number;
 }
 function Screen4(props: IProps) {
-    const { openAnswer, viewForm, isScreen4, isStepMobile} = props;
+    const { openAnswer, viewForm, isScreen4, isStepMobile, width} = props;
 
     const clickBtn = () => {
         viewForm();
@@ -58,9 +59,8 @@ function Screen4(props: IProps) {
     const refDescCard2 = useRef<HTMLDivElement>(null);
 
     useEffect(()=> {
-        const isTouch = () => 'ontouchstart' in window ||  navigator.maxTouchPoints > 0 || window.navigator.maxTouchPoints > 0
+        const isTouch = () => width < 800
         const  t = isTouch();
-        console.log(t);
         
         setIsTouch(t)
     }, [])
@@ -88,12 +88,13 @@ function Screen4(props: IProps) {
             enablePageScroll()
             if(refArrowEducation.current){
                 refArrowEducation.current.scrollIntoView({block:"end", behavior: "smooth"})
-                    }
-            setIsScrollEduc(false)
+                window.scrollBy({top: 100, behavior:"smooth"})
+            }
+            
             setStep(3)
             return
         }
-        
+        setIsScrollEduc(false)
         setIsEducation(false)
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -111,7 +112,8 @@ function Screen4(props: IProps) {
             enablePageScroll()
             setStep(2)
             if(refArrowEducation.current){
-                refArrowEducation.current.scrollIntoView({block:"end", behavior: "smooth"})
+                refArrowEducation.current.scrollIntoView(false)
+                window.scrollBy({top: 100, behavior:"smooth"})
             }
             return
         }
@@ -121,8 +123,11 @@ function Screen4(props: IProps) {
     }
     useEffect(()=> {
         if(isTouch && refDescCard2.current){
-            setTimeout(()=>
-                refDescCard2.current && refDescCard2.current.scrollIntoView({block:"end", behavior: "smooth"}), 1000)
+            setTimeout(()=>{
+                if (refDescCard2.current)  refDescCard2.current.scrollIntoView({block:"end", behavior: "smooth"})
+        
+
+            }, 200)
         }
     }, [isTouch])
 
@@ -243,13 +248,13 @@ function Screen4(props: IProps) {
                                     <Card index={index} item={item} screen4={true} isUser={true} clickAnswerUser={(e: React.MouseEvent<HTMLSpanElement>, answer: string) => clickAnswerUser(e, index, answer)}></Card>
                                 </div>
 
-                                    <div className={style.descCard1 +" "+ (step === 0 ? "" : style.opacity)} ref={refDescCard2}>
+                                    <div className={style.descCard1 +" "+ (step === 0 ? "" : style.opacity)} >
                                         <div className={style.descCard1__wrapperImg}>
                                         <img src="/images/cards/desc-card1.svg" alt="desc" className={style.educImgD} />
                                         <img src="/images/cards/desc-card1M.svg" alt="desc" className={style.educImgM} />
                                         </div>
                                         
-                                        <span className={style.spanEduc}>Нажми на карточку, которую хочешь прочитать</span>
+                                        <span className={style.spanEduc} ref={refDescCard2}>Нажми на карточку, которую хочешь прочитать</span>
 
                                     </div>
                                     <div className={style.descCard1 + " " + style.descCard1M +" "+ (step === 1 && !isStepMobile ? "" : style.opacity)} >
