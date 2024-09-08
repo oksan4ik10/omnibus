@@ -10,9 +10,9 @@
 
 .screen4.wrapper {
   transition: height 1s;
-  height: 100%;
+  height: auto;
 
-  .swiper {
+  >.swiper {
 
     .swiper-slide {
       opacity: 0 !important;
@@ -69,55 +69,92 @@
     transition-timing-function: linear !important;
   }
 
-
   .swiper-slide {
-    width: 7.5% !important;
+    width: fit-content;
   }
 
-  .swiper-slide:nth-child(2n) {
-    width: 5.4% !important;
-  }
+  // .swiper-slide:nth-child(1),
+  // :nth-child(10) {
+  //   width: 3.1% !important;
+  // }
 
-  .swiper-slide:nth-child(3n) {
-    width: 11.4% !important;
-  }
+  // .swiper-slide:nth-child(2),
+  // .swiper-slide:nth-child(11) {
+  //   width: 11.7% !important;
+  // }
 
-  .swiper-slide:nth-child(4n) {
-    width: 8.5% !important;
-  }
+  // .swiper-slide:nth-child(3),
+  // .swiper-slide:nth-child(12) {
+  //   width: 8.7% !important;
+  // }
 
-  .swiper-slide:nth-child(5n) {
-    width: 13.1% !important;
-  }
+  // .swiper-slide:nth-child(4),
+  // .swiper-slide:nth-child(13) {
+  //   width: 11.7% !important;
+  // }
 
-  .swiper-slide:nth-child(6n) {
-    width: 22.4% !important;
-  }
+  // .swiper-slide:nth-child(5),
+  // .swiper-slide:nth-child(14) {
+  //   width: 7.3% !important;
+  // }
 
-  @media (max-width: 790px) {
+  // .swiper-slide:nth-child(6),
+  // .swiper-slide:nth-child(15) {
+  //   width: 9.1% !important;
+  // }
 
-    .swiper-slide {
-      width: 13.8% !important;
-    }
+  // .swiper-slide:nth-child(7),
+  // .swiper-slide:nth-child(16) {
+  //   width: 7.8% !important;
+  // }
 
-    .swiper-slide:nth-child(2n) {
-      width: 10% !important;
-    }
+  // .swiper-slide:nth-child(8),
+  // .swiper-slide:nth-child(17) {
+  //   width: 8.5% !important;
+  // }
 
-    .swiper-slide:nth-child(3n) {
-      width: 21.2% !important;
-    }
+  // .swiper-slide:nth-child(9),
+  // .swiper-slide:nth-child(18) {
+  //   width: 7.5% !important;
+  // }
 
-    .swiper-slide:nth-child(4n) {
-      width: 15.8% !important;
-    }
 
-    .swiper-slide:nth-child(5n) {
-      width: 24.3% !important;
-    }
+  // @media (max-width: 790px) {
 
-    .swiper-slide:nth-child(6n) {
-      width: 42% !important;
-    }
-  }
+  //   .swiper-slide {
+  //     width: 5.8% !important;
+  //   }
+
+  //   .swiper-slide:nth-child(2) {
+  //     width: 21.7% !important;
+  //   }
+
+  //   .swiper-slide:nth-child(3) {
+  //     width: 16.3% !important;
+  //   }
+
+  //   .swiper-slide:nth-child(4) {
+  //     width: 22% !important;
+  //   }
+
+  //   .swiper-slide:nth-child(5) {
+  //     width: 13.7% !important;
+  //   }
+
+  //   .swiper-slide:nth-child(6) {
+  //     width: 16.8% !important;
+  //   }
+
+  //   .swiper-slide:nth-child(7) {
+  //     width: 14.5% !important;
+  //   }
+
+  //   .swiper-slide:nth-child(8) {
+  //     width: 15.8% !important;
+  //   }
+
+  //   .swiper-slide:nth-child(9) {
+  //     width: 14% !important;
+  //   }
+  // }
 }
