@@ -374,6 +374,22 @@
         justify-self: end;
     }
 
+    &:not(.cardsEducation)>:last-child {
+        grid-column: 2/3;
+        justify-self: center;
+
+        &::after {
+            content: url("./images/screen4/water-purple.png");
+            position: absolute;
+            bottom: -200px;
+            right: -20px;
+            z-index: -1;
+            transform: scale(.9) rotate(107deg);
+            top: auto;
+        }
+
+    }
+
     // &>:nth-child(4n) {
     //     justify-self: start;
     // }
@@ -701,20 +717,10 @@
         }
 
         &:not(.cardsEducation)>:last-child {
-            grid-column: 1/3;
-            justify-self: center;
-
-            &::after {
-                content: url("./images/screen4/water-purple.png");
-                position: absolute;
-                bottom: -200px;
-                right: -20px;
-                z-index: -1;
-                transform: scale(.9) rotate(107deg);
-                top: auto;
-            }
-
+            justify-self: end;
         }
+
+
     }
 
     .water2lampBtmImg,
@@ -787,6 +793,13 @@
             justify-self: center;
         }
 
+
+
+
+    }
+
+    .cards:not(.cardsEducation)>:last-child {
+        justify-self: center;
     }
 
     .btm {

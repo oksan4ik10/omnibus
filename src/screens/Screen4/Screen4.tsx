@@ -131,7 +131,6 @@ function Screen4(props: IProps) {
             }, 200)
         }
     }, [isTouch, isScreen4])
-console.log(isScreen4);
 
     return (
         <>
