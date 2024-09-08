@@ -55,12 +55,13 @@ function Screen2(props: IProps) {
             <div className={style.line}>
                 <img src="images/sceen2/line.svg" alt="line" />
             </div>
+            <div className={style.lamp}>
+                        <img src="./images/lamp.svg" alt="lamp" />
+                    </div>
             <div className={style.card}>
 
                 <div className={style.card__item}>
-                    <div className={style.lamp}>
-                        <img src="./images/lamp.svg" alt="lamp" />
-                    </div>
+
                     <div className={style.man}>
                         <div className={style.btnImg}>
                             <img src="images/sceen2/btn-card.png" alt="calc" />

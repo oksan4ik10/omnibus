@@ -69,8 +69,8 @@
 }
 
 .card {
-    height: calc(var(--heightContainer)/2);
-    --translateY: max(calc(var(--topLine) - 213px - 161px), 20px);
+    height: calc((var(--heightContainer)) - (var(--heightContainer)/2.2));
+    --translateY: max(calc(var(--topLine) - 150px - 161px), 20px);
     display: grid;
     grid-template-columns: minmax(650px, 40vw) auto;
     justify-items: start;
@@ -96,16 +96,17 @@
 
     .bookImg {
         position: absolute;
-        right: -240px;
+        left: 0px;
         z-index: -1;
-        top: 30px
+        top: 40px;
+        transform: translateX(185%);
     }
 
     .calcImg {
         position: absolute;
-        left: 118px;
+        left: 106px;
         z-index: -1;
-        top: 284px;
+        top: 276px;
     }
 
     .btnImg {
@@ -144,7 +145,8 @@
     // right: -15%;
     right: 0;
     // transform: translateX(7%) translateY(50%) rotate(0deg);
-    transform: translateX(20%) translateY(-30%) rotate(10deg);
+
+    transform: translateX(-36%) translateY(5%) rotate(11deg);
     transform-origin: center;
     z-index: -1;
 
@@ -160,11 +162,11 @@
 
 @keyframes lamp {
     0% {
-        transform: translateX(10%) translateY(-30%) rotate(0deg);
+        transform: translateX(-36%) translateY(5%) rotate(0deg);
     }
 
     100% {
-        transform: translateX(20%) translateY(-30%) rotate(10deg);
+        transform: translateX(-36%) translateY(5%) rotate(-11deg);
     }
 }
 
@@ -178,10 +180,11 @@
 @media (min-width: 1000px) and (max-height:800px) {
     .card {
         --translateY: max(calc(var(--topLine) - 213px - 200px), 0px);
+        transform: scale(.7);
     }
 
     .card .man {
-        transform: scale(1) rotate(-15deg) translateX(280px) translateY(calc(var(--translateY) - 90px));
+        transform: rotate(-15deg) translateX(70%) translateY(15%);
     }
 
     .presents__list {
@@ -198,6 +201,21 @@
             }
         }
 
+    }
+
+    .screen2 .lamp {
+        animation: lamp2 1.3s .6s alternate both linear;
+    }
+}
+
+
+@keyframes lamp2 {
+    0% {
+        transform: translateX(-70%) translateY(5%) rotate(0deg);
+    }
+
+    100% {
+        transform: translateX(-70%) translateY(5%) rotate(-11deg);
     }
 }
 
