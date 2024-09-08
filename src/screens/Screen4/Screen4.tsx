@@ -131,10 +131,11 @@ function Screen4(props: IProps) {
             }, 200)
         }
     }, [isTouch, isScreen4])
+console.log(isScreen4);
 
     return (
         <>
-        {isEducation && !isTouch && <div className={style.education + " " + style.container} onClick={changeEducation}>
+        {isEducation && !isTouch && <div className={style.education + " " + style.container + " "+ (isScreen4 ? "":style.screen4)} onClick={changeEducation}>
         <div className={style.wrapper}>
                     <div className={style.header}>
                         <div className={style.header__img}>
@@ -213,7 +214,7 @@ function Screen4(props: IProps) {
                 </div>
               
         </div>}
-        {isEducation && isTouch && <div className={style.education + " " + style.container} onClick={changeEducationMobile}>
+        {isEducation && isTouch && <div className={style.education + " " + style.container+ " "+ (isScreen4 ? "":style.screen4)} onClick={changeEducationMobile}>
         <div className={style.wrapper}>
                     <div className={style.header}>
                         <div className={style.header__img}>

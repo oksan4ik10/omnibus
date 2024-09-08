@@ -8,8 +8,7 @@
     top: 0;
     left: 0;
     z-index: 9;
-
-
+    opacity: 1;
 
     .educImgM {
         display: none;
@@ -116,6 +115,11 @@
         }
     }
 
+}
+
+.education.screen4 {
+    opacity: 0;
+    transition: .2s;
 }
 
 @media (max-width: 800px) {
