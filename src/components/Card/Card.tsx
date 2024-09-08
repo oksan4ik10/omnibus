@@ -52,9 +52,9 @@ function Card(props: IProps) {
                     <span onClick={(e: React.MouseEvent<HTMLSpanElement>) => click(e, 'left')}>Не по специальности</span>
                 </div>}
             </div>
-            <div className={style.water}>
+            {/* <div className={style.water}>
                         <img src="images/cards/water.svg" alt="water" />
-                    </div>
+                    </div> */}
         </div>
 
     );
