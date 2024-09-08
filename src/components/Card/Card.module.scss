@@ -221,9 +221,57 @@
         height: 100%;
 
         .card__photo {
-            flex: 0 0 123px;
+            flex: 0 0 147px;
             mask: url(images/maskScreen2.svg);
             -webkit-mask: url(images/maskScreen2.svg);
+
+            img {
+                object-position: 8px 2px
+            }
+        }
+    }
+
+    .info {
+        padding: 0px 12px;
+
+        &__name {
+            font-size: 22px;
+        }
+
+        &__age {
+            font-size: 11px;
+            padding: 0px 7px;
+        }
+
+        &__logo {
+            width: 69px;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        &__job {
+            font-size: 9px;
+
+            span:nth-child(1) {
+                font-size: 12px;
+            }
+        }
+
+        &__text {
+            font-size: 9px;
+            line-height: 120%;
+        }
+    }
+
+    .card__btns {
+        flex: 0 0 34px;
+
+        span {
+            font-size: 9px;
+            line-height: 120%;
         }
     }
 }
@@ -284,7 +332,7 @@
         }
     }
 
-    .wrapper.userClick {
+    .wrapper.userClick:not(.pBtm) {
         .info__text span {
             max-height: 95px;
         }
@@ -296,6 +344,62 @@
 
         img {
             transform: rotate(-14deg);
+        }
+    }
+
+    .wrapper.pBtm {
+        height: 434px;
+        width: 246px !important;
+
+        .card {
+            padding-bottom: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+
+            .card__photo {
+                flex: 0 0 123px !important;
+                mask: url(images/maskScreen2.svg) !important;
+                -webkit-mask: url(images/maskScreen2.svg) !important;
+            }
+        }
+
+        .info {
+            padding: 0px 12px !important;
+
+            &__name {
+                font-size: 22px !important;
+            }
+
+            &__age {
+                font-size: 11px !important;
+                padding: 0px 7px !important;
+            }
+
+            &__logo {
+                width: 69px !important;
+
+                img {
+                    width: 100% !important;
+                    height: auto !important;
+                }
+            }
+
+            &__text {
+                span {
+                    font-size: 9px !important;
+                    line-height: 120% !important;
+                }
+
+            }
+        }
+
+        .card__btns {
+            flex: 0 0 34px !important;
+
+            span {
+                font-size: 9px !important;
+                line-height: 120% !important;
+            }
         }
     }
 
