@@ -93,6 +93,14 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
   }
+  document.addEventListener('readystatechange', function() {
+    console.log("loadeddddd");
+    
+    if (document.readyState === 'complete') {
+      // good luck!
+      console.log('React app DOM is fully loaded.');
+    }
+  });
   return (
     <>
 
@@ -103,6 +111,8 @@ function App() {
           slidesPerView={'auto'}
           allowTouchMove={false}
           speed={1200}
+          lazyPreloadPrevNext={1}
+          lazyPreloaderClass='opacity'
 
         >
           <SwiperSlide><Screen1 changeSlide={handleNext}></Screen1></SwiperSlide>

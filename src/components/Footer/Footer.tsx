@@ -20,7 +20,7 @@ function Footer(props: IProps) {
                 allowTouchMove={false}
                 slidesPerView={'auto'}
                 spaceBetween={gap}
-                speed={5000}
+                speed={7000}
                 freeMode={true}
                 loop={true}
                 loopAdditionalSlides={2}

@@ -1,6 +1,6 @@
 .container {
     width: 100vw;
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     overflow: hidden;
 
     backdrop-filter: blur(21.2px);
@@ -27,9 +27,9 @@
 }
 
 .wrapper {
-    height: 90vh;
+    height: calc(var(--vh, 1vh) * 90);
     max-height: 1000px;
-    width: 60vh;
+    width: calc(var(--vh, 1vh) * 60);
     max-width: 620px;
 }
 

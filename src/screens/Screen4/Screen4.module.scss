@@ -1,5 +1,5 @@
 .education {
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     width: 100vw;
     overflow: hidden;
     overflow-y: scroll;
@@ -8,7 +8,8 @@
     top: 0;
     left: 0;
     z-index: 9;
-    opacity: 1;
+    opacity: 0;
+
 
     .educImgM {
         display: none;
@@ -118,8 +119,18 @@
 }
 
 .education.screen4 {
-    opacity: 0;
-    transition: .2s;
+    animation: start .3s both;
+}
+
+@keyframes start {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
 }
 
 @media (max-width: 800px) {
@@ -208,7 +219,7 @@
 .container {
     width: 100vw;
     overflow-x: hidden;
-    min-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
     --marginLeft: calc((100vw - 1140px)/2);
     --widthContainer: 1140px;
     height: 100%;
@@ -555,14 +566,14 @@
 
         .caclCardsImg {
             position: absolute;
-            bottom: 10vh;
+            bottom: calc(var(--vh, 1vh) * 10);
             left: 0px;
             transform: translateX(calc(var(--marginLeft) + var(--widthContainer) + 40px)) translateY(0%);
         }
 
         .headCardsImg {
             position: absolute;
-            top: 10vh;
+            top: calc(var(--vh, 1vh) * 10);
             left: var(--marginLeft);
             transform: translateX(-105%);
             // height: 15.5vh;
@@ -571,7 +582,7 @@
 
         .bookCardsImg {
             position: absolute;
-            top: 25vh;
+            top: calc(var(--vh, 1vh) * 25);
             left: var(--marginLeft);
             transform: translateX(-80%) translateY(10%);
             // height: 17vh;
@@ -627,7 +638,7 @@
         .water2lampBtmImg {
             position: absolute;
             transform-origin: 0 0;
-            bottom: 25vh;
+            bottom: calc(var(--vh, 1vh) * 25);
             left: calc(var(--marginLeft) + var(--widthContainer) + 30px);
             transform: scale(0.8) rotate(83deg) translateY(-40%) translateX(-22%);
             mix-blend-mode: luminosity;
@@ -651,7 +662,7 @@
     top: 0px;
     transform: translateX(40%) translateY(70%);
     z-index: -1;
-    height: 50vh;
+    height: calc(var(--vh, 1vh) * 50);
     width: 58vw;
 
     &__wrapper {

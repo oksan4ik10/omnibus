@@ -20,6 +20,14 @@ function Screen1(props: IProps) {
 
 
     })
+    const handleImageLoaded = ()=> {
+        console.log("loaded");
+        
+    }
+    const handleImageErrored=()=> {
+        console.log("error");
+        
+    }
     return (
         <div className={style.container + " container"}>
             <div className={style.waterLogo}>
@@ -36,7 +44,8 @@ function Screen1(props: IProps) {
                         <img src="./images/screen1/water-people.png" alt="water" />
                     </div>
                     <div className={style.main__img}>
-                        <img src="./images/screen1/people.png" alt="people" />
+                        <img src="./images/screen1/people.png" alt="people"   onLoad={handleImageLoaded}
+          onError={handleImageErrored} />
                         <div className={style.lamp}>
                             <img src="./images/lamp.svg" alt="lamp" />
                         </div>

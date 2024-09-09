@@ -77,7 +77,7 @@
     padding-bottom: calc(5vh + 2vh + 60px);
 
     &__img {
-        height: 30.3vh;
+        height: calc(var(--vh, 1vh) * 30.3);
         align-self: center;
         justify-self: center;
 
@@ -254,7 +254,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 57vh;
+    width: calc(var(--vh, 1vh) * 57);
     z-index: -1;
 
     img {
@@ -294,7 +294,8 @@
     }
 
     .info__img {
-        height: 20vh;
+        height: calc(var(--vh, 1vh) * 20);
+        ;
     }
 
 }
