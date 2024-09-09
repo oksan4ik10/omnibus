@@ -1,12 +1,13 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import style from "./Screen1.module.scss"
+
 
 interface IProps {
     changeSlide: () => void;
     isLoader: boolean
 }
 function Screen1(props: IProps) {
-    const { changeSlide, isLoader } = props;
+    const { changeSlide } = props;
 
     const clickBtn = () => {
         changeSlide();
@@ -22,6 +23,17 @@ function Screen1(props: IProps) {
 
     })
 
+    const [url, setUrl] = useState('');
+    useEffect(() => {
+      fetch('https://raw.githubusercontent.com/oksan4ik10/omnibus/master/public/images/screen1/people.png')
+        .then(response => response.blob())
+        .then((image) => {
+          setUrl(URL.createObjectURL(image));
+          console.log(url);
+          
+        });
+    });
+
     // const handleImageLoaded = (e: Event)=> {
     //     console.log(e);
         
@@ -34,7 +46,7 @@ function Screen1(props: IProps) {
         
     // }
     return (<>
-       <div className={style.container + " container" + " " + (isLoader ? "": style.opacity)}>
+       <div className={style.container + " container" + " " + (url ? "": style.opacity)}>
             <div className={style.waterLogo}>
                 <img fetchPriority="low" role="presentation" src="./images/screen1/water-logo.png" alt="water" />
             </div>
@@ -50,7 +62,7 @@ function Screen1(props: IProps) {
                     </div>
                     <div className={style.main__img}>
                     <picture>
-                        <img fetchPriority="high"  src="./images/screen1/people.png" alt="people"  />
+                        <img fetchPriority="high"  src={url} alt="people"  />
                     </picture>
                        
                         <div className={style.lamp}>
@@ -84,14 +96,14 @@ function Screen1(props: IProps) {
             </main>
             <button className={style.btn + " btn"} onClick={clickBtn}>Дальше</button>
         </div>
-        {/* {isLoaded &&
+        {!url &&
         <div className={style.container + " conatainer"}>
             <div className={style.loaderWrapper}>
             <div className={style.loader}></div>
             </div> 
             </div>
 
-} */}
+}
     </>
 
     )
