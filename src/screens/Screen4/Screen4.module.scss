@@ -290,8 +290,8 @@
     .card__front {
         transform: rotateY(180deg);
         z-index: -1;
-        opacity: 1;
-        animation: front 2s alternate both ease-in-out;
+        // opacity: 0;
+        // animation: front 2s alternate both ease-in-out;
     }
 
     .card__back {
@@ -302,25 +302,25 @@
     }
 }
 
-@keyframes front {
-    70% {
-        opacity: 0;
-    }
+// @keyframes front {
+//     70% {
+//         opacity: 0;
+//     }
 
-}
+// }
 
-@keyframes back {
-    0% {
-        opacity: 0;
-    }
+// @keyframes back {
+//     0% {
+//         opacity: 0;
+//     }
 
-    100% {
-        opacity: 1;
+//     100% {
+//         opacity: 1;
 
-    }
+//     }
 
 
-}
+// }
 
 .opacity {
     opacity: 0 !important;
@@ -498,30 +498,6 @@
             z-index: -1;
         }
     }
-
-    // &>*:nth-child(7) {
-    //     position: relative;
-
-    //     &::after {
-    //         content: url("./assets/bg-book.svg");
-    //         position: absolute;
-    //         top: -40px;
-    //         left: -150px;
-    //         z-index: -1;
-    //     }
-    // }
-
-    // &>*:nth-child(4) {
-    //     position: relative;
-
-    //     &::after {
-    //         content: url("./assets/bg-head.svg");
-    //         position: absolute;
-    //         bottom: -20px;
-    //         left: -150px;
-    //         z-index: -1;
-    //     }
-    // }
 
     &>*:nth-child(14) {
         position: relative;
