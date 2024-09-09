@@ -269,6 +269,10 @@
         backface-visibility: hidden;
         cursor: pointer;
 
+        &__front {
+            transform: rotateY(0deg);
+        }
+
         &__back {
             transform: rotateY(180deg);
             z-index: -1;
