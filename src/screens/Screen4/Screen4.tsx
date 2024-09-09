@@ -99,19 +99,24 @@ function Screen4(props: IProps) {
         setIsEducation(false)
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    const step1=(index: number)=> {
-        if(step > 0) return
-        transformCard(index);
-        setTimeout(()=> { setStep(1)}, 300)
-       
-    
-    }
+
 
     const changeEducationMobile = ()=> {
-        if(!isStepMobile) return
-        if(step === 1){
-            enablePageScroll()
+
+        if(step==0){
+            transformCard(0);
+            setTimeout(()=> { setStep(1)}, 300)
+            return
+        }
+
+        if(step===1){
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             setStep(2)
+            return
+        }
+        if(step === 2){
+            enablePageScroll()
+            setStep(3)
             if(refArrowEducation.current){
                 refArrowEducation.current.scrollIntoView(false)
                 window.scrollBy({top: 100, behavior:"smooth"})
@@ -123,15 +128,15 @@ function Screen4(props: IProps) {
         setIsEducation(false)
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    useEffect(()=> {
-        if(isTouch && refDescCard2.current && isScreen4){
-            setTimeout(()=>{
-                if (refDescCard2.current)  refDescCard2.current.scrollIntoView({block:"end", behavior: "smooth"})
+    // useEffect(()=> {
+    //     if(isTouch && refDescCard2.current && isScreen4){
+    //         setTimeout(()=>{
+    //             if (refDescCard2.current)  refDescCard2.current.scrollIntoView({block:"end", behavior: "smooth"})
         
 
-            }, 200)
-        }
-    }, [isTouch, isScreen4])
+    //         }, 200)
+    //     }
+    // }, [isTouch, isScreen4])
 
     return (
         <>
@@ -222,7 +227,7 @@ function Screen4(props: IProps) {
                             <img src="images/screen4/logoDesktop.png" alt="logo" className={style.logoD} />
 
                         </div>
-                        <div className={style.header__educ + " " + ((step === 1 && isStepMobile) ? "" : style.opacity)}>
+                        <div className={style.header__educ + " " + ((step === 2) ? "" : style.opacity)}>
                         <div className={style.header__counter}>
                             <span>{userAnswer.filter((item)=>item).length}</span>
                             <span>/</span>
@@ -242,12 +247,12 @@ function Screen4(props: IProps) {
                     <div className={style.cards + " " + style.cardsEducation}>
                         {data.slice(0,1).map((item, index) =>
                             <div className={style.cards__item + " " + (!isStepMobile? "" : style.opacity)} key={index}>
-                               <div className={style.cards__item + " " + ( (indexAnimationCard === index && isAnimation || (userAnswer[index])) ? style.animation : "")} key={index} onClick={()=>step1(index)}>
+                               <div className={style.cards__item + " " + ( (indexAnimationCard === index && isAnimation || (userAnswer[index])) ? style.animation : "")} key={index}>
                                 <div className={style.card__front + " " + style.card}>
                                     <Card index={index} item={item} screen4={true} isUser={false}></Card>
                                 </div>
                                 <div className={style.card__back + " " + style.card}>
-                                    <Card index={index} item={item} screen4={true} isUser={true} clickAnswerUser={(e: React.MouseEvent<HTMLSpanElement>, answer: string) => clickAnswerUser(e, index, answer)}></Card>
+                                    <Card index={index} item={item} screen4={true} isUser={true}></Card>
                                 </div>
 
                                     <div className={style.descCard1 +" "+ (step === 0 ? "" : style.opacity)} >
@@ -271,7 +276,7 @@ function Screen4(props: IProps) {
                                 </div>
                             </div>)}
 
-                <div className={style.arrowEducation  + " " + (step === 2 ? "" : style.opacity)} ref={refArrowEducation}>
+                <div className={style.arrowEducation  + " " + (step === 3 ? "" : style.opacity)} ref={refArrowEducation}>
                     <div className={style.wrapperArrowEducImg}>
                         <img src="/images/cards/arrow-education.svg" alt="arrow" />
                     </div>
