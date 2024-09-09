@@ -221,7 +221,7 @@ function Screen4(props: IProps) {
               
         </div>}
         {isEducation && isTouch && <div className={style.education + " " + style.container+ " "+ (isScreen4 ? style.screen4:"") +" " +(isLoader ? style.opacityLoader : style.opacityNoLoader)} onClick={changeEducationMobile}>
-        <div className={style.wrapper + (isLoader ? style.opacityLoader : style.opacityNoLoader)}>
+        <div className={style.wrapper}>
                     <div className={style.header}>
                         <div className={style.header__img}>
                             <img src="images/screen4/logo.png" alt="logo" className={style.logoM} />
