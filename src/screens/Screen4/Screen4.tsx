@@ -128,15 +128,15 @@ function Screen4(props: IProps) {
         setIsEducation(false)
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    // useEffect(()=> {
-    //     if(isTouch && refDescCard2.current && isScreen4){
-    //         setTimeout(()=>{
-    //             if (refDescCard2.current)  refDescCard2.current.scrollIntoView({block:"end", behavior: "smooth"})
+    useEffect(()=> {
+        if(isTouch && refDescCard2.current && isScreen4){
+            setTimeout(()=>{
+                if (refDescCard2.current)  refDescCard2.current.scrollIntoView({block:"end", behavior: "smooth"})
         
 
-    //         }, 200)
-    //     }
-    // }, [isTouch, isScreen4])
+            }, 200)
+        }
+    }, [isTouch, isScreen4])
 
     return (
         <>
