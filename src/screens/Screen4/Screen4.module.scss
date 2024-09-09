@@ -237,7 +237,7 @@
         height: 633px;
         width: 360px;
         // pointer-events: none;
-        // transition: all .4s;
+        transition: all .4s;
 
         .frontStop {
             cursor: pointer;
@@ -271,12 +271,14 @@
 
         &__front {
             transform: rotateY(0deg);
+            transition: 1s;
         }
 
         &__back {
             transform: rotateY(180deg);
             z-index: -1;
             opacity: 0;
+            transition: 1s;
 
         }
 

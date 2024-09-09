@@ -82,7 +82,7 @@
 
     .man {
         transform: rotate(-15deg) translateX(220px) translateY(var(--translateY));
-        box-shadow: -30.58px 34.56px 5.32px 0px rgba(0, 0, 0, 0.5);
+        // box-shadow: -30.58px 34.56px 5.32px 0px rgba(0, 0, 0, 0.5);
         position: relative;
 
         .btnImg {
@@ -296,6 +296,7 @@
 
         &__item {
             transform: none;
+            flex: 0 0 auto;
         }
 
         .man {
@@ -303,13 +304,17 @@
         }
 
         .bookImg {
-            right: -140px;
+            transform: scale(0.6) translateY(-20%) translateX(100%);
+            top: 0px;
+            right: 0px;
+            left: auto;
         }
 
         .calcImg {
             left: -75px;
             z-index: -1;
             top: 380px;
+            transform: scale(0.8) translateY(-91%) translateX(31%);
         }
 
 
@@ -322,8 +327,8 @@
     }
 
     .lamp {
-        height: calc(var(--vh, 1vh)* 130);
-        transform: translateX(16%) translateY(-33%) rotate(7deg);
+        height: calc(var(--vh, 1vh)* 90);
+        transform: translateX(8%) translateY(-19%) rotate(7deg);
         animation: none;
         // animation: none;
         // animation: lampMobile 2s .3s alternate both linear;
@@ -338,11 +343,11 @@
 
 @keyframes lampMobile {
     0% {
-        transform: translateX(16%) translateY(-33%) rotate(0deg)
+        transform: translateX(8%) translateY(-19%) rotate(0deg);
     }
 
     100% {
-        transform: translateX(16%) translateY(-33%) rotate(7deg);
+        transform: translateX(8%) translateY(-19%) rotate(7deg);
     }
 
 }
@@ -351,14 +356,11 @@
     .mobile {
         .card {
             top: 40%;
-        }
-
-        .card__item {
-            transform: scale(.7)
+            transform: translateX(-50%) translateY(-40%);
         }
 
         .card__text {
-            margin-top: -20px;
+            margin-top: 10px;
             font-size: 14px;
             max-width: 310px;
             line-height: 170%;
@@ -372,6 +374,7 @@
     .mobile {
         .card {
             top: 40%;
+            transform: translateX(-50%) translateY(-40%);
         }
 
         .card__item {
@@ -399,8 +402,8 @@
         position: absolute;
         bottom: 0px;
         right: 0px;
-        width: 100%;
-        transform: translateX(19%) translateY(39%) scale(0);
+        width: min(80vw, 470px);
+        transform: translateX(18%) translateY(19%) scale(0);
         filter: contrast(200%) invert(100%) opacity(0.5);
 
         img {
@@ -433,8 +436,8 @@
 @media (max-width: 570px) {
     .mobile {
         .waterPresents {
-            transform: translateY(-47%) translateX(-24%) rotate(134deg) scale(1);
-            width: 193vw;
+            transform: translateY(-60%) translateX(-24%) rotate(134deg) scale(1);
+            width: 130vw;
         }
     }
 
@@ -460,7 +463,18 @@
 
 @keyframes waterBtm {
     100% {
-        transform: translateX(19%) translateY(39%) scale(1);
-        ;
+        transform: translateX(18%) translateY(19%) scale(1);
     }
+}
+
+@media (max-width:800px) {
+    .card {
+        height: auto;
+    }
+
+    .mobile .card__text {
+        margin-top: 30px;
+
+    }
+
 }
