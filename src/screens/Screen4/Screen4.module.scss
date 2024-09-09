@@ -764,9 +764,9 @@
         grid-template-columns: 1fr;
         margin-bottom: 60px;
 
-        &__item {
-            perspective: 1200px;
-        }
+        // &__item {
+        //     perspective: 1200px;
+        // }
 
         >*:last-child {
             grid-column: 1/2 !important;
