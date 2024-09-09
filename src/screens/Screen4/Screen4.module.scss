@@ -133,6 +133,25 @@
 
 }
 
+.opacityLoader {
+    opacity: 0;
+}
+
+.opacityNoLoader {
+    animation: noLoader .2s both;
+}
+
+@keyframes noLoader {
+    to {
+        opacity: 0;
+    }
+
+    from {
+        opacity: 1;
+    }
+
+}
+
 @media (max-width: 800px) {
 
     .education {

@@ -93,12 +93,13 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
   }
+  const [isLoader, setIsLoader] = useState(false);
   document.addEventListener('readystatechange', function() {
     console.log("loadeddddd");
     
     if (document.readyState === 'complete') {
       // good luck!
-      console.log('React app DOM is fully loaded.');
+      setIsLoader(true)
     }
   });
   return (
@@ -120,12 +121,13 @@ function App() {
           {isMobile && <SwiperSlide><Screen3 isScreen3Mobile={isScreen3Mobile} screen={screen} startGame={startGame}></Screen3></SwiperSlide>}
           <SwiperSlide>
 
-            <Screen4 width={width} isStepMobile={isStepMobile} openAnswer={openAnswer} isScreen4={isScreen4} viewForm={viewForm}></Screen4>
+            <Screen4 isLoader={isLoader} width={width} isStepMobile={isStepMobile} openAnswer={openAnswer} isScreen4={isScreen4} viewForm={viewForm}></Screen4>
 
           </SwiperSlide>
         </Swiper>
         {isForm && <Forms></Forms>}
         {isAnswer && <Answer setIsStepMobile={educationAnswer}  isWin={isWin} isDoubleClick={isDoubleClick} indexAnswer={answerIndex} closeAnswer={closeAnswer}></Answer>}
+        {!isLoader && isScreen4 && <h2>LOADING</h2>}
         {isScreen4 && <div className={style.lampBtm}>
           <div className={style.lampBtm__wrapper}>
             <img src="./images/lamp.svg" alt="lamp" className={style.lampImg} />

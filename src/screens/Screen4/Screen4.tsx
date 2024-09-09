@@ -13,9 +13,10 @@ interface IProps {
     openAnswer: (index: number, isWin: boolean, isDoubleClick: boolean) => void;
     isStepMobile: boolean;
     width: number;
+    isLoader: boolean;
 }
 function Screen4(props: IProps) {
-    const { openAnswer, viewForm, isScreen4, isStepMobile, width} = props;
+    const { openAnswer, viewForm, isScreen4, isStepMobile, width, isLoader} = props;
 
     const clickBtn = () => {
         if(userAnswer.filter((item)=> item).length!==10) return
@@ -140,7 +141,7 @@ function Screen4(props: IProps) {
 
     return (
         <>
-        {isEducation && !isTouch && <div className={style.education + " " + style.container + " "+ (isScreen4 ? style.screen4:"")} onClick={changeEducation}>
+        {isEducation && !isTouch && <div className={style.education + " " + style.container + " "+ (isScreen4 ? style.screen4:"") + " " + (isLoader ? style.opacityLoader : style.opacityNoLoader)} onClick={changeEducation}>
         <div className={style.wrapper}>
                     <div className={style.header}>
                         <div className={style.header__img}>
@@ -219,8 +220,8 @@ function Screen4(props: IProps) {
                 </div>
               
         </div>}
-        {isEducation && isTouch && <div className={style.education + " " + style.container+ " "+ (isScreen4 ? style.screen4:"")} onClick={changeEducationMobile}>
-        <div className={style.wrapper}>
+        {isEducation && isTouch && <div className={style.education + " " + style.container+ " "+ (isScreen4 ? style.screen4:"") +" " +(isLoader ? style.opacityLoader : style.opacityNoLoader)} onClick={changeEducationMobile}>
+        <div className={style.wrapper + (isLoader ? style.opacityLoader : style.opacityNoLoader)}>
                     <div className={style.header}>
                         <div className={style.header__img}>
                             <img src="images/screen4/logo.png" alt="logo" className={style.logoM} />
