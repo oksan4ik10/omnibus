@@ -93,7 +93,7 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
   }
-  const [isLoader, setIsLoader] = useState(false);
+  const [isLoader, setIsLoader] = useState(true);
   document.addEventListener('readystatechange', function() {
     console.log("loadeddddd");
     

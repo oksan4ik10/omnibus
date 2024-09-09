@@ -36,20 +36,23 @@ function Screen1(props: IProps) {
     return (<>
        <div className={style.container + " container" + " " + (isLoader ? "": style.opacity)}>
             <div className={style.waterLogo}>
-                <img src="./images/screen1/water-logo.png" alt="water" />
+                <img fetchPriority="low" role="presentation" src="./images/screen1/water-logo.png" alt="water" />
             </div>
             <div className={style.logo}>
-                <img src="./images/screen1/logo.png" alt="logo" />
+                <img fetchPriority="high" src="./images/screen1/logo.png" alt="logo" />
             </div>
 
             <main className={style.main}>
                 <div className={style.main__people}>
 
                     <div className={style.waterPeople}>
-                        <img src="./images/screen1/water-people.png" alt="water" />
+                        <img fetchPriority="low" role="presentation" src="./images/screen1/water-people.png" alt="water" />
                     </div>
                     <div className={style.main__img}>
-                        <img src="./images/screen1/people.png" alt="people"  />
+                    <picture>
+                        <img fetchPriority="high"  src="./images/screen1/people.png" alt="people"  />
+                    </picture>
+                       
                         <div className={style.lamp}>
                             <img src="./images/lamp.svg" alt="lamp" />
                         </div>
@@ -57,8 +60,8 @@ function Screen1(props: IProps) {
                 </div>
                 <div className={style.main__info + " " + style.info}>
                     <div className={style.info__img}>
-                        <img src="./images/screen1/label.png" alt="label" className={style.labelImg} />
-                        <img src="./images/screen1/label-mobile.png" alt="label" className={style.labelImgMobile} />
+                        <img src="./images/screen1/label.png" fetchPriority="high" alt="label" className={style.labelImg} />
+                        <img src="./images/screen1/label-mobile.png" fetchPriority="high" role="presentation" alt="label" className={style.labelImgMobile} />
                         <div className={style.waterLabel}>
                             <img src="./images/screen1/water.png" alt="water" />
                         </div>
@@ -67,7 +70,7 @@ function Screen1(props: IProps) {
                         </div>
                     </div>
                     <div className={style.info__line} ref={refLine}>
-                        <img src="./images/screen1/square.svg" alt="square" />
+                        <img role="presentation" fetchPriority="low" src="./images/screen1/square.svg" alt="square" />
                         <div></div>
                     </div>
                     <div className={style.info__text}>
