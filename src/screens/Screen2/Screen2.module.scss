@@ -35,19 +35,19 @@
         position: relative;
 
         &::after {
-            content: url("images/sceen2/present/1.svg");
+            content: url("../../assets/present/1.svg");
             position: absolute;
             right: -37px;
             top: 0;
         }
 
         &:nth-child(4n + 2)::after {
-            content: url("images/sceen2/present/2.svg");
+            content: url("../../assets/present/2.svg");
             top: 2px;
         }
 
         &:nth-child(4n + 4)::after {
-            content: url("images/sceen2/present/3.svg");
+            content: url("../../assets/present/3.svg");
             top: 5px;
             right: -42px;
         }

@@ -390,7 +390,7 @@
         justify-self: center;
 
         &::after {
-            content: url("./images/screen4/water-purple.png");
+            content: url("../../assets/water-purple.png");
             position: absolute;
             bottom: -200px;
             right: -20px;
@@ -479,7 +479,7 @@
         position: relative;
 
         &::after {
-            content: url("/images/screen4/bg-pen.svg");
+            content: url("../../assets/bg-pen.svg");
             position: absolute;
             left: -100px;
             bottom: -20px;
@@ -491,7 +491,7 @@
         position: relative;
 
         &::after {
-            content: url("/images/screen4/bg-clock.svg");
+            content: url("../../assets/bg-clock.svg");
             position: absolute;
             top: -40px;
             right: -150px;
@@ -503,7 +503,7 @@
     //     position: relative;
 
     //     &::after {
-    //         content: url("/images/screen4/bg-book.svg");
+    //         content: url("./assets/bg-book.svg");
     //         position: absolute;
     //         top: -40px;
     //         left: -150px;
@@ -515,7 +515,7 @@
     //     position: relative;
 
     //     &::after {
-    //         content: url("/images/screen4/bg-head.svg");
+    //         content: url("./assets/bg-head.svg");
     //         position: absolute;
     //         bottom: -20px;
     //         left: -150px;
@@ -527,7 +527,7 @@
         position: relative;
 
         &::after {
-            content: url("./images/screen4/water-purple.png");
+            content: url("../../assets/water-purple.png");
             position: absolute;
             bottom: -200px;
             right: -20px;
