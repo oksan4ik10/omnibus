@@ -18,6 +18,7 @@ function Screen4(props: IProps) {
     const { openAnswer, viewForm, isScreen4, isStepMobile, width} = props;
 
     const clickBtn = () => {
+        if(userAnswer.filter((item)=> item).length!==10) return
         viewForm();
         disablePageScroll();
 
