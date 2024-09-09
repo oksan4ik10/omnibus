@@ -216,8 +216,8 @@
     width: 214px;
     height: 124px;
     background: var(--rect-success);
-    mask: url("images/test.png");
-    -webkit-mask: url("images/test.png");
+    mask: url("../../assets/test.png");
+    -webkit-mask: url("../../assets/test.png");
 }
 
 .rect.error {
