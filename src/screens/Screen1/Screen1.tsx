@@ -32,7 +32,7 @@ function Screen1(props: IProps) {
           console.log(url);
           
         });
-    });
+    }, []);
 
     // const handleImageLoaded = (e: Event)=> {
     //     console.log(e);
