@@ -98,7 +98,6 @@ function App() {
     console.log("loadeddddd");
     
     if (document.readyState === 'complete') {
-      // good luck!
       setIsLoader(true)
     }
   });
@@ -116,7 +115,7 @@ function App() {
           lazyPreloaderClass='opacity'
 
         >
-          <SwiperSlide><Screen1 changeSlide={handleNext}></Screen1></SwiperSlide>
+          <SwiperSlide><Screen1 isLoader={isLoader} changeSlide={handleNext}></Screen1></SwiperSlide>
           <SwiperSlide><Screen2 changeSlide={nextScreen3Mobile} isMobile={isMobile} screen={screen} startGame={startGame}></Screen2></SwiperSlide>
           {isMobile && <SwiperSlide><Screen3 isScreen3Mobile={isScreen3Mobile} screen={screen} startGame={startGame}></Screen3></SwiperSlide>}
           <SwiperSlide>
@@ -127,7 +126,11 @@ function App() {
         </Swiper>
         {isForm && <Forms></Forms>}
         {isAnswer && <Answer setIsStepMobile={educationAnswer}  isWin={isWin} isDoubleClick={isDoubleClick} indexAnswer={answerIndex} closeAnswer={closeAnswer}></Answer>}
-        {!isLoader && isScreen4 && <h2>LOADING</h2>}
+        {!isLoader && <div className={style.container + " conatainer"}>
+            <div className={style.loaderWrapper}>
+            <div className={style.loader}></div>
+            </div> 
+            </div>}
         {isScreen4 && <div className={style.lampBtm}>
           <div className={style.lampBtm__wrapper}>
             <img src="./images/lamp.svg" alt="lamp" className={style.lampImg} />

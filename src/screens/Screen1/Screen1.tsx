@@ -3,9 +3,10 @@ import style from "./Screen1.module.scss"
 
 interface IProps {
     changeSlide: () => void;
+    isLoader: boolean
 }
 function Screen1(props: IProps) {
-    const { changeSlide } = props;
+    const { changeSlide, isLoader } = props;
 
     const clickBtn = () => {
         changeSlide();
@@ -20,16 +21,20 @@ function Screen1(props: IProps) {
 
 
     })
-    const handleImageLoaded = ()=> {
-        console.log("loaded");
+
+    // const handleImageLoaded = (e: Event)=> {
+    //     console.log(e);
         
-    }
-    const handleImageErrored=()=> {
-        console.log("error");
+    //     console.log("loaded");
+    //     setIsLoaded(false)
         
-    }
-    return (
-        <div className={style.container + " container"}>
+    // }
+    // const handleImageErrored=()=> {
+    //     console.log("error");
+        
+    // }
+    return (<>
+       <div className={style.container + " container" + " " + (isLoader ? "": style.opacity)}>
             <div className={style.waterLogo}>
                 <img src="./images/screen1/water-logo.png" alt="water" />
             </div>
@@ -44,8 +49,7 @@ function Screen1(props: IProps) {
                         <img src="./images/screen1/water-people.png" alt="water" />
                     </div>
                     <div className={style.main__img}>
-                        <img src="./images/screen1/people.png" alt="people"   onLoad={handleImageLoaded}
-          onError={handleImageErrored} />
+                        <img src="./images/screen1/people.png" alt="people"  />
                         <div className={style.lamp}>
                             <img src="./images/lamp.svg" alt="lamp" />
                         </div>
@@ -77,6 +81,16 @@ function Screen1(props: IProps) {
             </main>
             <button className={style.btn + " btn"} onClick={clickBtn}>Дальше</button>
         </div>
+        {/* {isLoaded &&
+        <div className={style.container + " conatainer"}>
+            <div className={style.loaderWrapper}>
+            <div className={style.loader}></div>
+            </div> 
+            </div>
+
+} */}
+    </>
+
     )
 }
 
