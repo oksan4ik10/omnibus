@@ -47,7 +47,7 @@
 
     &__logo {
         img {
-            height: 27px;
+            height: var(--heightPhoto);
             width: auto;
         }
     }

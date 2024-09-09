@@ -8,6 +8,7 @@ export interface ICard {
     answerRight: string;
     colorBtn: string;
     colorJob: string;
+    heightLogo?: string,
     bgPhoto: string;
     answerText: string;
     answerRectColorSuccess: string;

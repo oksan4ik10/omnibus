@@ -19,7 +19,7 @@ function Card(props: IProps) {
     }
 
     return (
-        <div className={style.wrapper + " " + (isUser ? style.userClick : "") + " " + (isOdd ? style.odd : "") + " " + (!screen4 ? style.pBtm : "") + " " + (item.bgPhoto ? "" : style.bgGradient)} style={{ "--colorBtn": item.colorBtn, "--color-job": item.colorJob, "--color-bg": item.bgPhoto } as CSSProperties}>
+        <div className={style.wrapper + " " + (isUser ? style.userClick : "") + " " + (isOdd ? style.odd : "") + " " + (!screen4 ? style.pBtm : "") + " " + (item.bgPhoto ? "" : style.bgGradient)} style={{ "--colorBtn": item.colorBtn, "--color-job": item.colorJob, "--color-bg": item.bgPhoto, "--heightPhoto":item.heightLogo ? item.heightLogo: "27px"} as CSSProperties}>
             <div className={style.card}>
 
                 <div className={style.card__photo}>
