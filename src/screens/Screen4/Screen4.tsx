@@ -24,7 +24,7 @@ function Screen4(props: IProps) {
     const clickBtn = () => {
         if(userAnswer.filter((item)=> item).length!==10) {
             setIsTextBtm(true);
-            setTimeout(()=> setIsTextBtm(false), 1500)
+            setTimeout(()=> setIsTextBtm(false), 2000)
             return
         }
         viewForm();
@@ -154,6 +154,22 @@ function Screen4(props: IProps) {
         if(step > 0) refWrapper.current.scrollIntoView();
       }, [isScreen4]);
 
+
+   
+    const numWord= (value: number)=>{
+        const words = ["карточку", "карточки", "карточек"]  
+        value = Math.abs(value) % 100; 
+        const num = value % 10;
+        if(value > 10 && value < 20) return words[2]; 
+        if(num > 1 && num < 5) return words[1];
+        if(num == 1) return words[0]; 
+        return words[2];
+    }
+    const getLabelBtm = ()=> {
+        const num = 10 - userAnswer.filter((item)=>item).length;
+        const word = numWord(num)
+        return `${num} ${word}`
+    }
       
 
     return (
@@ -344,7 +360,7 @@ function Screen4(props: IProps) {
                     </div>
                     <div className={style.btm + " " + ((userAnswer.filter((item)=>item).length === 10) ? style.btmWin: "") + " " + (isTextBtm ? style.btmText : "")}>
                         <button className={"btn " + style.btn} onClick={clickBtn}>розыгрыш</button>
-                        <p>Для того, чтобы участвовать в розыгрыше, нужно открыть еще {10 - userAnswer.filter((item)=>item).length} карточек</p>
+                        <p>Для того, чтобы участвовать в розыгрыше, нужно открыть еще {getLabelBtm()}</p>
                     </div>
 
                 </div>
