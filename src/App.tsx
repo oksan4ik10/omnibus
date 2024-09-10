@@ -125,8 +125,8 @@ function App() {
     console.log(sliderRef.current.swiper);
     
     sliderRef.current.swiper.mousewheel.disable()
-    
-    setIsScreen4(true)
+    setTimeout(()=>   setIsScreen4(true), 1200)
+  
     disablePageScroll()
     
   }
