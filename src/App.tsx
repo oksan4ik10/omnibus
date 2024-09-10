@@ -100,14 +100,12 @@ function App() {
     handleNext()
   }
 
-
+  const [isEduc, setIsEduc] = useState(false)
   const slideChange = ()=> {
-    console.log("change");
-    
-
     const activeSlide  = sliderRef.current.swiper.activeIndex;
     const countSlides = sliderRef.current.swiper.slides.length;
     if(countSlides - 1 === activeSlide) {
+      if(isEduc) setIsEducation(true)
       slideEnd()
       return
     }
@@ -165,7 +163,7 @@ function App() {
           {isMobile && <SwiperSlide><Screen3 isScreen3Mobile={isScreen3Mobile} screen={screen} startGame={startGame}></Screen3></SwiperSlide>}
           <SwiperSlide>
 
-            <Screen4 addScrollScreen4={addScrollScreen4} isLoader={isLoader} width={width} isStepMobile={isStepMobile} openAnswer={openAnswer} isScreen4={isScreen4} viewForm={viewForm}></Screen4>
+            <Screen4 finishEduc={()=> setIsEduc(true)} addScrollScreen4={addScrollScreen4} isLoader={isLoader} width={width} isStepMobile={isStepMobile} openAnswer={openAnswer} isScreen4={isScreen4} viewForm={viewForm}></Screen4>
 
           </SwiperSlide>
         </Swiper>

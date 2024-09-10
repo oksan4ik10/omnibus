@@ -15,9 +15,10 @@ interface IProps {
     width: number;
     isLoader: boolean;
     addScrollScreen4: ()=> void
+    finishEduc: ()=> void
 }
 function Screen4(props: IProps) {
-    const { openAnswer, viewForm, isScreen4, isStepMobile, width, isLoader, addScrollScreen4} = props;
+    const { openAnswer, viewForm, isScreen4, isStepMobile, width, isLoader, addScrollScreen4, finishEduc} = props;
 
     const clickBtn = () => {
         if(userAnswer.filter((item)=> item).length!==10) return
@@ -100,6 +101,7 @@ function Screen4(props: IProps) {
         enablePageScroll()
         setIsScrollEduc(false)
         setIsEducation(false)
+        finishEduc()
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -130,6 +132,7 @@ function Screen4(props: IProps) {
         enablePageScroll()
         setIsScrollEduc(false)
         setIsEducation(false)
+        finishEduc()
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     useEffect(()=> {
@@ -147,11 +150,11 @@ function Screen4(props: IProps) {
         if(!refWrapper.current || !isScreen4) return
         if(step > 0) refWrapper.current.scrollIntoView();
       }, [isScreen4]);
-      useEffect(()=> {
-        if(!isScreen4) return
-        if(step > 3) addScrollScreen4()
-      },[isScreen4])
-    //   console.log(step);
+    //   useEffect(()=> {
+    //     if(!isScreen4) return
+    //     if(step >= 3) addScrollScreen4()
+    //   },[isScreen4])
+    // //   console.log(step);
       
 
     return (
