@@ -1,28 +1,37 @@
 .wrapper {
-  height: calc(var(--vh, 1vh) * 100);
-  // display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+  // height: calc(var(--vh, 1vh) * 100);
+
   overflow: hidden;
+  height: calc(var(--vh, 1vh) * 100 - 4px);
 
 }
 
+.test {
+  height: 4px;
+  // width: 33.3%;
+  background-color: red;
 
-.screen4.wrapper {
-  transition: height 1s;
-  height: auto;
-
-  >.swiper {
-
-    .swiper-slide {
-      opacity: 0 !important;
-    }
-
-    .swiper-slide-active {
-      opacity: 1 !important;
-    }
-
+  .swiper-scrollbar-drag {
+    height: 100%;
+    background-color: green;
   }
+}
+
+.wrapper.screen4 {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.wrapper {
+
+  > {
+    .swiper {
+      .swiper-slide {
+        overflow: hidden;
+      }
+    }
+  }
+
 }
 
 

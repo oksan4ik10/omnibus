@@ -5,7 +5,7 @@ import Card from "../../components/Card/Card";
 import style from "./Screen4.module.scss"
 import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 import data from "../../data/cards.json"
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 interface IProps {
     viewForm: () => void;
@@ -14,9 +14,10 @@ interface IProps {
     isStepMobile: boolean;
     width: number;
     isLoader: boolean;
+    addScrollScreen4: ()=> void
 }
 function Screen4(props: IProps) {
-    const { openAnswer, viewForm, isScreen4, isStepMobile, width, isLoader} = props;
+    const { openAnswer, viewForm, isScreen4, isStepMobile, width, isLoader, addScrollScreen4} = props;
 
     const clickBtn = () => {
         if(userAnswer.filter((item)=> item).length!==10) return
@@ -95,6 +96,7 @@ function Screen4(props: IProps) {
 
             return
         }
+        addScrollScreen4()
         enablePageScroll()
         setIsScrollEduc(false)
         setIsEducation(false)
@@ -124,6 +126,7 @@ function Screen4(props: IProps) {
             }
             return
         }
+        addScrollScreen4()
         enablePageScroll()
         setIsScrollEduc(false)
         setIsEducation(false)
@@ -139,10 +142,22 @@ function Screen4(props: IProps) {
         }
     }, [isTouch, isScreen4])
 
+    const refWrapper = useRef<HTMLDivElement>(null)
+    useLayoutEffect(() => {
+        if(!refWrapper.current || !isScreen4) return
+        if(step > 0) refWrapper.current.scrollIntoView();
+      }, [isScreen4]);
+      useEffect(()=> {
+        if(!isScreen4) return
+        if(step > 3) addScrollScreen4()
+      },[isScreen4])
+    //   console.log(step);
+      
+
     return (
         <>
         {isEducation && !isTouch && <div className={style.education + " " + style.container + " "+ (isScreen4 ? style.screen4:"") + " " + (isLoader ? style.opacityLoader : style.opacityNoLoader)} onClick={changeEducation}>
-        <div className={style.wrapper}>
+        <div className={style.wrapper} >
                     <div className={style.header}>
                         <div className={style.header__img}>
                             <img src="images/screen4/logo.png" alt="logo" className={style.logoM} />
@@ -290,7 +305,7 @@ function Screen4(props: IProps) {
               
         </div>}
 
-            <div className={style.container}>
+            <div className={style.container} ref={ refWrapper}>
 
                 <div className={style.wrapper}>
                     <div className={style.header}>

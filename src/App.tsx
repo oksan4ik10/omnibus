@@ -20,6 +20,7 @@ import { resize } from './resize.ts'
 
 import Footer from './components/Footer/Footer.tsx';
 import Answer from './components/Answer/Answer.tsx';
+import { Mousewheel, Scrollbar } from 'swiper/modules';
 
 
 
@@ -41,26 +42,7 @@ function App() {
 
   }, [])
 
-  const [screen, setScreen] = useState(1);
-
-  const sliderRef = useRef<any>(null);
-  const handleNext = useCallback(() => {
-    if (!sliderRef.current) return;
-    sliderRef.current.swiper.slideNext();
-    setScreen(screen + 1);
-  }, []);
-
-  const [isScreen3Mobile, setIsScreen3Mobile] = useState(false);
-  const nextScreen3Mobile = () => {
-    setIsScreen3Mobile(true)
-    handleNext();
-  }
-
-  const [isScreen4, setIsScreen4] = useState(false);
-  const startGame = () => {
-    setTimeout(() => { setIsScreen4(true);   disablePageScroll();}, 1200)
-    handleNext()
-  }
+ 
 
   const [isForm, setIsForm] = useState(false);
   const viewForm = () => {
@@ -93,34 +75,97 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
   }
-  const [isLoader, setIsLoader] = useState(true);
-  document.addEventListener('readystatechange', function() {
-    console.log("loadeddddd");
+  const isLoader = true; //в идеале убрать
+
+
+//переключение свайпера
+  const [screen, setScreen] = useState(1);
+
+  const sliderRef = useRef<any>(null);
+  const handleNext = useCallback(() => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slideNext();
+    // setScreen(screen + 1);
+  }, []);
+
+  const [isScreen3Mobile, setIsScreen3Mobile] = useState(false);
+  const nextScreen3Mobile = () => {
+    // setIsScreen3Mobile(true)
+    handleNext();
+  }
+
+  const [isScreen4, setIsScreen4] = useState(false);
+  const startGame = () => {
+   
+    handleNext()
+  }
+
+
+  const slideChange = ()=> {
+    console.log("change");
     
-    if (document.readyState === 'complete') {
-      setIsLoader(true)
+
+    const activeSlide  = sliderRef.current.swiper.activeIndex;
+    const countSlides = sliderRef.current.swiper.slides.length;
+    if(countSlides - 1 === activeSlide) {
+      slideEnd()
+      return
     }
-  });
+    setScreen(activeSlide + 1)
+    setIsScreen4(false)
+    setIsEducation(false)
+    sliderRef.current.swiper.mousewheel.enable()
+    if(countSlides === 4 && activeSlide === 3){
+      setIsScreen3Mobile(true)
+    }
+    // console.log("change");
+    
+    
+  }
+  const slideEnd=()=> {
+    if(!sliderRef.current) return;
+    sliderRef.current.swiper.mousewheel.disable()
+    setIsScreen4(true)
+    disablePageScroll()
+    
+  }
+  const [isEducation, setIsEducation] = useState(false);
+  const addScrollScreen4 = ()=> {
+    setIsEducation(true);
+  }
+  console.log(isEducation);
+  
   return (
     <>
 
-      <div className={"wrapper" + (isScreen4 ? " screen4" : "") + " " + style.wrapper}>
+      <div className={"wrapper" + (isEducation ? " screen4" : "") + " " + style.wrapper}>
         <Swiper
           ref={sliderRef}
           autoHeight={true}
           slidesPerView={'auto'}
-          allowTouchMove={false}
+          // allowTouchMove={false}
+          direction={'horizontal'}
           speed={1200}
-          lazyPreloadPrevNext={1}
-          lazyPreloaderClass='opacity'
-
+          scrollbar={{
+            hide: false,
+            horizontalClass: "test",
+            draggable: true,
+          }}
+          // spaceBetween={10}
+          mousewheel={true}
+          modules={[Scrollbar, Mousewheel]}
+          // lazyPreloadPrevNext={1}
+          // lazyPreloaderClass='opacity'
+          onSlideChange={slideChange}
+          // centeredSlides={true}
+          // onReachEnd={slideEnd}
         >
           <SwiperSlide><Screen1 isLoader={isLoader} changeSlide={handleNext}></Screen1></SwiperSlide>
           <SwiperSlide><Screen2 changeSlide={nextScreen3Mobile} isMobile={isMobile} screen={screen} startGame={startGame}></Screen2></SwiperSlide>
           {isMobile && <SwiperSlide><Screen3 isScreen3Mobile={isScreen3Mobile} screen={screen} startGame={startGame}></Screen3></SwiperSlide>}
           <SwiperSlide>
 
-            <Screen4 isLoader={isLoader} width={width} isStepMobile={isStepMobile} openAnswer={openAnswer} isScreen4={isScreen4} viewForm={viewForm}></Screen4>
+            <Screen4 addScrollScreen4={addScrollScreen4} isLoader={isLoader} width={width} isStepMobile={isStepMobile} openAnswer={openAnswer} isScreen4={isScreen4} viewForm={viewForm}></Screen4>
 
           </SwiperSlide>
         </Swiper>
