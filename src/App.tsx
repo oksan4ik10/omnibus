@@ -122,7 +122,10 @@ function App() {
   }
   const slideEnd=()=> {
     if(!sliderRef.current) return;
+    console.log(sliderRef.current.swiper);
+    
     sliderRef.current.swiper.mousewheel.disable()
+    
     setIsScreen4(true)
     disablePageScroll()
     
@@ -132,7 +135,15 @@ function App() {
     setIsEducation(true);
   }
   console.log(isEducation);
-  
+  const touchStart = ()=> {
+    if(!isScreen4) return
+    sliderRef.current.swiper.allowTouchMove = false;
+    
+  }
+  const touchEnd=()=> {
+    if(!isScreen4) return
+    sliderRef.current.swiper.allowTouchMove = true;
+  }
   return (
     <>
 
@@ -155,6 +166,8 @@ function App() {
           // lazyPreloadPrevNext={1}
           // lazyPreloaderClass='opacity'
           onSlideChange={slideChange}
+          onTouchStart={touchStart}
+          onTouchEnd={touchEnd}
           // centeredSlides={true}
           // onReachEnd={slideEnd}
         >

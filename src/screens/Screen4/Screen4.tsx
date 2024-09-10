@@ -140,6 +140,7 @@ function Screen4(props: IProps) {
     }
     useEffect(()=> {
         if(isTouch && refDescCard2.current && isScreen4){
+            disablePageScroll()
             setTimeout(()=>{
                 if (refDescCard2.current)  refDescCard2.current.scrollIntoView({block:"end", behavior: "smooth"})
         
@@ -151,7 +152,11 @@ function Screen4(props: IProps) {
     const refWrapper = useRef<HTMLDivElement>(null)
     useLayoutEffect(() => {
         if(!refWrapper.current || !isScreen4) return
-        if(step > 0) refWrapper.current.scrollIntoView();
+        console.log("LAYOUT");
+        console.log(step);
+        
+        
+        if(step > 2) refWrapper.current.scrollIntoView();
       }, [isScreen4]);
 
 
