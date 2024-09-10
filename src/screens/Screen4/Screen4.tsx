@@ -20,8 +20,13 @@ interface IProps {
 function Screen4(props: IProps) {
     const { openAnswer, viewForm, isScreen4, isStepMobile, width, isLoader, addScrollScreen4, finishEduc} = props;
 
+    const [isTextBtm, setIsTextBtm] = useState(false);
     const clickBtn = () => {
-        if(userAnswer.filter((item)=> item).length!==10) return
+        if(userAnswer.filter((item)=> item).length!==10) {
+            setIsTextBtm(true);
+            setTimeout(()=> setIsTextBtm(false), 1500)
+            return
+        }
         viewForm();
         disablePageScroll();
 
@@ -337,7 +342,7 @@ function Screen4(props: IProps) {
 
 
                     </div>
-                    <div className={style.btm}>
+                    <div className={style.btm + " " + ((userAnswer.filter((item)=>item).length === 10) ? style.btmWin: "") + " " + (isTextBtm ? style.btmText : "")}>
                         <button className={"btn " + style.btn} onClick={clickBtn}>розыгрыш</button>
                         <p>Для того, чтобы участвовать в розыгрыше, нужно открыть еще {10 - userAnswer.filter((item)=>item).length} карточек</p>
                     </div>

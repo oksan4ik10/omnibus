@@ -448,6 +448,23 @@
         line-height: 133%;
         margin-top: 1.95vh;
         margin-bottom: 5.07vh;
+        opacity: 0;
+    }
+}
+
+.btm.btmText {
+    p {
+        opacity: 1;
+    }
+}
+
+.btm.btmWin {
+    .btn {
+        opacity: 1;
+    }
+
+    p {
+        opacity: 0;
     }
 }
 
