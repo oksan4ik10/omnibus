@@ -21,7 +21,7 @@ function Screen1(props: IProps) {
         document.body.style.setProperty("--topLine", top + "px")
 
 
-    })
+    }, [])
 
     const [url, setUrl] = useState('');
     useEffect(() => {

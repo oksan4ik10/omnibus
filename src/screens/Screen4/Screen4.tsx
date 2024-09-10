@@ -148,11 +148,7 @@ function Screen4(props: IProps) {
         if(!refWrapper.current || !isScreen4) return
         if(step > 0) refWrapper.current.scrollIntoView();
       }, [isScreen4]);
-    //   useEffect(()=> {
-    //     if(!isScreen4) return
-    //     if(step >= 3) addScrollScreen4()
-    //   },[isScreen4])
-    // //   console.log(step);
+
       
 
     return (
