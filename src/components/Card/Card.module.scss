@@ -143,6 +143,18 @@
 
 }
 
+.card__btns.left {
+    span:last-child {
+        color: rgba($color: #fff, $alpha: .5)
+    }
+}
+
+.card__btns.right {
+    span:first-child {
+        color: rgba($color: #fff, $alpha: .5)
+    }
+}
+
 .btnsNone {
     display: none;
 }

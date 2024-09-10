@@ -1,6 +1,6 @@
 import { ICard } from "../../models/type";
 import style from "./Card.module.scss"
-import { CSSProperties } from "react";
+import { CSSProperties, useState } from "react";
 
 interface IProps {
     screen4?: boolean;
@@ -13,8 +13,10 @@ interface IProps {
 function Card(props: IProps) {
     const { screen4, isUser, isOdd, item, index, clickAnswerUser } = props;
 
+    const [userAnswer, setUserAnswer] = useState("");
     const click = (e:  React.MouseEvent<HTMLSpanElement>, answer: string) => {
         if (!clickAnswerUser) return;
+        setUserAnswer(answer)
         clickAnswerUser(e, answer)
     }
 
@@ -47,7 +49,7 @@ function Card(props: IProps) {
                     </div>
 
                 </div>
-                {(isUser || !screen4) && <div className={style.card__btns}>
+                {(isUser || !screen4) && <div className={style.card__btns + " " + (userAnswer === "right"? style.right : (userAnswer === "left"? style.left : ""))}>
                     <span onClick={(e: React.MouseEvent<HTMLSpanElement>) => click(e, 'right')}>По специальности</span>
                     <span onClick={(e: React.MouseEvent<HTMLSpanElement>) => click(e, 'left')}>Не по специальности</span>
                 </div>}
