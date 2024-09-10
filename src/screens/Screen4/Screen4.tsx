@@ -83,14 +83,13 @@ function Screen4(props: IProps) {
     const changeEducation = ()=> {
         if(step===0) return;
         if(step===1){
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            refWrapper.current?.scrollIntoView();
             setStep(2)
             return
         }
         if(step===2){
             if(refArrowEducation.current){
                 refArrowEducation.current.scrollIntoView({block:"end", behavior: "smooth"})
-                window.scrollBy({top: 100, behavior:"smooth"})
             }
             
             setStep(3)
@@ -102,7 +101,7 @@ function Screen4(props: IProps) {
         setIsScrollEduc(false)
         setIsEducation(false)
         finishEduc()
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        refWrapper.current?.scrollIntoView();
     }
 
 
@@ -115,7 +114,7 @@ function Screen4(props: IProps) {
         }
 
         if(step===1){
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            refWrapper.current?.scrollIntoView();
             setStep(2)
             return
         }
@@ -124,7 +123,6 @@ function Screen4(props: IProps) {
             setStep(3)
             if(refArrowEducation.current){
                 refArrowEducation.current.scrollIntoView(false)
-                window.scrollBy({top: 100, behavior:"smooth"})
             }
             return
         }
@@ -133,7 +131,7 @@ function Screen4(props: IProps) {
         setIsScrollEduc(false)
         setIsEducation(false)
         finishEduc()
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        refWrapper.current?.scrollIntoView();
     }
     useEffect(()=> {
         if(isTouch && refDescCard2.current && isScreen4){
