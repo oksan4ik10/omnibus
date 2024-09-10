@@ -9,11 +9,11 @@
 .test {
   height: 4px;
   // width: 33.3%;
-  background-color: red;
+  background-color: rgba(223, 218, 215, .3);
 
   .swiper-scrollbar-drag {
     height: 100%;
-    background-color: green;
+    background-color: rgba(249, 221, 189, .5);
   }
 }
 
