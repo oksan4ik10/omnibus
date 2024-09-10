@@ -17,9 +17,10 @@ interface IProps {
     addScrollScreen4: ()=> void
     finishEduc: ()=> void
     isEduc: boolean
+    isSlideEnd: boolean
 }
 function Screen4(props: IProps) {
-    const { openAnswer, viewForm, isScreen4, isStepMobile, width, isLoader, addScrollScreen4, finishEduc, isEduc} = props;
+    const { openAnswer, viewForm, isScreen4, isStepMobile, width, isLoader, addScrollScreen4, finishEduc, isEduc, isSlideEnd} = props;
 
     const [isTextBtm, setIsTextBtm] = useState(false);
     const clickBtn = () => {
@@ -158,10 +159,12 @@ function Screen4(props: IProps) {
 
     const refWrapper = useRef<HTMLDivElement>(null)
     useLayoutEffect(() => {
-        if(!refWrapper.current || !isScreen4) return
+        // if(!refWrapper.current || !isScreen4) return
+        console.log("screen 4 scroll");
         
-        if(isEduc) refWrapper.current.scrollIntoView();
-      }, [isScreen4]);
+        
+        if(isEduc && isSlideEnd) refWrapper.current?.scrollIntoView();
+      }, [isSlideEnd]);
 
 
    

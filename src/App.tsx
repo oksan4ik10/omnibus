@@ -112,6 +112,7 @@ function App() {
     setScreen(activeSlide + 1)
     setIsScreen4(false)
     setIsEducation(false)
+    setIsSlideEnd(false)
     sliderRef.current.swiper.mousewheel.enable()
     if(countSlides === 4 && activeSlide === 3){
       setIsScreen3Mobile(true)
@@ -120,9 +121,11 @@ function App() {
     
     
   }
+  const [isSlideEnd, setIsSlideEnd] = useState(false);
   const slideEnd=()=> {
     if(!sliderRef.current) return;
     sliderRef.current.swiper.mousewheel.disable()
+    setIsSlideEnd(true);
     setTimeout(()=>   setIsScreen4(true), 1200)
   
     disablePageScroll()
@@ -132,15 +135,15 @@ function App() {
   const addScrollScreen4 = ()=> {
     setIsEducation(true);
   }
-  const touchStart = ()=> {
-    if(!isScreen4) return
-    // sliderRef.current.swiper.allowTouchMove = false;
+  // const touchStart = ()=> {
+  //   if(!isScreen4) return
+  //   // sliderRef.current.swiper.allowTouchMove = false;
     
-  }
-  const touchEnd=()=> {
-    if(!isScreen4) return
-    // sliderRef.current.swiper.allowTouchMove = true;
-  }
+  // }
+  // const touchEnd=()=> {
+  //   if(!isScreen4) return
+  //   // sliderRef.current.swiper.allowTouchMove = true;
+  // }
   return (
     <>
 
@@ -163,8 +166,8 @@ function App() {
           // lazyPreloadPrevNext={1}
           // lazyPreloaderClass='opacity'
           onSlideChange={slideChange}
-          onTouchStart={touchStart}
-          onTouchEnd={touchEnd}
+          // onTouchStart={touchStart}
+          // onTouchEnd={touchEnd}
           // centeredSlides={true}
           // onReachEnd={slideEnd}
         >
@@ -173,7 +176,7 @@ function App() {
           {isMobile && <SwiperSlide><Screen3 isScreen3Mobile={isScreen3Mobile} screen={screen} startGame={startGame}></Screen3></SwiperSlide>}
           <SwiperSlide>
 
-            <Screen4 isEduc={isEduc} finishEduc={()=> setIsEduc(true)} addScrollScreen4={addScrollScreen4} isLoader={isLoader} width={width} isStepMobile={isStepMobile} openAnswer={openAnswer} isScreen4={isScreen4} viewForm={viewForm}></Screen4>
+            <Screen4 isSlideEnd={isSlideEnd} isEduc={isEduc} finishEduc={()=> setIsEduc(true)} addScrollScreen4={addScrollScreen4} isLoader={isLoader} width={width} isStepMobile={isStepMobile} openAnswer={openAnswer} isScreen4={isScreen4} viewForm={viewForm}></Screen4>
 
           </SwiperSlide>
         </Swiper>
