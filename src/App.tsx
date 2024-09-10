@@ -134,12 +134,12 @@ function App() {
   }
   const touchStart = ()=> {
     if(!isScreen4) return
-    sliderRef.current.swiper.allowTouchMove = false;
+    // sliderRef.current.swiper.allowTouchMove = false;
     
   }
   const touchEnd=()=> {
     if(!isScreen4) return
-    sliderRef.current.swiper.allowTouchMove = true;
+    // sliderRef.current.swiper.allowTouchMove = true;
   }
   return (
     <>
