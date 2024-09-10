@@ -16,9 +16,10 @@ interface IProps {
     isLoader: boolean;
     addScrollScreen4: ()=> void
     finishEduc: ()=> void
+    isEduc: boolean
 }
 function Screen4(props: IProps) {
-    const { openAnswer, viewForm, isScreen4, isStepMobile, width, isLoader, addScrollScreen4, finishEduc} = props;
+    const { openAnswer, viewForm, isScreen4, isStepMobile, width, isLoader, addScrollScreen4, finishEduc, isEduc} = props;
 
     const [isTextBtm, setIsTextBtm] = useState(false);
     const clickBtn = () => {
@@ -75,7 +76,9 @@ function Screen4(props: IProps) {
     }, [])
     const step0 = ()=> {
         setStep(1)
-        if(refDescCard2.current){
+        if(refDescCard2.current && !isEduc){
+            console.log("eduuuuc");
+            
             refDescCard2.current.scrollIntoView({block:"end", behavior: "smooth"})
         }
     }
@@ -106,6 +109,10 @@ function Screen4(props: IProps) {
         setIsScrollEduc(false)
         setIsEducation(false)
         finishEduc()
+        console.log("end educ");
+        console.log(step);
+        
+        
         refWrapper.current?.scrollIntoView();
     }
 
@@ -152,11 +159,8 @@ function Screen4(props: IProps) {
     const refWrapper = useRef<HTMLDivElement>(null)
     useLayoutEffect(() => {
         if(!refWrapper.current || !isScreen4) return
-        console.log("LAYOUT");
-        console.log(step);
         
-        
-        if(step > 2) refWrapper.current.scrollIntoView();
+        if(isEduc) refWrapper.current.scrollIntoView();
       }, [isScreen4]);
 
 
