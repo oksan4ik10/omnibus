@@ -22,7 +22,7 @@ function Presents(props: IProps) {
                     <div className={style.presents__title}>
                         <h2>Призы от компаний</h2>
                         <ul className={style.list}>
-                            <li><span>300</span> ссертификатов на Ozon и Яндекс. Еда</li>
+                            <li><span>300</span> сертификатов на Ozon и Яндекс. Еда</li>
                             <li><span>20</span> карьерных консультаций от компаний</li>
                             <li>подписки на MyBook</li>
                             <li>экскурсия на завод «Балтика»</li>
