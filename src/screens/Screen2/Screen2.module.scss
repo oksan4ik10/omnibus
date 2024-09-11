@@ -177,7 +177,7 @@
 
 }
 
-@media (min-width: 1000px) and (max-height:800px) {
+@media (min-width: 1000px) and (max-height:900px) {
     .card {
         --translateY: max(calc(var(--topLine) - 213px - 200px), 0px);
         transform: scale(.7);
