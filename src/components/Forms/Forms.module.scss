@@ -1,6 +1,6 @@
 .wrapper {
     width: 100vw;
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     overflow: hidden;
     backdrop-filter: blur(21.2px);
     background: rgba(0, 0, 0, 0.3);
@@ -124,6 +124,7 @@
     &__btn {
         font-family: Cormorant Infant;
         text-transform: capitalize;
+        height: 60px;
     }
 }
 
@@ -180,6 +181,7 @@
         }
 
         &__btn {
+            height: 40px;
             text-transform: uppercase;
         }
 
