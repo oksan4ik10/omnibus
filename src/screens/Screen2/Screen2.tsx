@@ -64,16 +64,19 @@ function Screen2(props: IProps) {
                 <div className={style.card__item}>
 
                     <div className={style.man}>
-                        <div className={style.btnImg}>
-                            <img src="images/sceen2/btn-card.png" alt="calc" />
-                        </div>
-                        <Card item={cardInfo} isUser={true}></Card>
-                        <div className={style.bookImg}>
-                        <img src="images/sceen2/book.svg" alt="book" />
-                    </div>
-                    <div className={style.calcImg}>
-                        <img src="images/sceen2/calc.svg" alt="calc" />
-                    </div>
+                                <div className={style.btnImg}>
+                                    <img src="images/sceen2/btn-card.png" alt="calc" />
+                                </div>
+                                <Card item={cardInfo} isUser={true}></Card>
+                                <div className={style.bookImg}>
+                                <img src="images/sceen2/book.svg" alt="book" />
+                            </div>
+                            <div className={style.calcImg}>
+                                <img src="images/sceen2/calc.svg" alt="calc" />
+                            </div>
+                            {!isMobile &&<div className={style.waterPresentsMan}>
+                        <img src="./images/sceen2/water-btn.png" alt="water" />
+                    </div>}
                     </div>
 
                     {isMobile && <div className={style.waterPresents}>

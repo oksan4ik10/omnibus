@@ -118,6 +118,23 @@
         top: -10px;
     }
 
+    .waterPresentsMan {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -2;
+        filter: contrast(200%) invert(100%);
+        opacity: 0.7;
+        width: 100%;
+        transform: scale(0);
+
+        img {
+            transform: scale(1.1) rotate(150deg) translateY(-5%) translateX(0%);
+            height: auto;
+        }
+
+    }
+
 
 
     &__text {
@@ -134,8 +151,16 @@
 }
 
 
+.screen2 .waterPresentsMan {
+    animation: waterPresentsMan .6s 1.3s alternate both linear;
+}
 
+@keyframes waterPresentsMan {
+    to {
+        transform: scale(1);
+    }
 
+}
 
 .screen2 .lamp {
     animation: lamp 1.3s .6s alternate both linear;
