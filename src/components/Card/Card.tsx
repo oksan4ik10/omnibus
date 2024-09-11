@@ -7,12 +7,11 @@ interface IProps {
     isUser?: boolean;
     isOdd?: boolean;
     item: ICard;
-    index: number;
     isEduc?: boolean;
     clickAnswerUser?: (e: React.MouseEvent<HTMLSpanElement>, answer: string) => void;
 }
 function Card(props: IProps) {
-    const { screen4, isUser, isOdd, item, index, clickAnswerUser, isEduc} = props;
+    const { screen4, isUser, isOdd, item, clickAnswerUser, isEduc} = props;
 
     const [userAnswer, setUserAnswer] = useState("");
     const click = (e:  React.MouseEvent<HTMLSpanElement>, answer: string) => {
@@ -26,7 +25,7 @@ function Card(props: IProps) {
             <div className={style.card}>
 
                 <div className={style.card__photo}>
-                    <img src={`/images/cards/${index}.png`} alt="test" />
+                    <img src={`/images/cards/${item.indexPhoto}.png`} alt="test" />
 
                 </div>
 
@@ -37,7 +36,7 @@ function Card(props: IProps) {
                             <span className={style.info__age}>{item.age}</span>
                         </div>
                         {isUser && <div className={style.info__logo}>
-                            <img src={`/images/cards/company/${index}.png`} alt="sber" />
+                            <img src={`/images/cards/company/${item.indexPhoto}.png`} alt="sber" />
                         </div>}
                     </div>
 

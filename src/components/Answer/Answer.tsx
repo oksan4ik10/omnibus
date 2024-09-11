@@ -1,15 +1,16 @@
 import { CSSProperties, useEffect, useState } from "react";
-import data from "../../data/cards.json"
 import style from "./Answer.module.scss"
+import { ICard } from "../../models/type";
 interface IProps {
     closeAnswer: () => void;
     indexAnswer: number;
     isDoubleClick: boolean;
     isWin: boolean;
     setIsStepMobile: ()=> void
+    dataCards: ICard[]
 }
 function Answer(props: IProps) {
-    const { closeAnswer, indexAnswer, isWin, isDoubleClick, setIsStepMobile} = props;
+    const {dataCards: data, closeAnswer, indexAnswer, isWin, isDoubleClick, setIsStepMobile} = props;
     const [dataAnswer, setDataAnswer] = useState(data[0])
 
     const backClick = ()=> {
@@ -30,7 +31,7 @@ function Answer(props: IProps) {
                        {!isWin && <img src="/images/cards/error.svg" alt="error" />}
                     </div>}
                     {isDoubleClick && <div className={style.card__logo}>
-                    <img src={`/images/cards/company/${indexAnswer}.png`} alt="test" />
+                    <img src={`/images/cards/company/${dataAnswer.indexPhoto}.png`} alt="test" />
                     </div>}
 
 
@@ -51,7 +52,7 @@ function Answer(props: IProps) {
                         </div>
 
                         <div className={style.info__wrapperText}>
-                            <div className={style.info__text} dangerouslySetInnerHTML={{ __html: dataAnswer.cardDesc }}></div>
+                            <div className={style.info__text} dangerouslySetInnerHTML={{ __html: dataAnswer.answerText }}></div>
                         </div>
 
                     </div>

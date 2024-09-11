@@ -4,8 +4,8 @@
 import Card from "../../components/Card/Card";
 import style from "./Screen4.module.scss"
 import { disablePageScroll, enablePageScroll } from 'scroll-lock';
-import data from "../../data/cards.json"
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { ICard } from "../../models/type";
 
 interface IProps {
     viewForm: () => void;
@@ -18,9 +18,10 @@ interface IProps {
     finishEduc: ()=> void
     isEduc: boolean
     isSlideEnd: boolean
+    dataCards: ICard[]
 }
 function Screen4(props: IProps) {
-    const { openAnswer, viewForm, isScreen4, isStepMobile, width, isLoader, addScrollScreen4, finishEduc, isEduc, isSlideEnd} = props;
+    const {dataCards: data, openAnswer, viewForm, isScreen4, isStepMobile, width, isLoader, addScrollScreen4, finishEduc, isEduc, isSlideEnd} = props;
 
     const [isTextBtm, setIsTextBtm] = useState(false);
     const clickBtn = () => {
@@ -211,7 +212,7 @@ function Screen4(props: IProps) {
                         {data.slice(0,2).map((item, index) =>
                             <div className={style.cards__item + " " + style.cardEducation+ " " + style.animation} key={index} onClick={step0}>
                                 {index===0 && <div className={style.card__back + " " + style.card + " " + style.backFront + " " + (step === 0 ? "" : style.opacity)}>
-                                    <Card index={index} isEduc={true} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true}></Card>
+                                    <Card isEduc={true} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true}></Card>
                                     <div className={style.descCard1}>
                                         <div className={style.descCard1__wrapperImg}>
                                         <img src="/images/cards/desc-card1.svg" alt="desc" className={style.educImgD} />
@@ -232,7 +233,7 @@ function Screen4(props: IProps) {
                                     </div>
                                 </div>}
                                 {index===1 && <div className={style.card__back + " " + style.card + " " + style.backFront + " " + (step === 1 ? "" : style.opacity)}>
-                                  <Card  isEduc={true} index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true} clickAnswerUser={(e: React.MouseEvent<HTMLSpanElement>, answer: string) => clickAnswerUser(e, index, answer)}></Card>
+                                  <Card  isEduc={true} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true} clickAnswerUser={(e: React.MouseEvent<HTMLSpanElement>, answer: string) => clickAnswerUser(e, index, answer)}></Card>
                                   <div className={style.descCard2} ref={refDescCard2}>
                                   <span className={style.spanEduc}>Читай описание<br/>и выбирай ответ</span>
                                         <div className={style.descCard2__wrapperImg}>
@@ -291,10 +292,10 @@ function Screen4(props: IProps) {
                             <div className={style.cards__item + " " + (!isStepMobile? "" : style.opacity)} key={index}>
                                <div className={style.cards__item + " " + ( (indexAnimationCard === index && isAnimation || (userAnswer[index])) ? style.animation : "")} key={index}>
                                 <div className={style.card__front + " " + style.card}>
-                                    <Card index={index} item={item} screen4={true} isUser={false}></Card>
+                                    <Card item={item} screen4={true} isUser={false}></Card>
                                 </div>
                                 <div className={style.card__back + " " + style.card}>
-                                    <Card index={index} item={item} screen4={true} isUser={true}></Card>
+                                    <Card item={item} screen4={true} isUser={true}></Card>
                                 </div>
 
                                     <div className={style.descCard1 +" "+ (step === 0 ? "" : style.opacity)} >
@@ -356,10 +357,10 @@ function Screen4(props: IProps) {
                         {data.map((item, index) =>
                             <div className={style.cards__item + " " + ( (indexAnimationCard === index && isAnimation || (userAnswer[index])) ? style.animation : "")} key={index} onClick={()=>transformCard(index)}>
                                 <div className={style.card__front + " " + style.card}>
-                                    <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={false}></Card>
+                                    <Card item={item} isOdd={index % 2 === 0} screen4={true} isUser={false}></Card>
                                 </div>
                                 <div className={style.card__back + " " + style.card}>
-                                    <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true} clickAnswerUser={(e: React.MouseEvent<HTMLSpanElement>, answer: string) => clickAnswerUser(e, index, answer)}></Card>
+                                    <Card item={item} isOdd={index % 2 === 0} screen4={true} isUser={true} clickAnswerUser={(e: React.MouseEvent<HTMLSpanElement>, answer: string) => clickAnswerUser(e, index, answer)}></Card>
                                 </div>
                             </div>)}
 

@@ -1,5 +1,5 @@
 export interface ICard {
-
+    indexPhoto: number,
     name: string;
     age: string;
     work: string;

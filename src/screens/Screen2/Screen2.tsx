@@ -21,6 +21,7 @@ function Screen2(props: IProps) {
         "workDesc": "Тим-лид аккаунт-менеджеров",
         "cardDesc": "Я аккаунт-менеджер, и моя работа позволяет мне трудиться из любой точки мира — у меня удаленка. Я обсуждаю с&nbsp;клиентами лучшие практики на&nbsp;рынке и&nbsp;наших питомцев, попивая оранж джус с&nbsp;видом на&nbsp;Эльбрус. После работы мы с&nbsp;коллегами можем сходить в бар, что тоже приятно. Конечно, есть и&nbsp;пара минусов: я постоянно на&nbsp;встречах, поэтому не&nbsp;успеваю играть со&nbsp;своим собакеном каждые пять минут, и почему‑то не&nbsp;все клиенты дарят мне подарки на&nbsp;Новый год. Но я их все равно люблю ❤️",
         "answerRight": "left",
+        "indexPhoto": 9,
         "colorBtn": "#EA5616",
         "colorJob": "#EA5616",
         "bgPhoto": "#F46D00",
@@ -66,7 +67,7 @@ function Screen2(props: IProps) {
                         <div className={style.btnImg}>
                             <img src="images/sceen2/btn-card.png" alt="calc" />
                         </div>
-                        <Card index={9} item={cardInfo} isUser={true}></Card>
+                        <Card item={cardInfo} isUser={true}></Card>
                     </div>
                     <div className={style.bookImg}>
                         <img src="images/sceen2/book.svg" alt="book" />

@@ -22,6 +22,9 @@ import Footer from './components/Footer/Footer.tsx';
 import Answer from './components/Answer/Answer.tsx';
 import { Mousewheel, Scrollbar } from 'swiper/modules';
 
+import data from "./data/cards.json"
+import { ICard } from './models/type.ts';
+
 
 
 resize();
@@ -48,10 +51,27 @@ function App() {
   const viewForm = () => {
     setIsForm(true);
   }
+
+  function shuffle(array: ICard[]) {
+    return array.sort(() => Math.random() - 0.5);
+  }
+  const [dataCards, setDataCards] = useState(data);
+  useEffect(()=> {
+    const t = shuffle(dataCards)
+    setDataCards(t)
+    
+  }, [])
+
+
   const [isAnswer, setIsAnswer] = useState(false);
   const [isWin, setIsWin] = useState(false);
   const [answerIndex, setAnswerIndex] = useState(-1)
   const [isDoubleClick, setIsDoubleClick] = useState(false);
+
+
+
+
+
   const openAnswer = (index: number,  win: boolean, doubleClick: boolean) => {
     setIsWin(win)
     setAnswerIndex(index)
@@ -176,12 +196,12 @@ function App() {
           {isMobile && <SwiperSlide><Screen3 isScreen3Mobile={isScreen3Mobile} screen={screen} startGame={startGame}></Screen3></SwiperSlide>}
           <SwiperSlide>
 
-            <Screen4 isSlideEnd={isSlideEnd} isEduc={isEduc} finishEduc={()=> setIsEduc(true)} addScrollScreen4={addScrollScreen4} isLoader={isLoader} width={width} isStepMobile={isStepMobile} openAnswer={openAnswer} isScreen4={isScreen4} viewForm={viewForm}></Screen4>
+            <Screen4 dataCards={dataCards} isSlideEnd={isSlideEnd} isEduc={isEduc} finishEduc={()=> setIsEduc(true)} addScrollScreen4={addScrollScreen4} isLoader={isLoader} width={width} isStepMobile={isStepMobile} openAnswer={openAnswer} isScreen4={isScreen4} viewForm={viewForm}></Screen4>
 
           </SwiperSlide>
         </Swiper>
         {isForm && <Forms></Forms>}
-        {isAnswer && <Answer setIsStepMobile={educationAnswer}  isWin={isWin} isDoubleClick={isDoubleClick} indexAnswer={answerIndex} closeAnswer={closeAnswer}></Answer>}
+        {isAnswer && <Answer dataCards={dataCards} setIsStepMobile={educationAnswer}  isWin={isWin} isDoubleClick={isDoubleClick} indexAnswer={answerIndex} closeAnswer={closeAnswer}></Answer>}
         {!isLoader && <div className={style.container + " conatainer"}>
             <div className={style.loaderWrapper}>
             <div className={style.loader}></div>
