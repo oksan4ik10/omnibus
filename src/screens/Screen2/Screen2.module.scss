@@ -56,7 +56,7 @@
 
 @keyframes ribbon {
     to {
-        transform: translateY(-50%) rotateZ(5deg) rotateY(0deg);
+        transform: translateY(110%) rotateZ(5deg) rotateY(0deg);
     }
 
 }
@@ -72,7 +72,7 @@
     height: calc((var(--heightContainer)) - (var(--heightContainer)/2.2));
     --translateY: max(calc(var(--topLine) - 150px - 161px), 20px);
     display: grid;
-    grid-template-columns: minmax(650px, 40vw) auto;
+    grid-template-columns: min(650px, 40vw) auto;
     justify-items: start;
     grid-column-gap: 20px;
 
@@ -96,17 +96,19 @@
 
     .bookImg {
         position: absolute;
-        left: 0px;
+        right: 0px;
         z-index: -1;
-        top: 40px;
-        transform: translateX(185%);
+        top: 0px;
+        transform: translateX(80%);
+
     }
 
     .calcImg {
         position: absolute;
-        left: 106px;
+        left: 0px;
         z-index: -1;
-        top: 276px;
+        bottom: 0px;
+        transform: translateX(-100%) translateY(-110%);
     }
 
     .btnImg {
@@ -143,7 +145,7 @@
     position: absolute;
     top: 0px;
     // right: -15%;
-    right: 0;
+    left: 0;
     // transform: translateX(7%) translateY(50%) rotate(0deg);
 
     transform: translateX(-36%) translateY(5%) rotate(11deg);
@@ -179,12 +181,15 @@
 
 @media (min-width: 1000px) and (max-height:900px) {
     .card {
+        margin-left: min(10vw, 30px);
         --translateY: max(calc(var(--topLine) - 213px - 200px), 0px);
-        transform: scale(.7);
+        // max-width: 90%;
+        // margin: auto;
+        // transform: scale(.7);
     }
 
     .card .man {
-        transform: rotate(-15deg) translateX(70%) translateY(15%);
+        transform: scale(.8) rotate(-15deg) translateX(70%) translateY(15%);
     }
 
     .presents__list {
@@ -203,9 +208,9 @@
 
     }
 
-    .screen2 .lamp {
-        animation: lamp2 1.3s .6s alternate both linear;
-    }
+    // .screen2 .lamp {
+    //     animation: lamp2 1.3s .6s alternate both linear;
+    // }
 }
 
 
@@ -330,6 +335,8 @@
         height: calc(var(--vh, 1vh)* 90);
         transform: translateX(8%) translateY(-19%) rotate(7deg);
         animation: none;
+        left: auto;
+        right: 0;
         // animation: none;
         // animation: lampMobile 2s .3s alternate both linear;
     }

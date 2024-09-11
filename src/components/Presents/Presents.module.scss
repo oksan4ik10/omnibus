@@ -1,9 +1,11 @@
 .presents {
     height: calc(var(--heightContainer)/2.2);
     display: grid;
-    grid-template-columns: minmax(650px, 40vw) auto;
+    grid-template-columns: min(650px, 40vw) auto;
     padding-bottom: 10px;
     grid-column-gap: 20px;
+    // max-width: 90%;
+    // margin: auto;
 
     &__img {
         height: calc(80%);
@@ -73,9 +75,16 @@
 
 }
 
-@media (min-width: 1000px) and (max-height:800px) {
+@media (min-width: 1000px) and (max-height:900px) {
+    .presents {
+        margin-left: min(10vw, 30px);
+    }
+
     .presents__img {
-        height: 60%;
+        height: 70%;
+        justify-self: auto;
+        margin-right: 0;
+        margin-top: min(8vh, 60px);
     }
 
     .presents__list {
@@ -101,9 +110,6 @@
         grid-template-columns: 400px auto;
     }
 
-    .presents {
-        padding-left: 20px;
-    }
 }
 
 .presents {
