@@ -332,7 +332,7 @@ function Screen4(props: IProps) {
               
         </div>}
 
-            <div className={style.container} ref={ refWrapper}>
+            <div className={style.container + " " + (isEducation ? style.hiddenScroll : "")} ref={ refWrapper}>
 
                 <div className={style.wrapper}>
                     <div className={style.header}>

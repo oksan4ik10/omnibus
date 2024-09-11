@@ -158,6 +158,29 @@
             p:not(:last-child) {
                 margin-bottom: 10px;
             }
+
+            a {
+                display: inline-block;
+                position: relative;
+                text-decoration: none;
+                color: inherit;
+            }
+
+            a:visited {
+                color: inherit;
+            }
+
+            a::after {
+                content: "";
+                position: absolute;
+                bottom: -1px;
+                left: 0px;
+                height: .5px;
+                width: 100%;
+                background: var(--dark-grey);
+
+
+            }
         }
 
         &__title {
@@ -268,12 +291,13 @@
 
     .wrapper {
         height: 564px;
-        width: 318px;
+        width: 320px;
     }
 
     .card {
         height: 100%;
         padding-bottom: 37px;
+        padding: 0px 20px 0px 22px;
 
         &__answer {
             height: 56px;
@@ -282,34 +306,36 @@
         }
 
         &__arrowWrapper {
+            margin-top: 10px;
             height: 14px;
             flex: 0 0 14px;
         }
 
         .info {
             &__name {
-                font-size: 23px;
+                font-size: 28px;
             }
 
             &__title {
-                gap: 2px;
+                gap: 4px;
             }
 
             &__age {
-                font-size: 10px;
-                height: 23px;
+                font-size: 16px;
+                height: 26px;
+                padding: 0px 8px;
             }
 
             &__text {
-                font-size: 10px;
+                font-size: 13px;
             }
 
             &__job {
 
-                font-size: 10px;
+                font-size: 13px;
 
                 span:nth-child(1) {
-                    font-size: 12px;
+                    font-size: 16px;
                 }
             }
 
@@ -319,7 +345,7 @@
 
     .doubleClick {
         .card {
-            padding-top: 70px;
+            padding-top: 78px;
         }
 
         .card__logo {

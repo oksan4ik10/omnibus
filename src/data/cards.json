@@ -10,7 +10,7 @@
         "colorJob": "#08A652",
         "bgPhoto": "",
         "indexPhoto": 0,
-        "answerText": "<p>TEST</p>",
+        "answerText": "<p>TEST <a href='https://vk.com/' target='_blank'>linktest Привет ууу</a></p>",
         "answerRectColorSuccess": "#08A652",
         "answerRectColorError": "yellow",
         "answerRectColor": "red",
