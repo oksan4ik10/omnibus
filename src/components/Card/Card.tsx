@@ -8,10 +8,11 @@ interface IProps {
     isOdd?: boolean;
     item: ICard;
     index: number;
+    isEduc?: boolean;
     clickAnswerUser?: (e: React.MouseEvent<HTMLSpanElement>, answer: string) => void;
 }
 function Card(props: IProps) {
-    const { screen4, isUser, isOdd, item, index, clickAnswerUser } = props;
+    const { screen4, isUser, isOdd, item, index, clickAnswerUser, isEduc} = props;
 
     const [userAnswer, setUserAnswer] = useState("");
     const click = (e:  React.MouseEvent<HTMLSpanElement>, answer: string) => {
@@ -21,7 +22,7 @@ function Card(props: IProps) {
     }
 
     return (
-        <div className={style.wrapper + " " + (isUser ? style.userClick : "") + " " + (isOdd ? style.odd : "") + " " + (!screen4 ? style.pBtm : "") + " " + (item.bgPhoto ? "" : style.bgGradient)} style={{ "--colorBtn": item.colorBtn, "--color-job": item.colorJob, "--color-bg": item.bgPhoto, "--heightPhoto":item.heightLogo ? item.heightLogo: "27px"} as CSSProperties}>
+        <div className={style.wrapper + " " + (isUser ? style.userClick : "") + " " + (isOdd ? style.odd : "") + " " + (!screen4 ? style.pBtm : style.screen4) + " " + (item.bgPhoto ? "" : style.bgGradient) + " " + (userAnswer ? style.stopAnimation : "") + " " + (isEduc ? style.educ : "")} style={{ "--colorBtn": item.colorBtn, "--color-job": item.colorJob, "--color-bg": item.bgPhoto, "--heightPhoto":item.heightLogo ? item.heightLogo: "27px"} as CSSProperties}>
             <div className={style.card}>
 
                 <div className={style.card__photo}>

@@ -289,14 +289,16 @@
         cursor: pointer;
 
         &__front {
-            transform: rotateY(0deg);
+            transform: rotateY(180deg);
             transition: 1s;
+            z-index: -1;
+            opacity: 0;
         }
 
         &__back {
-            transform: rotateY(180deg);
-            z-index: -1;
-            opacity: 0;
+            transform: rotateY(0deg);
+
+            opacity: 1;
             transition: 1s;
 
         }
@@ -311,21 +313,6 @@
     }
 }
 
-.cards__item.animation {
-    .card__front {
-        transform: rotateY(180deg);
-        z-index: -1;
-        // opacity: 0;
-        // animation: front 2s alternate both ease-in-out;
-    }
-
-    .card__back {
-        transform: rotateY(360deg);
-        opacity: 1;
-        z-index: 10;
-        // animation: back 1s alternate both ease-in-out;
-    }
-}
 
 // @keyframes front {
 //     70% {
@@ -823,10 +810,45 @@
             justify-self: center;
         }
 
+        .card {
+            &__front {
+                transform: rotateY(0deg);
+                transition: 1s;
+                opacity: 1;
+                z-index: 0;
+            }
+
+            &__back {
+                transform: rotateY(180deg);
+                z-index: -1;
+                opacity: 0;
+                transition: 1s;
+
+            }
+        }
+
 
 
 
     }
+
+
+    .cards__item.animation {
+        .card__front {
+            transform: rotateY(180deg);
+            z-index: -1;
+            // opacity: 0;
+            // animation: front 2s alternate both ease-in-out;
+        }
+
+        .card__back {
+            transform: rotateY(360deg);
+            opacity: 1;
+            z-index: 10;
+            // animation: back 1s alternate both ease-in-out;
+        }
+    }
+
 
     .cards:not(.cardsEducation)>:last-child {
         justify-self: center;

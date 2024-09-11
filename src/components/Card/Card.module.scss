@@ -225,7 +225,7 @@
 .wrapper.userClick.bgGradient {
 
     .card {
-        padding-bottom: 0px;
+        // padding-bottom: 0px;
 
         .card__photo {
             box-shadow: inset 0px 0px 4.9px 0px rgba(0, 0, 0, 0.25);
@@ -439,6 +439,61 @@
             span {
                 font-size: 9px !important;
                 line-height: 120% !important;
+            }
+        }
+    }
+
+}
+
+@media (min-width: 801px) {
+    .wrapper.userClick.bgGradient:not(.stopAnimation):not(.educ) {
+        .card {
+            .card__photo {
+                transition: 0s;
+                box-shadow: none;
+                background: var(--card-bg);
+                transition: .5s;
+            }
+        }
+
+        .card:hover {
+            .card__photo {
+
+                background: linear-gradient(225.32deg, rgb(66, 227, 180) 8.753%, rgb(8, 166, 82) 98.582%);
+            }
+        }
+    }
+
+    .wrapper.screen4:not(.stopAnimation):not(.educ) {
+        .card {
+            transition: 1s;
+
+            .card__photo {
+                transition: .5s;
+
+                background-color: var(--card-bg);
+            }
+
+            .card__btns {
+                position: relative;
+                opacity: 0;
+                transition: .5s;
+                z-index: -5;
+            }
+        }
+
+
+
+
+        .card:hover {
+            .card__photo {
+                background-color: var(--color-bg);
+            }
+
+            .card__btns {
+                opacity: 1;
+                z-index: 99;
+
             }
         }
     }

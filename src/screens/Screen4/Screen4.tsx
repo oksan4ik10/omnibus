@@ -159,10 +159,6 @@ function Screen4(props: IProps) {
 
     const refWrapper = useRef<HTMLDivElement>(null)
     useLayoutEffect(() => {
-        // if(!refWrapper.current || !isScreen4) return
-        console.log("screen 4 scroll");
-        
-        
         if(isEduc && isSlideEnd) refWrapper.current?.scrollIntoView();
       }, [isSlideEnd]);
 
@@ -215,14 +211,14 @@ function Screen4(props: IProps) {
                         {data.slice(0,2).map((item, index) =>
                             <div className={style.cards__item + " " + style.cardEducation+ " " + style.animation} key={index} onClick={step0}>
                                 {index===0 && <div className={style.card__back + " " + style.card + " " + style.backFront + " " + (step === 0 ? "" : style.opacity)}>
-                                    <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true}></Card>
+                                    <Card index={index} isEduc={true} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true}></Card>
                                     <div className={style.descCard1}>
                                         <div className={style.descCard1__wrapperImg}>
                                         <img src="/images/cards/desc-card1.svg" alt="desc" className={style.educImgD} />
                                         <img src="/images/cards/desc-card1M.svg" alt="desc" className={style.educImgM} />
                                         </div>
                                         
-                                        <span className={style.spanEduc}>Нажми на карточку, которую хочешь прочитать</span>
+                                        <span className={style.spanEduc}>Наведи на карточку, которую хочешь прочитать</span>
 
                                     </div>
                                     <div className={style.descCard1 + " " + style.descCard1M}>
@@ -236,7 +232,7 @@ function Screen4(props: IProps) {
                                     </div>
                                 </div>}
                                 {index===1 && <div className={style.card__back + " " + style.card + " " + style.backFront + " " + (step === 1 ? "" : style.opacity)}>
-                                  <Card index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true} clickAnswerUser={(e: React.MouseEvent<HTMLSpanElement>, answer: string) => clickAnswerUser(e, index, answer)}></Card>
+                                  <Card  isEduc={true} index={index} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true} clickAnswerUser={(e: React.MouseEvent<HTMLSpanElement>, answer: string) => clickAnswerUser(e, index, answer)}></Card>
                                   <div className={style.descCard2} ref={refDescCard2}>
                                   <span className={style.spanEduc}>Читай описание<br/>и выбирай ответ</span>
                                         <div className={style.descCard2__wrapperImg}>
@@ -376,7 +372,7 @@ function Screen4(props: IProps) {
                     </div>
 
                 </div>
-                {isScreen4 && <div className={style.lampCards}>
+                { <div className={style.lampCards}>
                     <div className={style.lampCards__wrapper}>
 
                         <img src="/images/screen4/lamp-right.svg" alt="lamp" className={style.lampCardsImg} />
