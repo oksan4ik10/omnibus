@@ -5,7 +5,7 @@
     height: 100%;
     width: 360px;
     overflow: hidden;
-    padding: 0px 8px 10px;
+    padding: 0px 8px 0px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -84,7 +84,7 @@
         font-family: Inter;
         font-size: 13px;
         font-weight: 500;
-        line-height: 130%;
+        line-height: 150%;
 
         span:nth-child(1) {
             font-weight: 600;
@@ -97,11 +97,11 @@
         font-family: Inter;
         font-size: 13px;
         font-weight: 400;
-        line-height: 130%;
+        line-height: 150%;
         margin-top: 10px;
 
         span {
-            max-height: 250px;
+            // max-height: 250px;
             overflow-y: auto;
             display: block;
         }
@@ -128,7 +128,7 @@
         font-family: Inter;
         font-size: 13px;
         font-weight: 500;
-        line-height: 130%;
+        line-height: 150%;
         text-align: center;
         cursor: pointer;
     }
@@ -175,6 +175,7 @@
     perspective: 0;
     position: relative;
 
+
     .card::after {
         content: "";
         position: absolute;
@@ -187,6 +188,16 @@
         left: 0;
     }
 
+    .info__text {
+        position: relative;
+        height: 100%;
+
+        span {
+            position: absolute;
+            height: 100%;
+        }
+    }
+
 }
 
 .wrapper.odd {
@@ -197,7 +208,7 @@
     // box-shadow: 0px 18px 100px 0px rgb(66, 227, 180), -2px -11px 44.2px 0px rgb(241, 232, 19);
 
     .card {
-        padding-bottom: 0px;
+
 
         .card__photo {
             box-shadow: inset 0px 0px 4.9px 0px rgba(0, 0, 0, 0.25);
@@ -212,9 +223,11 @@
 
     }
 
-    .info__text span {
-        max-height: 210px;
-    }
+
+
+    // .info__text span {
+    //     max-height: 210px;
+    // }
 
     .info__job span:first-child {
         color: var(--color-job);
@@ -286,7 +299,7 @@
 
         &__text {
             font-size: 9px;
-            line-height: 130%;
+            line-height: 150%;
         }
     }
 
@@ -327,6 +340,7 @@
 
     .card {
         width: 318px;
+        // padding-bottom: 8px;
 
 
         .card__photo {
@@ -338,6 +352,10 @@
         .card__btns {
             margin-top: -10px;
         }
+    }
+
+    .wrapper:not(.userClick) .card {
+        padding-bottom: 8px;
     }
 
     .info {
@@ -366,15 +384,23 @@
             }
         }
 
+        &__text {
+            margin-top: 0;
+        }
+
         &__text span {
             font-size: 13px;
-            max-height: 131px;
+            // max-height: 131px;
+        }
+
+        &__logo {
+            height: var(--heightLogoMobile);
         }
     }
 
     .wrapper.userClick:not(.pBtm) {
         .info__text span {
-            max-height: 95px;
+            // max-height: 95px;
         }
     }
 
@@ -567,15 +593,15 @@
 
                 span:first-child {
                     font-size: 13px;
-                    line-height: 130%;
+                    line-height: 150%;
                 }
             }
 
             &__text {
                 span {
                     font-size: 10px !important;
-                    line-height: 130% !important;
-                    max-height: 81px;
+                    line-height: 150% !important;
+                    // max-height: 81px;
                     overflow: hidden;
                 }
 
