@@ -16,4 +16,5 @@ export interface ICard {
     answerRectColor: string;
     answerLogoHeight: string;
     answerLogoMobileHeight: string;
+    heightLogoMobile: string;
 }

@@ -30,7 +30,9 @@ function Screen2(props: IProps) {
         "answerRectColorError": "yellow",
         "answerRectColor": "red",
         "answerLogoHeight": "48px",
-        "answerLogoMobileHeight": "25px"
+        "answerLogoMobileHeight": "25px",
+        "heightLogo":"30px",
+        "heightLogoMobile":"27px",
     }
     return (
         <div className={style.container + ` ${style['screen' + String(screen)]}` + " " + (isMobile ? style.mobile : "")}>
