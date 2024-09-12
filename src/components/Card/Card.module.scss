@@ -453,13 +453,26 @@
                 box-shadow: none;
                 background: var(--card-bg);
                 transition: .5s;
+                position: relative;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    background: linear-gradient(225.32deg, rgb(66, 227, 180) 8.753%, rgb(8, 166, 82) 98.582%);
+                    z-index: -1;
+                    opacity: 0;
+                    transition: .5s;
+                }
             }
         }
 
         .card:hover {
-            .card__photo {
-
-                background: linear-gradient(225.32deg, rgb(66, 227, 180) 8.753%, rgb(8, 166, 82) 98.582%);
+            .card__photo::after {
+                opacity: 1;
             }
         }
     }
@@ -467,6 +480,12 @@
     .wrapper.screen4:not(.stopAnimation):not(.educ) {
         .card {
             transition: 1s;
+
+            .info__logo {
+                opacity: 0;
+                transition: .5s;
+
+            }
 
             .card__photo {
                 transition: .5s;
@@ -488,6 +507,10 @@
         .card:hover {
             .card__photo {
                 background-color: var(--color-bg);
+            }
+
+            .info__logo {
+                opacity: 1;
             }
 
             .card__btns {
