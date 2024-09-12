@@ -84,7 +84,7 @@
         font-family: Inter;
         font-size: 13px;
         font-weight: 500;
-        line-height: 120%;
+        line-height: 130%;
 
         span:nth-child(1) {
             font-weight: 600;
@@ -97,7 +97,7 @@
         font-family: Inter;
         font-size: 13px;
         font-weight: 400;
-        line-height: 16px;
+        line-height: 130%;
         margin-top: 10px;
 
         span {
@@ -128,7 +128,7 @@
         font-family: Inter;
         font-size: 13px;
         font-weight: 500;
-        line-height: 16px;
+        line-height: 130%;
         text-align: center;
         cursor: pointer;
     }
@@ -246,8 +246,8 @@
 
         .card__photo {
             flex: 0 0 147px;
-            mask: url("../../assets/maskScreen2.svg");
-            -webkit-mask: url("../../assets/maskScreen2.svg");
+            mask: url("../../assets/mask.svg");
+            -webkit-mask: url("../../assets/mask.svg");
 
             img {
                 object-position: 8px 2px
@@ -286,7 +286,7 @@
 
         &__text {
             font-size: 9px;
-            line-height: 120%;
+            line-height: 130%;
         }
     }
 
@@ -389,7 +389,7 @@
 
     .wrapper.pBtm {
         height: 434px;
-        width: 246px !important;
+        width: 264px !important;
 
         .card {
             padding-bottom: 0 !important;
@@ -517,6 +517,76 @@
                 opacity: 1;
                 z-index: 99;
 
+            }
+        }
+    }
+
+}
+
+//card in screen2
+@media (max-width: 570px) {
+    .wrapper.pBtm {
+        height: 390px;
+        width: 264px !important;
+
+        .card {
+            padding-bottom: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+
+            .card__photo {
+                flex: 0 0 147px !important;
+                mask: url("../../assets/maskMScreen2.svg") !important;
+                -webkit-mask: url("../../assets/maskMScreen2.svg") !important;
+            }
+        }
+
+        .info {
+            padding: 0px 12px !important;
+
+            &__name {
+                font-size: 23px !important;
+            }
+
+            &__age {
+                font-size: 13px !important;
+                height: 22px;
+                padding: 0px 6px !important;
+            }
+
+            &__logo {
+                width: 74px !important;
+            }
+
+            &__job {
+                span {
+                    font-size: 10px;
+
+                }
+
+
+                span:first-child {
+                    font-size: 13px;
+                    line-height: 130%;
+                }
+            }
+
+            &__text {
+                span {
+                    font-size: 10px !important;
+                    line-height: 130% !important;
+                    max-height: 81px;
+                    overflow: hidden;
+                }
+
+            }
+        }
+
+        .card__btns {
+            flex: 0 0 36px !important;
+
+            span {
+                font-size: 10px !important;
             }
         }
     }
