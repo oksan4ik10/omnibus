@@ -2,7 +2,7 @@
 
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { disablePageScroll, enablePageScroll } from 'scroll-lock';
+import { disablePageScroll } from 'scroll-lock';
 import {
   useWindowSize
 } from '@react-hook/window-size'
@@ -58,7 +58,7 @@ function App() {
   function shuffle(array: ICard[]) {
     return array.sort(() => Math.random() - 0.5);
   }
-  const [dataCards, setDataCards] = useState(data);
+  const [dataCards, setDataCards] = useState<ICard[]>(data);
   useEffect(()=> {
     const t = shuffle(dataCards)
     setDataCards(t)
@@ -81,11 +81,11 @@ function App() {
     setIsDoubleClick(doubleClick)
     setTimeout(()=> { setIsAnswer(true)}, 20)
    
-    disablePageScroll();
+    // disablePageScroll();
   }
   const closeAnswer = () => {
    
-    setTimeout(()=> {  enablePageScroll()}, 20)
+    // setTimeout(()=> {  enablePageScroll()}, 20)
     setIsAnswer(false);
    
   }
