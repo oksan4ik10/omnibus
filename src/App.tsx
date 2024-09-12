@@ -51,6 +51,9 @@ function App() {
   const viewForm = () => {
     setIsForm(true);
   }
+  const closeForm = ()=> {
+    setIsForm(false)
+  }
 
   function shuffle(array: ICard[]) {
     return array.sort(() => Math.random() - 0.5);
@@ -200,7 +203,7 @@ function App() {
 
           </SwiperSlide>
         </Swiper>
-        {isForm && <Forms></Forms>}
+        {isForm && <Forms closeForm={closeForm}></Forms>}
         {isAnswer && <Answer dataCards={dataCards} setIsStepMobile={educationAnswer}  isWin={isWin} isDoubleClick={isDoubleClick} indexAnswer={answerIndex} closeAnswer={closeAnswer}></Answer>}
         {!isLoader && <div className={style.container + " conatainer"}>
             <div className={style.loaderWrapper}>

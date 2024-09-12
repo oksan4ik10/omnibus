@@ -1,12 +1,23 @@
-import style from "./Forms.module.scss"
 
-function Forms() {
+import style from "./Forms.module.scss"
+interface IProps{
+    closeForm: ()=> void
+}
+function Forms(props: IProps) {
+    const {closeForm} = props;
+    const clickCloseForm=(e: React.MouseEvent<HTMLDivElement>)=> {
+        const target = e.target as HTMLElement;
+        if(target.closest(`.${style.form}`)) return
+        closeForm()
+        
+    }
+
     return (
-        <div className={style.wrapper}>
+        <div className={style.wrapper} onClick={(e)=>clickCloseForm(e)}>
             <form className={style.form}>
                 <div className={style.form__wrapper}>
                     <h2 className={style.form__title}>Участвуй в розыгрыше<br />и получи приз!</h2>
-                    <p className={style.form__text}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi sit perferendis autem, rem, nihil mollitia tempora vitae debitis maxime voluptate commodi animi ut excepturi nemo repellat consectetur quos fugit saepe!</p>
+                    <p className={style.form__text}>Мы разыгрываем карьерные консультации, сертификаты на&nbsp;маркетплейсы и&nbsp;подписки на&nbsp;сервисы! Оставляй почту и имя, чтобы участвовать. Результаты объявим <strong>19&nbsp;ноября.</strong></p>
                     <div className={style.form__items}>
                         <label className={style.form__label}>
                             <input type="email" placeholder="Введите почту" />
