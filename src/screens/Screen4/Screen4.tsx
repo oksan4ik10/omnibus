@@ -10,7 +10,7 @@ import { ICard } from "../../models/type";
 interface IProps {
     viewForm: () => void;
     isScreen4: boolean;
-    openAnswer: (index: number, isWin: boolean, isDoubleClick: boolean) => void;
+    openAnswer: (index: number, isWin: boolean, isDoubleClick: boolean, countAnswer: number) => void;
     isStepMobile: boolean;
     width: number;
     isLoader: boolean;
@@ -37,14 +37,14 @@ function Screen4(props: IProps) {
     const [userAnswer, setUserAnswer] = useState<boolean[]>([]);
     const clickCard = (index: number) => {
         
-        openAnswer(index, false, true);
+        openAnswer(index, false, true, -1);
     }
     const clickAnswerUser = (e:React.MouseEvent<HTMLSpanElement>,index: number, answer: string) => {
         if (userAnswer[index]) return;
         e.stopPropagation();
         userAnswer[index] = true;
         setUserAnswer(userAnswer);
-        openAnswer(index, data[index].answerRight === answer, false);
+        openAnswer(index, data[index].answerRight === answer, false, userAnswer.filter((item)=>item).length);
 
     }
     const [isAnimation, setIsAnimation] = useState(false);

@@ -74,21 +74,21 @@ function App() {
   const [isDoubleClick, setIsDoubleClick] = useState(false);
 
 
-
-
-
-  const openAnswer = (index: number,  win: boolean, doubleClick: boolean) => {
+const [countUserAnswer, setCountUserAnswer] = useState(-1);
+  const openAnswer = (index: number,  win: boolean, doubleClick: boolean, countAnswer: number) => {
     setIsWin(win)
     setAnswerIndex(index)
     setIsDoubleClick(doubleClick)
     setTimeout(()=> { setIsAnswer(true)}, 20)
-   
-    // disablePageScroll();
+    setCountUserAnswer(countAnswer)
   }
   const closeAnswer = () => {
-   
-    // setTimeout(()=> {  enablePageScroll()}, 20)
     setIsAnswer(false);
+    if(countUserAnswer === 10){
+      setIsForm(true)
+      setCountUserAnswer(-1)
+
+    }
    
   }
 
