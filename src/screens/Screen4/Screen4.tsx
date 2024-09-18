@@ -79,8 +79,6 @@ function Screen4(props: IProps) {
     const step0 = ()=> {
         setStep(1)
         if(refDescCard2.current && !isEduc){
-            console.log("eduuuuc");
-            
             refDescCard2.current.scrollIntoView({block:"end", behavior: "smooth"})
         }
     }
@@ -91,7 +89,10 @@ function Screen4(props: IProps) {
         else  enablePageScroll()
     },[isScrollEduc, isScreen4])
     const changeEducation = ()=> {
-        if(step===0) return;
+        if(step===0) {
+            step0();
+            return
+        };
         if(step===1){
             refWrapper.current?.scrollIntoView();
             setStep(2)
@@ -106,14 +107,15 @@ function Screen4(props: IProps) {
 
             return
         }
+        if(step===3){
+            setStep(4)
+            return
+        }
         addScrollScreen4()
         enablePageScroll()
         setIsScrollEduc(false)
         setIsEducation(false)
         finishEduc()
-        console.log("end educ");
-        console.log(step);
-        
         
         refWrapper.current?.scrollIntoView();
     }
@@ -210,7 +212,7 @@ function Screen4(props: IProps) {
                     </div>
                     <div className={style.cards + " " + style.cardsEducation}>
                         {data.slice(0,2).map((item, index) =>
-                            <div className={style.cards__item + " " + style.cardEducation+ " " + style.animation} key={index} onClick={step0}>
+                            <div className={style.cards__item + " " + style.cardEducation+ " " + style.animation} key={index}>
                                 {index===0 && <div className={style.card__back + " " + style.card + " " + style.backFront + " " + (step === 0 ? "" : style.opacity)}>
                                     <Card isEduc={true} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true}></Card>
                                     <div className={style.descCard1}>
@@ -255,6 +257,12 @@ function Screen4(props: IProps) {
                         <img src="/images/cards/arrow-education.svg" alt="arrow" />
                     </div>
                     <span className={style.spanEduc}>Листай вниз, чтобы<br/>открыть все карточки</span>
+                </div>
+                <div className={style.openEduc + " " + (step === 4 ? "" : style.opacity)}>
+                <div className={style.wrapperArrowEducImg}>
+                        <img src="/images/cards/arrow-education.svg" alt="arrow" />
+                    </div>
+                    <span className={style.spanEduc }>Открывай все карточки,<br/>проверяй свою интуицию<br/>и вдохновляйся историями героев,<br/>чтобы принять участие в розыгрыше!</span>
                 </div>
 
                     </div>
