@@ -25,9 +25,8 @@ function Presents(props: IProps) {
                             <li><span>300</span> сертификатов на Ozon и Яндекс. Еда</li>
                             <li><span>20</span> карьерных консультаций от компаний</li>
                             <li>подписки на MyBook</li>
-                            <li>экскурсия на завод «Балтика»</li>
                             <li>промокоды на сервис Пакет</li>
-                            <li>PlayStation 5 Slim</li>
+                            <li><span>PlayStation 5 Slim</span></li>
                         </ul>
                     </div >
                     {!isMobile && <button className={"btn " + style.btn} onClick={clickGame}>
