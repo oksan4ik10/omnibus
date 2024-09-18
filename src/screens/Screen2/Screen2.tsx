@@ -66,7 +66,7 @@ function Screen2(props: IProps) {
                     </div>
             <div className={style.card}>
             <div className={style.card__text}>
-                                          {!isMobile &&<div className={style.waterPresentsMan}>
+                    {!isMobile &&<div className={style.waterPresentsMan}>
                         <img src="./images/sceen2/water-btn.png" alt="water" />
                     </div>}
                     Сможешь угадать, кто из этих людей работает по специальности, а кто — нет? Среди участников, прошедших все карточки, мы разыграем призы!

@@ -89,6 +89,9 @@
     &__item {
         position: relative;
         justify-self: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .man {
@@ -110,7 +113,7 @@
         right: 0px;
         z-index: -1;
         top: 0px;
-        transform: translateX(80%);
+        transform: translateX(100%) rotate(-20deg);
 
     }
 
@@ -118,8 +121,8 @@
         position: absolute;
         left: 0px;
         z-index: -1;
-        bottom: 0px;
-        transform: translateX(-100%) translateY(-110%);
+        top: 0px;
+        transform: translateX(-150%) translateY(100%) rotate(-20deg);
     }
 
     .btnImg {
@@ -215,14 +218,30 @@
     position: absolute;
     right: 0;
     top: 0;
-    transform: translateX(40%) translateY(-20%);
-    width: 80vw;
+    transform: translateX(30%) translateY(-20%) rotate(-20deg);
+    height: calc(var(--heightContainer) * 0.9);
     z-index: -9;
 
+
     img {
-        height: auto;
-        width: 100%;
+        height: 100%;
+        width: auto;
     }
+}
+
+.screen2 .lampNew {
+    animation: lampNew 1s .3s alternate both linear;
+}
+
+@keyframes lampNew {
+    from {
+        transform: translateX(30%) translateY(-20%) rotate(-20deg);
+    }
+
+    to {
+        transform: rotate(0deg) translateX(30%) translateY(-20%);
+    }
+
 }
 
 @media (max-width: 790px) {
@@ -242,7 +261,7 @@
     }
 
     .card .man {
-        transform: scale(.8) rotate(14deg) translateX(0%) translateY(0%);
+        transform: scale(.8) rotate(14deg) translateX(0%) translateY(-6%);
     }
 
     .presents__list {
@@ -318,7 +337,7 @@
 }
 
 .screen2 .waterTop {
-    animation: waterTop .2s 2s forwards ease;
+    animation: waterTop .2s 1.8s forwards ease;
 }
 
 @keyframes waterTop {
@@ -533,6 +552,8 @@
         }
 
         .calcImg {
+            top: auto;
+            bottom: 0;
             transform: translateX(-80%) translateY(-10%);
         }
     }
