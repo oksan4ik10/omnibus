@@ -43,7 +43,7 @@
         align-items: center;
         justify-content: space-between;
         flex-direction: column;
-        height: 85%;
+        height: 70%;
         position: relative;
         z-index: 2;
 
@@ -159,8 +159,8 @@
     .form {
         width: 82%;
         min-height: 400px;
-        max-height: 500px;
-        height: 55.8vh;
+        max-height: 600px;
+        height: 80.8vh;
 
         &__text {
             width: 86%;
@@ -194,8 +194,27 @@
     .form::after {
         background: url("/images/screen4/form-water3.png");
         background-repeat: no-repeat;
-        background-position: bottom -20px right;
-        background-size: 70%;
+        background-position: bottom -9px right -37px;
+        background-size: 86%;
+    }
+
+}
+
+.close {
+    position: absolute;
+    top: min(3vh, 38px);
+    right: 30px;
+    cursor: pointer;
+    z-index: 99;
+}
+
+@media (max-width: 800px) {
+    .close {
+        width: 36px;
+
+        img {
+            width: 100%;
+        }
     }
 
 }

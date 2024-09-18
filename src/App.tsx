@@ -20,6 +20,8 @@ import { resize } from './resize.ts'
 
 import Footer from './components/Footer/Footer.tsx';
 import Answer from './components/Answer/Answer.tsx';
+import Finish from './components/Finish/Finish.tsx';
+
 import { Mousewheel, Scrollbar } from 'swiper/modules';
 
 import data from "./data/cards.json"
@@ -167,6 +169,15 @@ function App() {
   //   if(!isScreen4) return
   //   // sliderRef.current.swiper.allowTouchMove = true;
   // }
+  const [isFinish, setIsFinish] = useState(false);
+  const openFinish = ()=> {
+    setIsFinish(true);
+   
+  }
+  const closeFinish=()=> {
+    setIsFinish(false);
+    setIsForm(false)
+  }
   return (
     <>
 
@@ -203,7 +214,7 @@ function App() {
 
           </SwiperSlide>
         </Swiper>
-        {isForm && <Forms closeForm={closeForm}></Forms>}
+        {isForm && <Forms closeForm={closeForm} openFinish={openFinish}></Forms>}
         {isAnswer && <Answer dataCards={dataCards} setIsStepMobile={educationAnswer}  isWin={isWin} isDoubleClick={isDoubleClick} indexAnswer={answerIndex} closeAnswer={closeAnswer}></Answer>}
         {!isLoader && <div className={style.container + " conatainer"}>
             <div className={style.loaderWrapper}>
@@ -221,6 +232,7 @@ function App() {
         {isScreen4 && <div className={style.waterBtmM}>
           <img src="./images/screen4/water-purple.png" alt="water-purple" className={style.waterBtmMImg} />
         </div>}
+        {isFinish && <Finish closeFinish={closeFinish}></Finish>}
         {gap && <Footer gap={gap}></Footer>}
 
       </div >
