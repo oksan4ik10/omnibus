@@ -86,6 +86,15 @@
             padding: 14px 22px;
             width: 100%;
 
+            &:focus {
+                outline: none;
+                border: 1px solid var(--orange);
+            }
+
+            &.error {
+                border: 1px solid red;
+            }
+
             &::placeholder {
                 color: #D4D7D9;
                 font-family: Inter;
@@ -139,6 +148,10 @@
     font: inherit;
     border: 1px solid var(--peach);
     margin-bottom: 0;
+}
+
+.errorCheck input {
+    border: 1px solid red;
 }
 
 .form__checkbox input[type=checkbox] {

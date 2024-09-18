@@ -13,8 +13,10 @@
   "dependencies": {
     "@react-hook/window-size": "^3.1.1",
     "@reduxjs/toolkit": "^2.2.7",
+    "ft-client": "^0.1.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-hook-form": "^7.53.0",
     "react-redux": "^9.1.2",
     "scroll-lock": "^2.1.5",
     "swiper": "^11.1.9"
