@@ -2,6 +2,7 @@
 import { FTClient } from 'ft-client'
 import style from "./Forms.module.scss"
 import { SubmitHandler, useForm } from 'react-hook-form';
+import ym from 'react-yandex-metrika';
 interface IProps{
     closeForm: ()=> void
     openFinish: ()=> void
@@ -41,6 +42,7 @@ function Forms(props: IProps) {
         // const data = { post: 'user@mail.ru', name: "test"}
         const newRecord = await ftClient.createRecord(data)
         console.log('new record:', newRecord)
+        ym('reachGoal', 'form')
         openFinish()
     }
 

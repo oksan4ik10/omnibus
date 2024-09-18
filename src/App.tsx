@@ -3,6 +3,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { disablePageScroll } from 'scroll-lock';
+import ym, { YMInitializer} from 'react-yandex-metrika';
 import {
   useWindowSize
 } from '@react-hook/window-size'
@@ -87,7 +88,7 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
     if(countUserAnswer === 10){
       setIsForm(true)
       setCountUserAnswer(-1)
-
+      ym('reachGoal', '10-сards')
     }
    
   }
@@ -110,12 +111,10 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
   const handleNext = useCallback(() => {
     if (!sliderRef.current) return;
     sliderRef.current.swiper.slideNext();
-    // setScreen(screen + 1);
   }, []);
 
   const [isScreen3Mobile, setIsScreen3Mobile] = useState(false);
   const nextScreen3Mobile = () => {
-    // setIsScreen3Mobile(true)
     handleNext();
   }
 
@@ -126,9 +125,16 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
   }
 
   const [isEduc, setIsEduc] = useState(false)
+  const [isStartYM, setIsStartYM] = useState(false);
   const slideChange = ()=> {
     const activeSlide  = sliderRef.current.swiper.activeIndex;
     const countSlides = sliderRef.current.swiper.slides.length;
+    if((activeSlide === 1) && (!isStartYM)){
+      setIsStartYM(true)
+      ym('reachGoal', 'start')
+      
+    }
+    
     if(countSlides - 1 === activeSlide) {
       if(isEduc) setIsEducation(true)
       slideEnd()
@@ -147,11 +153,18 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
     
   }
   const [isSlideEnd, setIsSlideEnd] = useState(false);
+  const [isEndYM, setIsEndYM] = useState(false);
   const slideEnd=()=> {
     if(!sliderRef.current) return;
     sliderRef.current.swiper.mousewheel.disable()
     setIsSlideEnd(true);
     setTimeout(()=>   setIsScreen4(true), 1200)
+    if(!isEndYM)
+    {
+     setIsEndYM(true)
+     ym('reachGoal','game')
+      
+    }
   
     disablePageScroll()
     
@@ -180,6 +193,11 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
   }
   return (
     <>
+     <YMInitializer accounts={[98304971]} options={{
+        defer: true, clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true
+      }} />
 
       <div className={"wrapper" + (isEducation ? " screen4" : "") + " " + style.wrapper}>
         <Swiper

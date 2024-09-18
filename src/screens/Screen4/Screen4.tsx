@@ -6,6 +6,7 @@ import style from "./Screen4.module.scss"
 import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ICard } from "../../models/type";
+import ym from "react-yandex-metrika";
 
 interface IProps {
     viewForm: () => void;
@@ -39,9 +40,14 @@ function Screen4(props: IProps) {
         
         openAnswer(index, false, true, -1);
     }
+    const [isAnswerYM, setIsAnswerYM] = useState(false);
     const clickAnswerUser = (e:React.MouseEvent<HTMLSpanElement>,index: number, answer: string) => {
         if (userAnswer[index]) return;
         e.stopPropagation();
+        if(!isAnswerYM){
+            ym('reachGoal', 'answer')
+            setIsAnswerYM(true)
+        }
         userAnswer[index] = true;
         setUserAnswer(userAnswer);
         openAnswer(index, data[index].answerRight === answer, false, userAnswer.filter((item)=>item).length);
