@@ -111,6 +111,7 @@ function Screen4(props: IProps) {
             setStep(4)
             return
         }
+
         addScrollScreen4()
         enablePageScroll()
         setIsScrollEduc(false)
@@ -137,9 +138,14 @@ function Screen4(props: IProps) {
         if(step === 2){
             enablePageScroll()
             setStep(3)
+            setIndexAnimationCard(-1)
             if(refArrowEducation.current){
                 refArrowEducation.current.scrollIntoView(false)
             }
+            return
+        }
+        if(step===3){
+            setStep(4)
             return
         }
         addScrollScreen4()
@@ -295,9 +301,9 @@ function Screen4(props: IProps) {
                         </div>
 
                     </div>
-                    <div className={style.cards + " " + style.cardsEducation}>
+                    <div className={style.cards + " " + style.cardsEducation }>
                         {data.slice(0,1).map((item, index) =>
-                            <div className={style.cards__item + " " + (!isStepMobile? "" : style.opacity)} key={index}>
+                            <div className={style.cards__item + " " + (!isStepMobile? "" : style.opacity) + " " + (step > 2 ? style.opacity : "")} key={index}>
                                <div className={style.cards__item + " " + ( (indexAnimationCard === index && isAnimation || (userAnswer[index])) ? style.animation : "")} key={index}>
                                 <div className={style.card__front + " " + style.card}>
                                     <Card item={item} screen4={true} isUser={false}></Card>
@@ -333,7 +339,14 @@ function Screen4(props: IProps) {
                     </div>
                     <span className={style.spanEduc}>Листай вниз, чтобы<br/>открыть все карточки</span>
                 </div>
+                
+                <div className={style.openEduc  + " " + (step === 4 ? "" : style.opacity)}>
+                <div className={style.wrapperArrowEducImg}>
+                        <img src="/images/cards/arrow-education.svg" alt="arrow" />
+                    </div>
+                    <span className={style.spanEduc }>Открывай все карточки,<br/>проверяй свою интуицию<br/>и вдохновляйся историями героев,<br/>чтобы принять участие в розыгрыше!</span>
 
+                    </div>
                     </div>
 
                 </div>
