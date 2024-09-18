@@ -35,7 +35,7 @@ function Forms(props: IProps) {
                         </label>
                         <label className={style.form__checkbox}>
                             <input type="checkbox" />
-                            <span>Я согласен(а) на <a href="https://vk.com/" target="_blank" className={style.link}>обработку персональных данных</a> и получение информационных сообщений, а также с&nbsp;<a href="https://vk.com/" className={style.link} target="_blank">правилами проведения акции</a></span>
+                            <span>Я согласен(а) на <a href="https://fut.ru/personal-data" target="_blank" className={style.link}>обработку персональных данных</a> и получение информационных сообщений, а также с&nbsp;<a href="https://noregrets.fut.ru/agreement.pdf" className={style.link} target="_blank">правилами проведения акции</a></span>
                         </label>
                     </div>
 
