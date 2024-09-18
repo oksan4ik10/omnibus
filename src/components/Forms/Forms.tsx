@@ -5,7 +5,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import ym from 'react-yandex-metrika';
 interface IProps{
     closeForm: ()=> void
-    openFinish: ()=> void
+    openFinish: (record: boolean)=> void
 }
 interface IForm{
     name: string;
@@ -33,17 +33,23 @@ function Forms(props: IProps) {
         console.log(dataForm);
         
         const ftClient = new FTClient(
-            'https://ft-admin-api.sjuksin.ru/',
+            ' https://games-admin.fut.ru/api/',
             'noregrets'
           )
-          const projectState = await ftClient.loadProjectState()
-          console.log('Project state', projectState)
-        const data = { post: 'user@mail.ru', name: "test"}
-        // const data = { post: 'user@mail.ru', name: "test"}
-        const newRecord = await ftClient.createRecord(data)
-        console.log('new record:', newRecord)
+
+        const record = await ftClient.findRecord('post', dataForm.email)
+        console.log(record);
+          if(record){
+            record.data.name =  dataForm.name;
+            await ftClient.updateRecord(record.id, record.data)
+            openFinish(false)
+            return
+          }
+          
+        const data = { post: dataForm.email, name: dataForm.name}
+        await ftClient.createRecord(data)
         ym('reachGoal', 'form')
-        openFinish()
+        openFinish(true)
     }
 
     return (

@@ -183,8 +183,10 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
   //   // sliderRef.current.swiper.allowTouchMove = true;
   // }
   const [isFinish, setIsFinish] = useState(false);
-  const openFinish = ()=> {
+  const [isRecord, setIsRecord] = useState(false);
+  const openFinish = (record: boolean)=> {
     setIsFinish(true);
+    setIsRecord(record);
    
   }
   const closeFinish=()=> {
@@ -250,7 +252,7 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
         {isScreen4 && <div className={style.waterBtmM}>
           <img src="./images/screen4/water-purple.png" alt="water-purple" className={style.waterBtmMImg} />
         </div>}
-        {isFinish && <Finish closeFinish={closeFinish}></Finish>}
+        {isFinish && <Finish isRecord={isRecord} closeFinish={closeFinish}></Finish>}
         {gap && <Footer gap={gap}></Footer>}
 
       </div >
