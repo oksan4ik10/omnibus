@@ -376,3 +376,22 @@
 
 
 }
+
+.close {
+    position: absolute;
+    top: min(3vh, 38px);
+    right: 30px;
+    cursor: pointer;
+    z-index: 99;
+}
+
+@media (max-width: 800px) {
+    .close {
+        width: 36px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+}

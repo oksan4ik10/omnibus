@@ -33,6 +33,9 @@ function Answer(props: IProps) {
                     {isDoubleClick && <div className={style.card__logo}>
                     <img src={`/images/cards/company/${dataAnswer.indexPhoto}.png`} alt="test" />
                     </div>}
+                    <div className={style.close} onClick={backClick}>
+                        <img src="/images/cards/close.svg" alt="close" />
+                    </div>
 
 
                     <div className={style.card__info + " " + style.info}>
