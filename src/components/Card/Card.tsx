@@ -45,7 +45,7 @@ function Card(props: IProps) {
                         <span dangerouslySetInnerHTML={{ __html: item.workDesc }} />
                     </div>
                     <div className={style.info__text}>
-                        <span dangerouslySetInnerHTML={{ __html: item.cardDesc }} />
+                        <div className={style.span} dangerouslySetInnerHTML={{ __html: item.cardDesc }} />
                     </div>
 
                 </div>

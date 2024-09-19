@@ -63,11 +63,11 @@ function Forms(props: IProps) {
                     <p className={style.form__text}>Мы разыгрываем карьерные консультации, сертификаты на&nbsp;маркетплейсы и&nbsp;подписки на&nbsp;сервисы! Оставляй почту и имя, чтобы участвовать. Результаты объявим <strong>19&nbsp;ноября.</strong></p>
                     <div className={style.form__items}>
                         <label className={style.form__label}>
-                            <input className={(errors.email ? style.error : "")} type="email" placeholder="Введите почту" {...register("email", { required: true, pattern: {
+                            <input className={(errors.email ? style.error : "")} type="email" placeholder="Введи почту" {...register("email", { required: true, pattern: {
         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: "Некорректный email"}})} />
                         </label>
                         <label className={style.form__label}>
-                            <input className={(errors.email ? style.error : "")} type="text" placeholder="Введите ваше имя" {...register("name", { required: true})} />
+                            <input className={(errors.email ? style.error : "")} type="text" placeholder="Введи своё имя" {...register("name", { required: true})} />
                         </label>
                         <label className={style.form__checkbox + " " + (errors.checkbox ? style.errorCheck : "")}>
                             <input type="checkbox" {...register("checkbox", { required: true})}/>

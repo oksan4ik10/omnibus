@@ -23,7 +23,7 @@ function Answer(props: IProps) {
 
 
     return (
-        <div className={style.container + " " + (isDoubleClick?style.doubleClick : "")} style={{ "--logoHeight": dataAnswer.answerLogoHeight, "--color-job": dataAnswer.colorJob, "--rect-success": dataAnswer.answerRectColorSuccess,  "--rect-error": dataAnswer.answerRectColorError, "--rect-answer": dataAnswer.answerRectColor, "--logoMobileHeight": dataAnswer.answerLogoMobileHeight} as CSSProperties}>
+        <div className={style.container + " " + (isDoubleClick?style.doubleClick : "")} style={{ "--logoHeight": dataAnswer.answerLogoHeight, "--color-job": dataAnswer.colorJob, "--rect-success": dataAnswer.answerRectColorSuccess,  "--rect-error": dataAnswer.answerRectColorError, "--rect-answer": dataAnswer.answerRectColor, "--logoMobileHeight": dataAnswer.answerLogoMobileHeight, "--fontSize": dataAnswer.fontSizeAnswer?dataAnswer.fontSizeAnswer : "19px"} as CSSProperties}>
             <div className={style.wrapper}>
                 <div className={style.card}>
                    {!isDoubleClick && <div className={style.card__answer}>

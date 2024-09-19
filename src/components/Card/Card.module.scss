@@ -100,10 +100,14 @@
         line-height: 150%;
         margin-top: 10px;
 
-        span {
+        .span {
             // max-height: 250px;
             overflow-y: auto;
             display: block;
+
+            p:not(:last-child) {
+                margin-bottom: 5px;
+            }
         }
     }
 }
@@ -192,7 +196,7 @@
         position: relative;
         height: 100%;
 
-        span {
+        .span {
             position: absolute;
             height: 100%;
         }
@@ -389,7 +393,7 @@
             margin-top: 0;
         }
 
-        &__text span {
+        &__text .span {
             font-size: 13px;
             // max-height: 131px;
         }
@@ -452,7 +456,7 @@
             }
 
             &__text {
-                span {
+                .span {
                     font-size: 9px !important;
                     line-height: 120% !important;
                 }
@@ -605,7 +609,7 @@
             }
 
             &__text {
-                span {
+                .span {
                     font-size: 10px !important;
                     line-height: 150% !important;
                     // max-height: 81px;

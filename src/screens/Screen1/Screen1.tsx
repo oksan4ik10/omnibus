@@ -19,6 +19,11 @@ function Screen1(props: IProps) {
         if (!current) return
         const { top } = current.getBoundingClientRect();
         document.body.style.setProperty("--topLine", top + "px")
+        window.addEventListener("resize", ()=> {
+            if (!current) return
+            const { top } = current.getBoundingClientRect();
+            document.body.style.setProperty("--topLine", top + "px")
+        })
 
 
     }, [])
@@ -89,7 +94,7 @@ function Screen1(props: IProps) {
                         <p>Люди делятся на два типа: одни работают по&nbsp;специальности, а другие меняют трек развития после учебы. Что выбираешь ты?
                         </p>
                         <p>Карьера может сложиться интересно в&nbsp;любом случае! Мы опросили сотрудников 10 компаний и выяснили, что все ограничения только у нас в&nbsp;голове. Ты можешь работать по&nbsp;специальности или развиваться в&nbsp;любом другом интересном тебе направлении. </p>
-                        <p><strong>Помни: большинство компаний смотрят не на&nbsp;образование в&nbsp;резюме, а на&nbsp;твои знания, интересы и навыки..</strong></p>
+                        <p className={style.label}><strong>Помни: большинство компаний смотрят не на&nbsp;образование в&nbsp;резюме, а на&nbsp;твои знания, интересы и навыки.</strong></p>
                     </div>
 
                 </div>
