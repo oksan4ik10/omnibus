@@ -15,8 +15,8 @@ function Card(props: IProps) {
 
     const [userAnswer, setUserAnswer] = useState("");
     const click = (e:  React.MouseEvent<HTMLSpanElement>, answer: string) => {
-        if (!clickAnswerUser) return;
-        setUserAnswer(answer)
+        if ((!clickAnswerUser) || userAnswer) return;
+        setUserAnswer(item.answerRight)
         clickAnswerUser(e, answer)
     }
 
@@ -49,7 +49,7 @@ function Card(props: IProps) {
                     </div>
 
                 </div>
-                {(isUser || !screen4) && <div className={style.card__btns + " " + (userAnswer === "right"? style.right : (userAnswer === "left"? style.left : ""))}>
+                {(isUser || !screen4) && <div className={style.card__btns + " " + (userAnswer === "left"? style.right : (userAnswer === "right"? style.left : ""))}>
                     <span onClick={(e: React.MouseEvent<HTMLSpanElement>) => click(e, 'right')}>По специальности</span>
                     <span onClick={(e: React.MouseEvent<HTMLSpanElement>) => click(e, 'left')}>Не по специальности</span>
                 </div>}
