@@ -418,25 +418,22 @@
         justify-self: end;
     }
 
-    &:not(.cardsEducation)>:last-child {
-        grid-column: 2/3;
-        justify-self: center;
+    // &:not(.cardsEducation)>:last-child {
+    //     grid-column: 2/3;
+    //     justify-self: center;
 
-        &::after {
-            content: url("../../assets/water-purple.png");
-            position: absolute;
-            bottom: -80px;
-            right: -71px;
-            z-index: -1;
-            transform: scale(.9) rotate(107deg);
-            top: auto;
-        }
+    //     &::after {
+    //         content: url("../../assets/water-purple.png");
+    //         position: absolute;
+    //         bottom: -80px;
+    //         right: -71px;
+    //         z-index: -1;
+    //         transform: scale(.9) rotate(107deg);
+    //         top: auto;
+    //     }
 
-    }
-
-    // &>:nth-child(4n) {
-    //     justify-self: start;
     // }
+
 }
 
 .btm {
@@ -637,6 +634,7 @@
     height: calc(var(--vh, 1vh) * 100);
     width: 100vw;
     z-index: -1;
+    transform: rotate(10deg) translateY(30%);
 
     &__wrapper {
         width: 100%;
@@ -872,9 +870,9 @@
     }
 
 
-    .cards:not(.cardsEducation)>:last-child {
-        justify-self: center;
-    }
+    // .cards:not(.cardsEducation)>:last-child {
+    //     justify-self: center;
+    // }
 
     .btm {
         display: flex;

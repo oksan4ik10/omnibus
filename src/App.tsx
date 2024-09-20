@@ -59,7 +59,7 @@ function App() {
   }
 
   function shuffle(array: ICard[]) {
-    return array.sort(() => Math.random() - 0.5);
+    return array.filter((item)=>item.indexPhoto !== 1).sort(() => Math.random() - 0.5);
   }
   const [dataCards, setDataCards] = useState<ICard[]>(data);
   useEffect(()=> {
@@ -85,7 +85,7 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
   }
   const closeAnswer = () => {
     setIsAnswer(false);
-    if(countUserAnswer === 10){
+    if(countUserAnswer === 9){
       setIsForm(true)
       setCountUserAnswer(-1)
       ym('reachGoal', '10-сards')

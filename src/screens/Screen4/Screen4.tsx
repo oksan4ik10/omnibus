@@ -26,7 +26,7 @@ function Screen4(props: IProps) {
 
     const [isTextBtm, setIsTextBtm] = useState(false);
     const clickBtn = () => {
-        if(userAnswer.filter((item)=> item).length!==10) {
+        if(userAnswer.filter((item)=> item).length!==9) {
             setIsTextBtm(true);
             setTimeout(()=> setIsTextBtm(false), 2000)
             return
@@ -189,7 +189,7 @@ function Screen4(props: IProps) {
         return words[2];
     }
     const getLabelBtm = ()=> {
-        const num = 10 - userAnswer.filter((item)=>item).length;
+        const num = 9 - userAnswer.filter((item)=>item).length;
         const word = numWord(num)
         return `${num} ${word}`
     }
@@ -209,7 +209,7 @@ function Screen4(props: IProps) {
                         <div className={style.header__counter}>
                             <span>{userAnswer.filter((item)=>item).length}</span>
                             <span>/</span>
-                            <span>10</span>
+                            <span>9</span>
 
                         </div>
                         <div className={style.descHeader}>
@@ -294,7 +294,7 @@ function Screen4(props: IProps) {
                         <div className={style.header__counter}>
                             <span>{userAnswer.filter((item)=>item).length}</span>
                             <span>/</span>
-                            <span>10</span>
+                            <span>9</span>
 
                         </div>
                         <div className={style.descHeader }>
@@ -377,7 +377,7 @@ function Screen4(props: IProps) {
                         <div className={style.header__counter}>
                             <span>{userAnswer.filter((item)=>item).length}</span>
                             <span>/</span>
-                            <span>10</span>
+                            <span>9</span>
                         </div>
                     </div>
                     <div className={style.cards}>
@@ -394,7 +394,7 @@ function Screen4(props: IProps) {
 
 
                     </div>
-                    <div className={style.btm + " " + ((userAnswer.filter((item)=>item).length === 10) ? style.btmWin: "") + " " + (isTextBtm ? style.btmText : "")}>
+                    <div className={style.btm + " " + ((userAnswer.filter((item)=>item).length === 9) ? style.btmWin: "") + " " + (isTextBtm ? style.btmText : "")}>
                         <button className={"btn " + style.btn} onClick={clickBtn}>розыгрыш</button>
                         <p>Для того, чтобы участвовать в розыгрыше, нужно открыть еще {getLabelBtm()}</p>
                     </div>
