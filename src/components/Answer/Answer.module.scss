@@ -278,7 +278,7 @@
             }
 
             &__text {
-                font-size: 13px;
+                font-size: calc(var(--fontSize) * 0.68)
             }
 
             &__job {
