@@ -69,18 +69,18 @@ function App() {
 
 
   const [isAnswer, setIsAnswer] = useState(false);
-  const [isWin, setIsWin] = useState(false);
-  const [answerIndex, setAnswerIndex] = useState(-1)
-  const [isDoubleClick, setIsDoubleClick] = useState(false);
 
-
+const [answerIndex, setAnswerIndex] = useState(-1)
+const [userAnswer, setUserAnswer] = useState<boolean[]>([]);
 const [countUserAnswer, setCountUserAnswer] = useState(-1);
-  const openAnswer = (index: number,  win: boolean, doubleClick: boolean, countAnswer: number) => {
-    setIsWin(win)
+  const openAnswer = (index: number) => {
     setAnswerIndex(index)
-    setIsDoubleClick(doubleClick)
     setTimeout(()=> { setIsAnswer(true)}, 20)
-    setCountUserAnswer(countAnswer)
+  }
+  const clickCardUser= (index: number)=> {
+    userAnswer[index] = true;
+    setCountUserAnswer(userAnswer.filter((item)=> item).length)
+    setUserAnswer(userAnswer);
   }
   const closeAnswer = () => {
     setIsAnswer(false);
@@ -93,13 +93,7 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
   }
 
 
-  const [isStepMobile, setIsStepMobile] = useState(false);
-  const educationAnswer = ()=> {
-    if(isStepMobile) return;
-    setIsStepMobile(true)
-    window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  }
   const isLoader = true; //в идеале убрать
 
 
@@ -195,6 +189,8 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
 
 
 
+
+
   return (
     <>
      <YMInitializer accounts={[98304971]} options={{
@@ -232,12 +228,12 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
           {isMobile && <SwiperSlide><Screen3 isScreen3Mobile={isScreen3Mobile} screen={screen} startGame={startGame}></Screen3></SwiperSlide>}
           <SwiperSlide>
 
-            <Screen4 dataCards={dataCards} isSlideEnd={isSlideEnd} isEduc={isEduc} finishEduc={()=> setIsEduc(true)} addScrollScreen4={addScrollScreen4} isLoader={isLoader} width={width} isStepMobile={isStepMobile} openAnswer={openAnswer} isScreen4={isScreen4} viewForm={viewForm}></Screen4>
+            <Screen4 userAnswer={userAnswer} dataCards={dataCards} isSlideEnd={isSlideEnd} isEduc={isEduc} finishEduc={()=> setIsEduc(true)} addScrollScreen4={addScrollScreen4} isLoader={isLoader} width={width} openAnswer={openAnswer} isScreen4={isScreen4} viewForm={viewForm}></Screen4>
 
           </SwiperSlide>
         </Swiper>
         {isForm && <Forms closeForm={closeForm} openFinish={openFinish}></Forms>}
-        {isAnswer && <Answer dataCards={dataCards} setIsStepMobile={educationAnswer}  isWin={isWin} isDoubleClick={isDoubleClick} indexAnswer={answerIndex} closeAnswer={closeAnswer}></Answer>}
+        {isAnswer && <Answer userCheck={userAnswer[answerIndex]} dataCards={dataCards} clickCardUser={clickCardUser} indexAnswer={answerIndex} closeAnswer={closeAnswer}></Answer>}
         {!isLoader && <div className={style.container + " conatainer"}>
             <div className={style.loaderWrapper}>
             <div className={style.loader}></div>

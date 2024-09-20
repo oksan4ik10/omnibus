@@ -5,19 +5,35 @@ import BigCard from "../BigCard/BigCard";
 interface IProps {
     closeAnswer: () => void;
     indexAnswer: number;
-    isDoubleClick: boolean;
-    isWin: boolean;
-    setIsStepMobile: ()=> void
     dataCards: ICard[]
+    clickCardUser: (index: number)=> void
+    userCheck: boolean;
 }
 function Answer(props: IProps) {
-    const {dataCards: data, closeAnswer, indexAnswer, isWin, isDoubleClick, setIsStepMobile} = props;
+    const {dataCards: data, closeAnswer, indexAnswer, userCheck, clickCardUser} = props;
+
+    
+    const [isWin, setIsWin] = useState(false);
     const [dataAnswer, setDataAnswer] = useState(data[0])
 
     const backClick = ()=> {
-        setIsStepMobile()
         closeAnswer()
     }
+
+    const [isDoubleClick, setIsDoubleClick] = useState(false);
+    const [isBigCard, setIsBigCard] = useState(true)
+    const clickUser = (win: boolean)=> {
+        clickCardUser(indexAnswer)
+        setIsBigCard(false)
+        setIsWin(win)
+    }
+    useEffect(()=> {
+        setIsDoubleClick(userCheck)
+        
+        
+    }, [])
+
+
     useEffect(()=> {
         setDataAnswer(data[indexAnswer])
     }, [])
@@ -26,7 +42,7 @@ function Answer(props: IProps) {
     return (
         <div className={style.container + " " + (isDoubleClick?style.doubleClick : "")} style={{ "--logoHeight": dataAnswer.answerLogoHeight, "--color-job": dataAnswer.colorJob, "--rect-success": dataAnswer.answerRectColorSuccess,  "--rect-error": dataAnswer.answerRectColorError, "--rect-answer": dataAnswer.answerRectColor, "--logoMobileHeight": dataAnswer.answerLogoMobileHeight, "--fontSize": dataAnswer.fontSizeAnswer?dataAnswer.fontSizeAnswer : "19px"} as CSSProperties}>
             <div className={style.wrapper}>
-                <div className={style.card}>
+              {(!isBigCard || userCheck) &&  <div className={style.card}>
                    {!isDoubleClick && <div className={style.card__answer}>
                        {isWin&& <img src="/images/cards/success.svg" alt="success" />}
                        {!isWin && <img src="/images/cards/error.svg" alt="error" />}
@@ -70,8 +86,8 @@ function Answer(props: IProps) {
                     <div className={style.rect + " " + (isDoubleClick ? style.answer : isWin ? style.success: style.error)}>
 
                     </div>
-                </div>
-                <BigCard card={dataAnswer}></BigCard>
+                </div>}
+            {(isBigCard && !userCheck) && <BigCard clickUser={clickUser} card={dataAnswer}></BigCard>}
             </div>
         </div>
 

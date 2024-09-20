@@ -1,27 +1,4 @@
-.wrapper {
-    width: 100vw;
-    height: calc(var(--vh, 1vh) * 100);
-    overflow: hidden;
-    backdrop-filter: blur(21.2px);
-    background: rgba(0, 0, 0, 0.3);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.close {
-    position: absolute;
-    top: min(3vh, 38px);
-    right: 30px;
-    cursor: pointer;
-    z-index: 99;
-}
-
-.form {
+.card {
     position: relative;
     background: #FFFAF4;
     width: 69.4%;
