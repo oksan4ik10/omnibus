@@ -1,6 +1,7 @@
 import { CSSProperties, useEffect, useState } from "react";
 import style from "./Answer.module.scss"
 import { ICard } from "../../models/type";
+import BigCard from "../BigCard/BigCard";
 interface IProps {
     closeAnswer: () => void;
     indexAnswer: number;
@@ -70,6 +71,7 @@ function Answer(props: IProps) {
 
                     </div>
                 </div>
+                <BigCard card={dataAnswer}></BigCard>
             </div>
         </div>
 

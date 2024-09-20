@@ -29,7 +29,6 @@ import data from "./data/cards.json"
 import { ICard } from './models/type.ts';
 
 
-
 resize();
 function App() {
   const [width, height] = useWindowSize()
@@ -193,6 +192,9 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
     setIsFinish(false);
     setIsForm(false)
   }
+
+
+
   return (
     <>
      <YMInitializer accounts={[98304971]} options={{
@@ -252,6 +254,7 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
         {isScreen4 && <div className={style.waterBtmM}>
           <img src="./images/screen4/water-purple.png" alt="water-purple" className={style.waterBtmMImg} />
         </div>}
+
         {isFinish && <Finish isRecord={isRecord} closeFinish={closeFinish}></Finish>}
         {gap && <Footer gap={gap}></Footer>}
 
