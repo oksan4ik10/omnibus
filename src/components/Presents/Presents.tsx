@@ -25,7 +25,7 @@ function Presents(props: IProps) {
                             <li><span>300</span> сертификатов на Ozon и Яндекс. Еда</li>
                             <li><span>22</span> карьерных консультаций от компаний</li>
                             <li>подписки на MyBook</li>
-                            <li>промокоды на сервис Пакет</li>
+                            <li>промокоды на сервис выгоды «X5 Пакет»</li>
                             <li><span>PlayStation 5 Slim</span></li>
                         </ul>
                     </div >
