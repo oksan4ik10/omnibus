@@ -46,8 +46,10 @@
     }
 
     &__logo {
+        height: var(--heightPhoto);
+
         img {
-            height: var(--heightPhoto);
+            height: 100%;
             width: auto;
         }
     }
