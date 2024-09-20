@@ -754,7 +754,8 @@
         }
 
         &:not(.cardsEducation)>:last-child {
-            justify-self: end;
+            grid-column: 1/3;
+            justify-self: center;
         }
 
 
