@@ -28,9 +28,82 @@
 
 .wrapper {
     height: calc(var(--vh, 1vh) * 90);
-    max-height: 1000px;
-    width: calc(var(--vh, 1vh) * 60);
+    max-height: 820px;
+    width: calc(var(--vh, 1vh) * 68.4);
     max-width: 620px;
+
+    .wrapperCard {
+        width: 100%;
+        height: 100%;
+        perspective: 2000px;
+        position: relative;
+
+        &.check {
+            .item__front {
+                animation: front 1s alternate both;
+
+            }
+
+            .item__back {
+                animation: back 1s alternate both;
+
+            }
+        }
+
+        &.win {
+            .item__front {
+                transition: 0s;
+                transform: rotateY(180deg);
+                opacity: 0;
+
+            }
+
+            .item__back {
+                transition: 0s;
+                transform: rotateY(360deg);
+
+            }
+        }
+
+        .item {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 99;
+            backface-visibility: hidden;
+
+            &__front {
+                transform: rotateY(0deg);
+                transition: 1s;
+
+            }
+
+            &__back {
+                transform: rotateY(180deg);
+                transition: 1s;
+
+            }
+
+
+        }
+    }
+}
+
+@keyframes front {
+    to {
+        transform: rotateY(180deg);
+        z-index: 1;
+    }
+
+}
+
+@keyframes back {
+    to {
+        transform: rotateY(360deg);
+    }
+
 }
 
 .card {

@@ -159,7 +159,7 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
       
     }
   
-    disablePageScroll()
+    // disablePageScroll()
     
   }
   const [isEducation, setIsEducation] = useState(false);

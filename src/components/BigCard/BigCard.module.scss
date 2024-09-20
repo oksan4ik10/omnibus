@@ -1,15 +1,13 @@
 .card {
     position: relative;
-    background: #FFFAF4;
-    width: 69.4%;
-    max-width: 1100px;
+    background: var(--white);
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    padding: 0px 30px;
+    padding-bottom: min(4vh, 40px);
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 64.8vh;
-    min-height: 550px;
-    max-height: 664px;
-    padding: 20px;
+    flex-direction: column;
 
     &::after {
         content: "";
