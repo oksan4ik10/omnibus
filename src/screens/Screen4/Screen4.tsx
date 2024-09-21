@@ -230,7 +230,7 @@ function Screen4(props: IProps) {
                                         <img src="/images/cards/desc-card1M.svg" alt="desc" className={style.educImgM} />
                                         </div>
                                         
-                                        <span className={style.spanEduc}>Наведи на карточку, которую хочешь прочитать</span>
+                                        <span className={style.spanEduc}>Нажми на карточку, которую хочешь прочитать</span>
 
                                     </div>
                                     <div className={style.descCard1 + " " + style.descCard1M}>

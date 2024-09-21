@@ -834,7 +834,6 @@
         .card {
             &__front {
                 transform: rotateY(0deg);
-                transition: 1s;
                 opacity: 1;
                 z-index: 0;
             }
@@ -843,8 +842,6 @@
                 transform: rotateY(180deg);
                 z-index: -1;
                 opacity: 0;
-                transition: 1s;
-
             }
         }
 
@@ -855,14 +852,20 @@
 
 
     .cards__item.animation {
+        transition: 0s;
+
         .card__front {
             transform: rotateY(180deg);
+            transition: 0s;
+
             z-index: -1;
             // opacity: 0;
             // animation: front 2s alternate both ease-in-out;
         }
 
         .card__back {
+            transition: 0s;
+
             transform: rotateY(360deg);
             opacity: 1;
             z-index: 10;
