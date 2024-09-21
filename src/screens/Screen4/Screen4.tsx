@@ -6,13 +6,12 @@ import style from "./Screen4.module.scss"
 import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ICard } from "../../models/type";
-import ym from "react-yandex-metrika";
+
 
 interface IProps {
     viewForm: () => void;
     isScreen4: boolean;
-    openAnswer: (index: number, isWin: boolean, isDoubleClick: boolean, countAnswer: number) => void;
-    isStepMobile: boolean;
+    openAnswer: (index: number) => void;
     width: number;
     isLoader: boolean;
     addScrollScreen4: ()=> void
@@ -20,9 +19,10 @@ interface IProps {
     isEduc: boolean
     isSlideEnd: boolean
     dataCards: ICard[]
+    userAnswer: boolean[]
 }
 function Screen4(props: IProps) {
-    const {dataCards: data, openAnswer, viewForm, isScreen4, isStepMobile, width, isLoader, addScrollScreen4, finishEduc, isEduc, isSlideEnd} = props;
+    const {dataCards: data, openAnswer, viewForm, isScreen4, width, isLoader, addScrollScreen4, finishEduc, isEduc, isSlideEnd, userAnswer} = props;
 
     const [isTextBtm, setIsTextBtm] = useState(false);
     const clickBtn = () => {
@@ -35,31 +35,28 @@ function Screen4(props: IProps) {
         disablePageScroll();
 
     }
-    const [userAnswer, setUserAnswer] = useState<boolean[]>([]);
+
     const clickCard = (index: number) => {
         
-        openAnswer(index, false, true, -1);
+        openAnswer(index);
     }
-    const [isAnswerYM, setIsAnswerYM] = useState(false);
-    const clickAnswerUser = (e:React.MouseEvent<HTMLSpanElement>,index: number, answer: string) => {
-        if (userAnswer[index]) return;
-        e.stopPropagation();
-        if(!isAnswerYM){
-            ym('reachGoal', 'answer')
-            setIsAnswerYM(true)
-        }
-        userAnswer[index] = true;
-        setUserAnswer(userAnswer);
-        openAnswer(index, data[index].answerRight === answer, false, userAnswer.filter((item)=>item).length);
+    // const [isAnswerYM, setIsAnswerYM] = useState(false);
+    // const clickAnswerUser = (e:React.MouseEvent<HTMLSpanElement>,index: number, answer: string) => {
+    //     if (userAnswer[index]) return;
+    //     e.stopPropagation();
+    //     if(!isAnswerYM){
+    //         ym('reachGoal', 'answer')
+    //         setIsAnswerYM(true)
+    //     }
+    //     userAnswer[index] = true;
+    //     setUserAnswer(userAnswer);
+    //     openAnswer(index, data[index].answerRight === answer, false, userAnswer.filter((item)=>item).length);
 
-    }
+    // }
     const [isAnimation, setIsAnimation] = useState(false);
     const [indexAnimationCard, setIndexAnimationCard] = useState(-1);
     const transformCard = (index: number)=> {
-        if (userAnswer[index]) {
-            clickCard(index);
-            return
-        }
+
         if(index === indexAnimationCard){
             setIsAnimation(!isAnimation);
             return
@@ -247,7 +244,7 @@ function Screen4(props: IProps) {
                                     </div>
                                 </div>}
                                 {index===1 && <div className={style.card__back + " " + style.card + " " + style.backFront + " " + (step === 1 ? "" : style.opacity)}>
-                                  <Card  isEduc={true} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true} clickAnswerUser={(e: React.MouseEvent<HTMLSpanElement>, answer: string) => clickAnswerUser(e, index, answer)}></Card>
+                                  <Card  isEduc={true} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true}></Card>
                                   <div className={style.descCard2} ref={refDescCard2}>
                                   <span className={style.spanEduc}>Читай описание<br/>и выбирай ответ</span>
                                         <div className={style.descCard2__wrapperImg}>
@@ -309,10 +306,10 @@ function Screen4(props: IProps) {
                     </div>
                     <div className={style.cards + " " + style.cardsEducation }>
                         {data.slice(0,1).map((item, index) =>
-                            <div className={style.cards__item + " " + (!isStepMobile? "" : style.opacity) + " " + (step > 2 ? style.opacity : "")} key={index}>
+                            <div className={style.cards__item + " " + (step > 2 ? style.opacity : "")} key={index}>
                                <div className={style.cards__item + " " + ( (indexAnimationCard === index && isAnimation || (userAnswer[index])) ? style.animation : "")} key={index}>
                                 <div className={style.card__front + " " + style.card}>
-                                    <Card item={item} screen4={true} isUser={false}></Card>
+                                    <Card item={item} screen4={true} isUser={false} ></Card>
                                 </div>
                                 <div className={style.card__back + " " + style.card}>
                                     <Card item={item} screen4={true} isUser={true}></Card>
@@ -327,7 +324,7 @@ function Screen4(props: IProps) {
                                         <span className={style.spanEduc} ref={refDescCard2}>Нажми на карточку, которую хочешь прочитать</span>
 
                                     </div>
-                                    <div className={style.descCard1 + " " + style.descCard1M +" "+ (step === 1 && !isStepMobile ? "" : style.opacity)} >
+                                    <div className={style.descCard1 + " " + style.descCard1M +" "+ (step === 1  ? "" : style.opacity)} >
                                         <div className={style.descCard1__wrapperImg}>
                                         <img src="/images/cards/desc-card1.svg" alt="desc" className={style.educImgD} />
                                         <img src="/images/cards/desc-card1M.svg" alt="desc" className={style.educImgM} />
@@ -382,12 +379,12 @@ function Screen4(props: IProps) {
                     </div>
                     <div className={style.cards}>
                         {data.map((item, index) =>
-                            <div className={style.cards__item + " " + ( (indexAnimationCard === index && isAnimation || (userAnswer[index])) ? style.animation : "")} key={index} onClick={()=>transformCard(index)}>
+                            <div className={style.cards__item + " " + ( (indexAnimationCard === index && isAnimation || (userAnswer[index])) ? style.animation : "")} key={index} onClick={()=> clickCard(index)}>
                                 <div className={style.card__front + " " + style.card}>
-                                    <Card item={item} isOdd={index % 2 === 0} screen4={true} isUser={false}></Card>
+                                    <Card isUserAnswer={userAnswer[index]} item={item} isOdd={index % 2 === 0} screen4={true} isUser={false}></Card>
                                 </div>
                                 <div className={style.card__back + " " + style.card}>
-                                    <Card item={item} isOdd={index % 2 === 0} screen4={true} isUser={true} clickAnswerUser={(e: React.MouseEvent<HTMLSpanElement>, answer: string) => clickAnswerUser(e, index, answer)}></Card>
+                                    <Card isUserAnswer={userAnswer[index]} item={item} isOdd={index % 2 === 0} screen4={true} isUser={true}></Card>
                                 </div>
                             </div>)}
 

@@ -1,22 +1,46 @@
 import { CSSProperties, useEffect, useState } from "react";
 import style from "./Answer.module.scss"
 import { ICard } from "../../models/type";
+import BigCard from "../BigCard/BigCard";
 interface IProps {
     closeAnswer: () => void;
     indexAnswer: number;
-    isDoubleClick: boolean;
-    isWin: boolean;
-    setIsStepMobile: ()=> void
     dataCards: ICard[]
+    clickCardUser: (index: number)=> void
+    userCheck: boolean;
 }
 function Answer(props: IProps) {
-    const {dataCards: data, closeAnswer, indexAnswer, isWin, isDoubleClick, setIsStepMobile} = props;
+    const {dataCards: data, closeAnswer, indexAnswer, userCheck, clickCardUser} = props;
+
+    
+    const [isWin, setIsWin] = useState(false);
     const [dataAnswer, setDataAnswer] = useState(data[0])
 
     const backClick = ()=> {
-        setIsStepMobile()
         closeAnswer()
     }
+
+    const [isDoubleClick, setIsDoubleClick] = useState(false);
+    const [isBigCard, setIsBigCard] = useState(true)
+    console.log(isBigCard);
+    
+    const [isCheckCard, setIsCheckCard] = useState(false);
+    const clickUser = (win: boolean)=> {
+        setTimeout(()=> {
+            clickCardUser(indexAnswer)
+        }, 1020)
+       
+        setIsCheckCard(true)
+        setIsBigCard(false)
+        setIsWin(win)
+    }
+    useEffect(()=> {
+        setIsDoubleClick(userCheck)
+        
+        
+    }, [])
+
+
     useEffect(()=> {
         setDataAnswer(data[indexAnswer])
     }, [])
@@ -25,6 +49,9 @@ function Answer(props: IProps) {
     return (
         <div className={style.container + " " + (isDoubleClick?style.doubleClick : "")} style={{ "--logoHeight": dataAnswer.answerLogoHeight, "--color-job": dataAnswer.colorJob, "--rect-success": dataAnswer.answerRectColorSuccess,  "--rect-error": dataAnswer.answerRectColorError, "--rect-answer": dataAnswer.answerRectColor, "--logoMobileHeight": dataAnswer.answerLogoMobileHeight, "--fontSize": dataAnswer.fontSizeAnswer?dataAnswer.fontSizeAnswer : "19px"} as CSSProperties}>
             <div className={style.wrapper}>
+            <div className={style.wrapperCard + " " + ((isCheckCard && !userCheck) ? style.check : "") + " " + (userCheck ? style.win : "")} >
+                <div className={style.item__back + " " + style.item}>
+
                 <div className={style.card}>
                    {!isDoubleClick && <div className={style.card__answer}>
                        {isWin&& <img src="/images/cards/success.svg" alt="success" />}
@@ -70,7 +97,13 @@ function Answer(props: IProps) {
 
                     </div>
                 </div>
+                </div>
+                <div className={style.item__front + " " + style.item}>
+                    <BigCard clickUser={clickUser} card={dataAnswer}></BigCard>
+                </div> 
             </div>
+              </div>  
+
         </div>
 
     );

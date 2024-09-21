@@ -28,9 +28,89 @@
 
 .wrapper {
     height: calc(var(--vh, 1vh) * 90);
-    max-height: 1000px;
-    width: calc(var(--vh, 1vh) * 60);
-    max-width: 620px;
+    max-height: 820px;
+    width: 43vw;
+    min-width: 600px;
+    max-width: 720px;
+
+    .wrapperCard {
+        width: 100%;
+        height: 100%;
+        perspective: 2000px;
+        position: relative;
+
+        &.check {
+            .item__front {
+                animation: front 1s alternate both;
+                z-index: -1;
+
+            }
+
+            .item__back {
+                animation: back 1s alternate both;
+                z-index: 9999;
+
+            }
+        }
+
+        &.win {
+            .item__front {
+                transition: 0s;
+                transform: rotateY(180deg);
+                opacity: 0;
+                z-index: -1;
+
+            }
+
+            .item__back {
+                transition: 0s;
+                transform: rotateY(360deg);
+                z-index: 999;
+
+            }
+        }
+
+        .item {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            // z-index: 99;
+            backface-visibility: hidden;
+
+            &__front {
+                transform: rotateY(0deg);
+                transition: 1s;
+                z-index: 999;
+
+            }
+
+            &__back {
+                transform: rotateY(180deg);
+                transition: 1s;
+                z-index: 99;
+
+            }
+
+
+        }
+    }
+}
+
+@keyframes front {
+    to {
+        transform: rotateY(180deg);
+        z-index: 1;
+    }
+
+}
+
+@keyframes back {
+    to {
+        transform: rotateY(360deg);
+    }
+
 }
 
 .card {
@@ -283,7 +363,7 @@
 
             &__job {
 
-                font-size: 13px;
+                font-size: 15px;
 
                 span:nth-child(1) {
                     font-size: 16px;
@@ -294,12 +374,21 @@
 
 }
 
-@media (max-width:800px) {
+@media (max-width: 800px) {
+    .wrapper {}
+
+}
+
+@media (max-width:650px) {
 
 
     .wrapper {
-        height: 564px;
-        width: 320px;
+        // height: 564px;
+        // width: 320px;
+        max-height: 750px;
+        width: 80vw;
+        min-width: 320px;
+        max-width: 400px;
     }
 
     .card {

@@ -1,6 +1,6 @@
 import { ICard } from "../../models/type";
 import style from "./Card.module.scss"
-import { CSSProperties, useState } from "react";
+import { CSSProperties } from "react";
 
 interface IProps {
     screen4?: boolean;
@@ -8,20 +8,17 @@ interface IProps {
     isOdd?: boolean;
     item: ICard;
     isEduc?: boolean;
-    clickAnswerUser?: (e: React.MouseEvent<HTMLSpanElement>, answer: string) => void;
+    isUserAnswer?:boolean;
+
 }
 function Card(props: IProps) {
-    const { screen4, isUser, isOdd, item, clickAnswerUser, isEduc} = props;
+    const { screen4, isUser, isOdd, item, isEduc, isUserAnswer} = props;
 
-    const [userAnswer, setUserAnswer] = useState("");
-    const click = (e:  React.MouseEvent<HTMLSpanElement>, answer: string) => {
-        if ((!clickAnswerUser) || userAnswer) return;
-        setUserAnswer(item.answerRight)
-        clickAnswerUser(e, answer)
-    }
+
+
 
     return (
-        <div className={style.wrapper + " " + (isUser ? style.userClick : "") + " " + (isOdd ? style.odd : "") + " " + (!screen4 ? style.pBtm : style.screen4) + " " + (item.bgPhoto ? "" : style.bgGradient) + " " + (userAnswer ? style.stopAnimation : "") + " " + (isEduc ? style.educ : "")} style={{ "--colorBtn": item.colorBtn, "--color-job": item.colorJob, "--color-bg": item.bgPhoto, "--heightPhoto":item.heightLogo ? item.heightLogo: "27px",  "--heightLogoMobile":item.heightLogoMobile} as CSSProperties}>
+        <div className={style.wrapper + " " + (isUser ? style.userClick : "") + " " + (isOdd ? style.odd : "") + " " + (!screen4 ? style.pBtm : style.screen4) + " " + (item.bgPhoto ? "" : style.bgGradient) + " " + (isUserAnswer ? style.stopAnimation : "") + " " + (isEduc ? style.educ : "")} style={{ "--colorBtn": item.colorBtn, "--color-job": item.colorJob, "--color-bg": item.bgPhoto, "--heightPhoto":item.heightLogo ? item.heightLogo: "27px",  "--heightLogoMobile":item.heightLogoMobile} as CSSProperties}>
             <div className={style.card}>
 
                 <div className={style.card__photo}>
@@ -49,9 +46,9 @@ function Card(props: IProps) {
                     </div>
 
                 </div>
-                {(isUser || !screen4) && <div className={style.card__btns + " " + (userAnswer === "left"? style.right : (userAnswer === "right"? style.left : ""))}>
-                    <span onClick={(e: React.MouseEvent<HTMLSpanElement>) => click(e, 'right')}>По специальности</span>
-                    <span onClick={(e: React.MouseEvent<HTMLSpanElement>) => click(e, 'left')}>Не по специальности</span>
+                {(isUser || !screen4) && <div className={style.card__btns + " " + ((isUserAnswer && item.answerRight === "left")? style.right : ((isUserAnswer && item.answerRight === "right")? style.left : ""))}>
+                    <span>По специальности</span>
+                    <span>Не по специальности</span>
                 </div>}
             </div>
             {/* <div className={style.water}>
