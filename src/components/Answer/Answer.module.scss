@@ -374,12 +374,21 @@
 
 }
 
-@media (max-width:800px) {
+@media (max-width: 800px) {
+    .wrapper {}
+
+}
+
+@media (max-width:650px) {
 
 
     .wrapper {
-        height: 564px;
-        width: 320px;
+        // height: 564px;
+        // width: 320px;
+        max-height: 750px;
+        width: 80vw;
+        min-width: 320px;
+        max-width: 400px;
     }
 
     .card {

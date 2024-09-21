@@ -176,15 +176,17 @@
             justify-content: center;
 
         }
+
+        &:first-child span {
+            border-right: 1px solid var(--white);
+        }
+
+        &:last-child span {
+            border-left: 1px solid var(--white);
+        }
+
     }
 
-    span:first-child {
-        border-right: 1px solid var(--white);
-    }
-
-    span:last-child {
-        border-left: 1px solid var(--white);
-    }
 
 }
 
@@ -249,4 +251,70 @@
         }
 
     }
+}
+
+@media (max-width: 650px) {
+    .card {
+        padding: 0px;
+
+        .card__photo {
+            flex: 0 0 191px;
+            mask: url("../../assets/maskBigM.svg");
+            -webkit-mask: url("../../assets/maskBigM.svg");
+            width: 307px;
+        }
+    }
+
+    .info {
+        padding: 0px 27px;
+
+        &__logo {
+            img {
+                height: calc(var(--heightPhoto) * 0.75);
+            }
+        }
+
+
+        &__name {
+            font-size: 28px;
+        }
+
+        &__age {
+            height: 27px;
+            padding: 0px 5px;
+            font-size: 16px;
+        }
+
+        &__job {
+            font-size: 13px;
+
+            span:nth-child(1) {
+                font-size: 16px;
+            }
+        }
+
+        &__text {
+            margin-top: 5px;
+            font-size: 13px;
+        }
+    }
+
+    .card__btns {
+        flex: 0 0 44px;
+        background: var(--colorBtn);
+        display: flex;
+        width: 100%;
+        padding: 6px 0px;
+        cursor: pointer;
+        width: calc(100%);
+        margin-left: 0px;
+
+
+        div {
+            font-size: 11px;
+        }
+
+
+    }
+
 }
