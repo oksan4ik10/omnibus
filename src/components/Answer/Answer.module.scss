@@ -29,8 +29,9 @@
 .wrapper {
     height: calc(var(--vh, 1vh) * 90);
     max-height: 820px;
-    width: calc(var(--vh, 1vh) * 68.4);
-    max-width: 620px;
+    width: 43vw;
+    min-width: 600px;
+    max-width: 720px;
 
     .wrapperCard {
         width: 100%;
@@ -41,11 +42,13 @@
         &.check {
             .item__front {
                 animation: front 1s alternate both;
+                z-index: -1;
 
             }
 
             .item__back {
                 animation: back 1s alternate both;
+                z-index: 9999;
 
             }
         }
@@ -55,12 +58,14 @@
                 transition: 0s;
                 transform: rotateY(180deg);
                 opacity: 0;
+                z-index: -1;
 
             }
 
             .item__back {
                 transition: 0s;
                 transform: rotateY(360deg);
+                z-index: 999;
 
             }
         }
@@ -71,18 +76,20 @@
             position: absolute;
             top: 0;
             left: 0;
-            z-index: 99;
+            // z-index: 99;
             backface-visibility: hidden;
 
             &__front {
                 transform: rotateY(0deg);
                 transition: 1s;
+                z-index: 999;
 
             }
 
             &__back {
                 transform: rotateY(180deg);
                 transition: 1s;
+                z-index: 99;
 
             }
 
@@ -351,12 +358,12 @@
             }
 
             &__text {
-                font-size: 13px;
+                font-size: 15px;
             }
 
             &__job {
 
-                font-size: 13px;
+                font-size: 15px;
 
                 span:nth-child(1) {
                     font-size: 16px;
