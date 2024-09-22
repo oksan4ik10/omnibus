@@ -21,9 +21,7 @@ function Answer(props: IProps) {
     }
 
     const [isDoubleClick, setIsDoubleClick] = useState(false);
-    const [isBigCard, setIsBigCard] = useState(true)
-    console.log(isBigCard);
-    
+
     const [isCheckCard, setIsCheckCard] = useState(false);
     const clickUser = (win: boolean)=> {
         setTimeout(()=> {
@@ -31,7 +29,6 @@ function Answer(props: IProps) {
         }, 1020)
        
         setIsCheckCard(true)
-        setIsBigCard(false)
         setIsWin(win)
     }
     useEffect(()=> {

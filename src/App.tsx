@@ -2,7 +2,7 @@
 
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { disablePageScroll } from 'scroll-lock';
+import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 import ym, { YMInitializer} from 'react-yandex-metrika';
 import {
   useWindowSize
@@ -52,9 +52,11 @@ function App() {
   const [isForm, setIsForm] = useState(false);
   const viewForm = () => {
     setIsForm(true);
+    disablePageScroll()
   }
   const closeForm = ()=> {
     setIsForm(false)
+    enablePageScroll();
   }
 
   function shuffle(array: ICard[]) {
@@ -77,7 +79,13 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
     setAnswerIndex(index)
     setTimeout(()=> { setIsAnswer(true)}, 20)
   }
+
+  const [isFirstClick, setIsFirstClick] = useState(false);
   const clickCardUser= (index: number)=> {
+    if(!isFirstClick){
+      setIsFirstClick(true);
+      ym('reachGoal','open')
+    }
     userAnswer[index] = true;
     setCountUserAnswer(userAnswer.filter((item)=> item).length)
     setUserAnswer(userAnswer);
