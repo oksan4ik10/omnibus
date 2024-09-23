@@ -32,7 +32,7 @@ function Screen4(props: IProps) {
             return
         }
         viewForm();
-        disablePageScroll();
+        // disablePageScroll();
 
     }
 
