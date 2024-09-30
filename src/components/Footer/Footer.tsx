@@ -31,11 +31,11 @@ function Footer(props: IProps) {
                 modules={[Autoplay]}
                 className={style.mySwiper + " mySwiper"}
             >
-                {/* <SwiperSlide >
+                <SwiperSlide >
                     <div className={style.slide1 + " " + style.slide}>
                         <img src="/images/footer/1.png" alt="1" />
                     </div>
-                    </SwiperSlide> */}
+                    </SwiperSlide>
                 <SwiperSlide>
                 <div className={style.slide2 + " " + style.slide}>
                         <img src="/images/footer/2.png" alt="1" />
@@ -76,11 +76,11 @@ function Footer(props: IProps) {
                         <img src="/images/footer/9.png" alt="9" />
                     </div>
                     </SwiperSlide>
-                    {/* <SwiperSlide >
+                    <SwiperSlide >
                     <div className={style.slide1 + " " + style.slide}>
                         <img src="/images/footer/1.png" alt="1" />
                     </div>
-                    </SwiperSlide> */}
+                    </SwiperSlide>
                 <SwiperSlide>
                 <div className={style.slide2 + " " + style.slide}>
                         <img src="/images/footer/2.png" alt="1" />
@@ -121,6 +121,7 @@ function Footer(props: IProps) {
                         <img src="/images/footer/9.png" alt="9" />
                     </div>
                     </SwiperSlide>
+                    
 
                 {/* <SwiperSlide><img src="/images/footer/1.png" alt="1" /></SwiperSlide>
                 <SwiperSlide><img src="/images/footer/2.png" alt="2" /></SwiperSlide>
