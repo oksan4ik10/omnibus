@@ -285,6 +285,22 @@
     // }
 }
 
+@media (min-width: 1100px) and (max-height: 700px) {
+    .ribbon {
+        top: 48%;
+    }
+
+    .card {
+        .man {
+            transform: scale(0.7) rotate(14deg) translateX(75%) translateY(-15%);
+        }
+
+        .bookCardsImg {
+            transform: translateX(80%) rotate(-20deg) scale(.6);
+        }
+    }
+
+}
 
 @keyframes lamp2 {
     0% {
