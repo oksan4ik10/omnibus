@@ -28,7 +28,11 @@ import { Mousewheel, Scrollbar } from 'swiper/modules';
 import data from "./data/cards.json"
 import { ICard } from './models/type.ts';
 
-
+declare global {
+  interface Window {
+      _tmr:any;
+  }
+}
 resize();
 function App() {
   const [width, height] = useWindowSize()
@@ -133,6 +137,10 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
     if((activeSlide === 1) && (!isStartYM)){
       setIsStartYM(true)
       ym('reachGoal', 'start')
+      if (window._tmr as any) {
+        window._tmr.push({ type: 'reachGoal', id: 3561597, goal: 'start-vkads' });
+      }
+  
       
     }
     
