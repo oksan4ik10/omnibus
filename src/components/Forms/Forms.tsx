@@ -1,5 +1,5 @@
 
-import { FTClient } from 'ft-client'
+// import { FTClient } from 'ft-client'
 import style from "./Forms.module.scss"
 import { SubmitHandler, useForm } from 'react-hook-form';
 import ym from 'react-yandex-metrika';
@@ -21,35 +21,31 @@ function Forms(props: IProps) {
         
     }
 
-    const { register, handleSubmit, formState: { errors }} = useForm<IForm>({
-        defaultValues: {
-          name: '',
-          email: '',
-          checkbox: false,
-        }
-      });
+    const { handleSubmit} = useForm<IForm>();
 
-    const sendForm: SubmitHandler<IForm> = async  (dataForm: IForm)=> {
-        console.log(dataForm);
-        
-        const ftClient = new FTClient(
-            ' https://games-admin.fut.ru/api/',
-            'noregrets'
-          )
-
-        const record = await ftClient.findRecord('post', dataForm.email)
-        console.log(record);
-          if(record){
-            record.data.name =  dataForm.name;
-            await ftClient.updateRecord(record.id, record.data)
-            openFinish(false)
-            return
-          }
-          
-        const data = { post: dataForm.email, name: dataForm.name}
-        await ftClient.createRecord(data)
+    const sendForm: SubmitHandler<IForm> = async  ()=> {
+        window.open("https://t.me/futru");
         ym('reachGoal', 'form')
         openFinish(true)
+        return
+        // const ftClient = new FTClient(
+        //     ' https://games-admin.fut.ru/api/',
+        //     'noregrets'
+        //   )
+
+        // const record = await ftClient.findRecord('post', dataForm.email)
+        // console.log(record);
+        //   if(record){
+        //     record.data.name =  dataForm.name;
+        //     await ftClient.updateRecord(record.id, record.data)
+        //     openFinish(false)
+        //     return
+        //   }
+          
+        // const data = { post: dataForm.email, name: dataForm.name}
+        // await ftClient.createRecord(data)
+        // ym('reachGoal', 'form')
+        // openFinish(true)
     }
 
     return (
@@ -59,9 +55,9 @@ function Forms(props: IProps) {
                 <img src="/images/cards/close.svg" alt="close" />
             </div>
                 <div className={style.form__wrapper}>
-                    <h2 className={style.form__title}>Участвуй в розыгрыше<br />и получи приз!</h2>
-                    <p className={style.form__text}>Мы разыгрываем карьерные консультации, сертификаты на&nbsp;маркетплейсы и&nbsp;подписки на&nbsp;сервисы! Оставляй почту и имя, чтобы участвовать. Результаты объявим <strong>19&nbsp;ноября.</strong></p>
-                    <div className={style.form__items}>
+                    <h2 className={style.form__title}>Начни строить<br/>карьеру сейчас!</h2>
+                    <p className={style.form__text}>Подписывайся на&nbsp;ТГ-канал FutureToday!<br/>Тебя ждут все самые свежие стажировки и&nbsp;актуальные ивенты для молодых специалистов&nbsp;— прямиком от&nbsp;работодателей и&nbsp;в&nbsp;одном месте.</p>
+                    {/* <div className={style.form__items}>
                         <label className={style.form__label}>
                             <input className={(errors.email ? style.error : "")} type="email" placeholder="Введи почту" {...register("email", { required: true, pattern: {
         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: "Некорректный email"}})} />
@@ -73,9 +69,9 @@ function Forms(props: IProps) {
                             <input type="checkbox" {...register("checkbox", { required: true})}/>
                             <span>Я согласен(а) на <a href="https://fut.ru/personal-data" target="_blank" className={style.link}>обработку персональных данных</a> и получение информационных сообщений, а также с&nbsp;<a href="https://noregrets.fut.ru/agreement.pdf" className={style.link} target="_blank">правилами проведения акции</a></span>
                         </label>
-                    </div>
+                    </div> */}
 
-                    <button className={style.form__btn + " btn"}>Отправить</button>
+                    <button className={style.form__btn + " btn"}>Перейти</button>
                 </div>
 
             </form>

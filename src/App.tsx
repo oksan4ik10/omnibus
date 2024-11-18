@@ -13,8 +13,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import './App.scss'
 import Screen1 from './screens/Screen1/Screen1.tsx';
-import Screen2 from './screens/Screen2/Screen2.tsx';
-import Screen3 from './screens/Screen3/Screen3.tsx';
+// import Screen2 from './screens/Screen2/Screen2.tsx';
+// import Screen3 from './screens/Screen3/Screen3.tsx';
 import Screen4 from './screens/Screen4/Screen4.tsx';
 import Forms from './components/Forms/Forms.tsx';
 import { resize } from './resize.ts'
@@ -35,13 +35,13 @@ declare global {
 }
 resize();
 function App() {
-  const [width, height] = useWindowSize()
+  const [width] = useWindowSize()
 
-  const [isMobile, setIsMobile] = useState((width < 1000) || ((width > 1000) && (width < 1200) && (height > 830)))
+  // const [isMobile, setIsMobile] = useState((width < 1000) || ((width > 1000) && (width < 1200) && (height > 830)))
 
-  useEffect(() => {
-    setIsMobile((width < 1000) || ((width > 1000) && (width < 1200) && (height > 830)))
-  }, [width, height])
+  // useEffect(() => {
+  //   setIsMobile((width < 1000) || ((width > 1000) && (width < 1200) && (height > 830)))
+  // }, [width, height])
 
 
   const [gap, setGap] = useState('');
@@ -96,7 +96,7 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
   }
   const closeAnswer = () => {
     setIsAnswer(false);
-    if(countUserAnswer === 10){
+    if(countUserAnswer === 1){
       setIsForm(true)
       setCountUserAnswer(-1)
       ym('reachGoal', '10-сards')
@@ -110,7 +110,7 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
 
 
 //переключение свайпера
-  const [screen, setScreen] = useState(1);
+  // const [screen, setScreen] = useState(1);
 
   const sliderRef = useRef<any>(null);
   const handleNext = useCallback(() => {
@@ -118,10 +118,10 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
     sliderRef.current.swiper.slideNext();
   }, []);
 
-  const [isScreen3Mobile, setIsScreen3Mobile] = useState(false);
-  const nextScreen3Mobile = () => {
-    handleNext();
-  }
+  // const [isScreen3Mobile, setIsScreen3Mobile] = useState(false);
+  // const nextScreen3Mobile = () => {
+  //   handleNext();
+  // }
 
   const [isScreen4, setIsScreen4] = useState(false);
   const startGame = () => {
@@ -149,14 +149,14 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
       slideEnd()
       return
     }
-    setScreen(activeSlide + 1)
+    // setScreen(activeSlide + 1)
     setIsScreen4(false)
     setIsEducation(false)
     setIsSlideEnd(false)
     sliderRef.current.swiper.mousewheel.enable()
-    if(countSlides === 4 && activeSlide === 3){
-      setIsScreen3Mobile(true)
-    }
+    // if(countSlides === 4 && activeSlide === 3){
+    //   setIsScreen3Mobile(true)
+    // }
     // console.log("change");
     
     
@@ -239,9 +239,9 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
           // centeredSlides={true}
           // onReachEnd={slideEnd}
         >
-          <SwiperSlide><Screen1 isLoader={isLoader} changeSlide={handleNext}></Screen1></SwiperSlide>
-          <SwiperSlide><Screen2 changeSlide={nextScreen3Mobile} isMobile={isMobile} screen={screen} startGame={startGame}></Screen2></SwiperSlide>
-          {isMobile && <SwiperSlide><Screen3 isScreen3Mobile={isScreen3Mobile} screen={screen} startGame={startGame}></Screen3></SwiperSlide>}
+          <SwiperSlide><Screen1 isLoader={isLoader} changeSlide={startGame}></Screen1></SwiperSlide>
+          {/* <SwiperSlide><Screen2 changeSlide={nextScreen3Mobile} isMobile={isMobile} screen={screen} startGame={startGame}></Screen2></SwiperSlide>
+          {isMobile && <SwiperSlide><Screen3 isScreen3Mobile={isScreen3Mobile} screen={screen} startGame={startGame}></Screen3></SwiperSlide>} */}
           <SwiperSlide>
 
             <Screen4 userAnswer={userAnswer} dataCards={dataCards} isSlideEnd={isSlideEnd} isEduc={isEduc} finishEduc={()=> setIsEduc(true)} addScrollScreen4={addScrollScreen4} isLoader={isLoader} width={width} openAnswer={openAnswer} isScreen4={isScreen4} viewForm={viewForm}></Screen4>

@@ -26,6 +26,8 @@ function Screen4(props: IProps) {
 
     const [isTextBtm, setIsTextBtm] = useState(false);
     const clickBtn = () => {
+        window.open("https://t.me/futru");
+        return
         if(userAnswer.filter((item)=> item).length!==10) {
             setIsTextBtm(true);
             setTimeout(()=> setIsTextBtm(false), 2000)
@@ -271,7 +273,7 @@ function Screen4(props: IProps) {
                 <div className={style.wrapperArrowEducImg}>
                         <img src="/images/cards/arrow-education.svg" alt="arrow" />
                     </div>
-                    <span className={style.spanEduc }>Открывай все карточки,<br/>проверяй свою интуицию<br/>и вдохновляйся историями героев,<br/>чтобы принять участие в розыгрыше!</span>
+                    <span className={style.spanEduc }>Открывай все карточки,<br/>проверяй свою интуицию<br/>и вдохновляйся историями героев!</span>
                 </div>
 
                     </div>
@@ -347,7 +349,7 @@ function Screen4(props: IProps) {
                 <div className={style.wrapperArrowEducImg}>
                         <img src="/images/cards/arrow-education.svg" alt="arrow" />
                     </div>
-                    <span className={style.spanEduc }>Открывай все карточки,<br/>проверяй свою интуицию<br/>и вдохновляйся историями героев,<br/>чтобы принять участие в розыгрыше!</span>
+                    <span className={style.spanEduc }>Открывай все карточки,<br/>проверяй свою интуицию<br/>и вдохновляйся историями героев!</span>
 
                     </div>
                     </div>
@@ -392,7 +394,7 @@ function Screen4(props: IProps) {
 
                     </div>
                     <div className={style.btm + " " + ((userAnswer.filter((item)=>item).length === 10) ? style.btmWin: "") + " " + (isTextBtm ? style.btmText : "")}>
-                        <button className={"btn " + style.btn} onClick={clickBtn}>розыгрыш</button>
+                        <button className={"btn " + style.btn} onClick={clickBtn}>FutureToday в TG</button>
                         <p>Для того, чтобы участвовать в розыгрыше, нужно открыть еще {getLabelBtm()}</p>
                     </div>
 

@@ -99,7 +99,7 @@ function Screen1(props: IProps) {
 
                 </div>
             </main>
-            <button className={style.btn + " btn"} onClick={clickBtn}>Дальше</button>
+            <button className={style.btn + " btn"} onClick={clickBtn}>Играть</button>
         </div>
         {!url &&
         <div className={style.container + " conatainer"}>

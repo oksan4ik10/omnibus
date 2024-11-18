@@ -442,9 +442,12 @@
 
     .btn {
         margin: auto;
-        opacity: .5;
-        cursor: auto;
+        opacity: 1;
+        cursor: pointer;
         height: 60px;
+        font-size: 28px;
+        text-transform: none;
+
     }
 
     p {
@@ -933,6 +936,7 @@
 
     .btm .btn {
         height: 40px;
+        font-size: 20px;
     }
 
 
