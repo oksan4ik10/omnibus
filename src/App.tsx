@@ -21,7 +21,7 @@ import { resize } from './resize.ts'
 
 import Footer from './components/Footer/Footer.tsx';
 import Answer from './components/Answer/Answer.tsx';
-import Finish from './components/Finish/Finish.tsx';
+// import Finish from './components/Finish/Finish.tsx';
 
 import { Mousewheel, Scrollbar } from 'swiper/modules';
 
@@ -96,7 +96,7 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
   }
   const closeAnswer = () => {
     setIsAnswer(false);
-    if(countUserAnswer === 1){
+    if(countUserAnswer === 10){
       setIsForm(true)
       setCountUserAnswer(-1)
       ym('reachGoal', '10-сards')
@@ -191,17 +191,18 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
   //   if(!isScreen4) return
   //   // sliderRef.current.swiper.allowTouchMove = true;
   // }
-  const [isFinish, setIsFinish] = useState(false);
-  const [isRecord, setIsRecord] = useState(false);
-  const openFinish = (record: boolean)=> {
-    setIsFinish(true);
-    setIsRecord(record);
+  // const [isFinish, setIsFinish] = useState(false);
+  // const [isRecord, setIsRecord] = useState(false);
+  const openFinish = ()=> {
+    // setIsFinish(false);
+    setIsForm(false)
+    // setIsRecord(record);
    
   }
-  const closeFinish=()=> {
-    setIsFinish(false);
-    setIsForm(false)
-  }
+  // const closeFinish=()=> {
+  //   setIsFinish(false);
+  //   setIsForm(false)
+  // }
 
 
 
@@ -266,8 +267,8 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
         {isScreen4 && <div className={style.waterBtmM}>
           <img src="./images/screen4/water-purple.png" alt="water-purple" className={style.waterBtmMImg} />
         </div>}
-
-        {isFinish && <Finish isRecord={isRecord} closeFinish={closeFinish}></Finish>}
+{/* 
+        {isFinish && <Finish isRecord={isRecord} closeFinish={closeFinish}></Finish>} */}
         {gap && <Footer gap={gap}></Footer>}
 
       </div >
