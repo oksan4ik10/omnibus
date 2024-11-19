@@ -440,9 +440,9 @@
         opacity: 1;
         cursor: pointer;
         height: 60px;
-        font-size: 28px;
+        font-size: 36px;
         text-transform: none;
-
+        min-width: 316px;
     }
 
     p {
@@ -897,7 +897,14 @@
 }
 
 @media (max-width: 800px) {
+    .container:not(.education) {
+        background: url("../../assets/water-screen4M-btm.png") no-repeat;
+        background-position: bottom -20px right;
+    }
+
     .wrapper {
+
+
         .header {
             margin-top: 40px;
             margin-bottom: 50px;
@@ -931,7 +938,8 @@
 
     .btm .btn {
         height: 40px;
-        font-size: 20px;
+        font-size: 16px;
+        min-width: 160px;
     }
 
 
