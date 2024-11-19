@@ -119,18 +119,12 @@
     .openEduc {
         position: absolute;
         width: 100%;
-        left: 50%;
+        left: 0%;
         bottom: 0px;
-        transform: translateX(-50%);
         display: flex;
         align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        gap: 10px;
+        gap: 20px;
 
-        .spanEduc {
-            text-align: center;
-        }
     }
 
 }

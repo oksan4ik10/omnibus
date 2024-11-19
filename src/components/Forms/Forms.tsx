@@ -24,7 +24,7 @@ function Forms(props: IProps) {
     const { handleSubmit} = useForm<IForm>();
 
     const sendForm: SubmitHandler<IForm> = async  ()=> {
-        window.open("https://t.me/futru");
+        window.open("https://fut.ru/s/TG_futru_2");
         ym('reachGoal', 'form')
         openFinish(true)
         return

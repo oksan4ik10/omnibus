@@ -26,7 +26,7 @@ function Screen4(props: IProps) {
 
     const [isTextBtm, setIsTextBtm] = useState(false);
     const clickBtn = () => {
-        window.open("https://t.me/futru");
+        window.open("https://fut.ru/s/TG_futru_1");
         return
         if(userAnswer.filter((item)=> item).length!==10) {
             setIsTextBtm(true);
