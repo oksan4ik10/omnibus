@@ -96,7 +96,7 @@ const [countUserAnswer, setCountUserAnswer] = useState(-1);
   }
   const closeAnswer = () => {
     setIsAnswer(false);
-    if(countUserAnswer === 10){
+    if(countUserAnswer === 8){
       setIsForm(true)
       setCountUserAnswer(-1)
       ym('reachGoal', '10-сards')

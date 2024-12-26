@@ -188,7 +188,7 @@ function Screen4(props: IProps) {
         return words[2];
     }
     const getLabelBtm = ()=> {
-        const num = 10 - userAnswer.filter((item)=>item).length;
+        const num = 8 - userAnswer.filter((item)=>item).length;
         const word = numWord(num)
         return `${num} ${word}`
     }
@@ -208,7 +208,7 @@ function Screen4(props: IProps) {
                         <div className={style.header__counter}>
                             <span>{userAnswer.filter((item)=>item).length}</span>
                             <span>/</span>
-                            <span>10</span>
+                            <span>8</span>
 
                         </div>
                         <div className={style.descHeader}>
@@ -293,7 +293,7 @@ function Screen4(props: IProps) {
                         <div className={style.header__counter}>
                             <span>{userAnswer.filter((item)=>item).length}</span>
                             <span>/</span>
-                            <span>10</span>
+                            <span>8</span>
 
                         </div>
                         <div className={style.descHeader }>
@@ -376,7 +376,7 @@ function Screen4(props: IProps) {
                         <div className={style.header__counter}>
                             <span>{userAnswer.filter((item)=>item).length}</span>
                             <span>/</span>
-                            <span>10</span>
+                            <span>8</span>
                         </div>
                     </div>
                     <div className={style.cards}>
@@ -393,7 +393,7 @@ function Screen4(props: IProps) {
 
 
                     </div>
-                    <div className={style.btm + " " + ((userAnswer.filter((item)=>item).length === 10) ? style.btmWin: "") + " " + (isTextBtm ? style.btmText : "")}>
+                    <div className={style.btm + " " + ((userAnswer.filter((item)=>item).length === 8) ? style.btmWin: "") + " " + (isTextBtm ? style.btmText : "")}>
                         <button className={"btn " + style.btn} onClick={clickBtn}>FutureToday в TG</button>
                         <p>Для того, чтобы участвовать в розыгрыше, нужно открыть еще {getLabelBtm()}</p>
                     </div>
